@@ -1,0 +1,6 @@
+municipality_id,municipality_name,fiscal_year,general_fund_revenues,general_fund_expenditures,general_fund_unassigned_fund_balance,governmental_funds_debt_service,governmental_funds_expenditures,fiscal_year_end,audit_report_date,source_url
+SYN-001,Example Municipality A (SYNTHETIC),2022,1200000,1000000,350000,50000,1000000,2022-12-31,2023-05-20,synthetic-no-source
+SYN-002,Example Municipality B (SYNTHETIC),2022,700000,1000000,-100000,350000,1000000,2022-12-31,2023-08-31,synthetic-no-source
+SYN-003,Example Municipality C (SYNTHETIC),2022,1000000,950000,80000,,1100000,2022-12-31,,synthetic-no-source
+SYN-001,Example Municipality A (SYNTHETIC),2023,1350000,1080000,400000,45000,1150000,2023-12-31,2024-05-15,synthetic-no-source
+SYN-002,Example Municipality B (SYNTHETIC),2023,720000,1110000,-160000,310000,1150000,2023-12-31,2024-09-01,synthetic-no-source

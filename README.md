@@ -1,57 +1,49 @@
-# Municipal Financial Risk Scoring Model (U.S.)
+# Municipal Financial Risk Index — Illinois Pilot
 
-A public-data early warning model for identifying fiscal stress and transparency risk in U.S. municipalities.
+**Stage:** Working prototype; financial thresholds not yet calibrated, no verified municipality financial results published.
 
----
+This open-source project develops a reproducible, explainable municipal fiscal-stress screening model for 50–100 Illinois municipalities (FY2022–FY2024).
 
-## Overview
-This project develops a data-driven municipal financial risk scoring model using publicly available financial and demographic data.
+## Current prototype
 
----
+- Three transparent fiscal indicators and provisional 0–100 severity conversion.
+- Weighted overall score and provisional Low / Medium / High bands.
+- Missingness and duplicate municipality-year checks.
+- Audit lag displayed separately as a transparency observation, not evidence of statutory lateness.
+- Streamlit dashboard, CSV input/output, synthetic test dataset, unit tests and CI.
 
-## Problem Statement
-Municipal financial distress often develops gradually and may not be identified until significant fiscal issues arise. There is a need for a simple and transparent early-warning system.
+## Run on a laptop
 
----
+Install Python 3.11+, then run:
 
-## Objective
-To build a scalable and explainable framework that evaluates municipal financial health using key risk indicators.
+```bash
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+streamlit run app.py
+```
 
----
+CLI on macOS/Linux:
 
-## Public Value
-- Supports financial transparency  
-- Enables early risk detection  
-- Assists auditors and policymakers  
-- Improves accountability  
+```bash
+PYTHONPATH=src python -m municipal_risk.cli --input examples/synthetic_data.csv --output outputs/example_scores.csv
+```
 
----
+CLI on Windows PowerShell:
 
-## Methodology
-See full methodology here: [Methodology](docs/methodology.md)
+```powershell
+$env:PYTHONPATH="src"
+python -m municipal_risk.cli --input examples/synthetic_data.csv --output outputs/example_scores.csv
+```
 
----
+**Important:** The default demo uses entirely fictional/synthetic examples, not real municipality data. To score verified data, use [data/input_template.csv](data/input_template.csv) and follow the [data dictionary](docs/data_dictionary.md).
 
-## Scope
-- Illinois municipalities  
-- 50–100 entities  
-- FY2022–FY2024  
+## Sources for the real-data phase
 
----
+- [Illinois Comptroller Local Government Warehouse](https://illinoiscomptroller.gov/constituent-services/local-government/local-government-warehouse)
+- [Illinois Comptroller Financial Databases](https://www.illinoiscomptroller.gov/constituent-services/local-government/local-government-division/financial-databases/)
 
-## Output
-- Risk scores (0–100)  
-- Risk classification (Low, Medium, High)  
-- Comparative analysis  
+[Research methodology and limitations](docs/methodology.md).
 
----
+## Before describing the project as complete
 
-## Limitations
-This is an early-warning analytical tool and does not represent an audit opinion or legal conclusion.
-
----
-
-## Future Improvements
-- Expand to multiple states  
-- Add trend analysis  
-- Build dashboard  
+Collect and independently verify the 2022–2024 municipality-year inputs; document inclusion and extraction procedures, peer comparability, and missing data. Perform sensitivity and independent-outcome validation. A score is **not** an audit finding, legal conclusion, credit rating, or validated distress prediction. Do not commit confidential audit client documents.
