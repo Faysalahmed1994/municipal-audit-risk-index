@@ -1,6 +1,8 @@
 # Civic Audit Lens
 
-**Live site: [civicauditlens.org](https://civicauditlens.org)** · publishes the **Municipal Financial Risk Score (MFRS)**
+**Municipal Financial Risk Score: open screening of local government Single Audits**
+
+Live site: [civicauditlens.org](https://civicauditlens.org)
 
 **Open, free screening of U.S. local government Single Audits, covering all 50 states, DC and the territories.**
 

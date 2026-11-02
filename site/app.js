@@ -312,7 +312,7 @@
       </div>
       <div class="card">
         <h2>Cite this work</h2>
-        <p>${esc(CFG.author || "Author")}. <em>Civic Audit Lens: Municipal Financial Risk Score for U.S. local government Single Audits</em>, version ${esc(M.method_version)}. ${CFG.doi ? `DOI: <a href="https://doi.org/${esc(CFG.doi)}">${esc(CFG.doi)}</a>.` : "DOI forthcoming."}</p>
+        <p>${esc(CFG.author || "Author")}. <em>Civic Audit Lens — Municipal Financial Risk Score: open screening of local government Single Audits</em>, version ${esc(M.method_version)}. ${CFG.doi ? `DOI: <a href="https://doi.org/${esc(CFG.doi)}">${esc(CFG.doi)}</a>.` : "DOI forthcoming."}</p>
       </div></div>`;
   }
 
