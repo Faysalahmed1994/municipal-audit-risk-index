@@ -3,8 +3,23 @@ on:
   push:
   pull_request:
 jobs:
-  test:
+  civic-audit-lens:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest
+      - name: Scoring rules (Civic Audit Lens)
+        run: cd pipeline && python -m pytest -q
+      - name: Sample data builds
+        run: OUT_DIR=/tmp/sample python pipeline/make_sample_data.py
+  illinois-fiscal-pilot:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: illinois-fiscal-pilot
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civic Audit Lens — Single Audit risk screening for U.S. local governments</title>
+<link rel="canonical" href="https://civicauditlens.org/">
+<meta property="og:title" content="Civic Audit Lens">
+<meta property="og:description" content="Free, open screening of every U.S. local government Single Audit: audit findings, late filing, and governments that stopped filing.">
+<meta property="og:url" content="https://civicauditlens.org/">
+<meta name="description" content="Free, open screening of U.S. local governments' Single Audits: audit findings, internal control weaknesses, late filing, and governments that stopped filing.">
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+</head>
+<body>
+<div id="sample-banner" class="sample-banner" hidden>
+  SAMPLE DATA — the governments below are fictional. Real Federal Audit Clearinghouse data loads after setup.
+</div>
+<header class="topbar">
+  <a class="brand" href="#home">
+    <span class="brand-mark" aria-hidden="true">◆</span>
+    <span><strong>Civic Audit Lens</strong><small>Municipal Financial Risk Score for U.S. local government Single Audits</small></span>
+  </a>
+  <nav>
+    <a href="#home" data-nav="home">National</a>
+    <a href="#state-IL" data-nav="state">States</a>
+    <a href="#stopped" data-nav="stopped">Stopped filing</a>
+    <a href="#method" data-nav="method">Methodology</a>
+    <a href="#feedback" data-nav="feedback" class="nav-cta">Give feedback</a>
+  </nav>
+</header>
+
+<main id="app" tabindex="-1"><p class="loading">Loading data…</p></main>
+
+<footer class="footer">
+  <p>Source: <a href="https://www.fac.gov/" target="_blank" rel="noopener">Federal Audit Clearinghouse</a> (GSA), public domain.
+  Scores are screening indicators built from what independent auditors reported. They are not audit opinions and not findings of fraud or wrongdoing.</p>
+  <p id="footer-meta"></p>
+</footer>
+
+<div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
