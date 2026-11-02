@@ -1,4 +1,4 @@
-# Illinois Fiscal Pilot (part of Civic Audit Lens)
+# Illinois Fiscal Pilot (part of the Municipal Financial Risk Score project)
 
 **Stage:** Working prototype; financial thresholds not yet calibrated, no verified municipality financial results published.
 

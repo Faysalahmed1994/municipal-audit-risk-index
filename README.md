@@ -1,10 +1,8 @@
-# Civic Audit Lens
+# Municipal Financial Risk Score
 
-**Municipal Financial Risk Score: open screening of local government Single Audits**
+**Open screening of local government Single Audits** · live at [civicauditlens.org](https://civicauditlens.org)
 
-Live site: [civicauditlens.org](https://civicauditlens.org)
-
-**Open, free screening of U.S. local government Single Audits, covering all 50 states, DC and the territories.**
+Free and public. Covers all 50 states, DC and the U.S. territories.
 
 Local governments that spend federal awards above the Single Audit threshold must file an audit with the
 [Federal Audit Clearinghouse (FAC)](https://www.fac.gov/). The GAO found that the FAC
@@ -26,7 +24,7 @@ This project:
 
 | Component | What it does | Where |
 | --- | --- | --- |
-| **Civic Audit Lens** (national) | Scores every U.S. local government Single Audit from FAC data and flags apparent stopped filers; public website | `pipeline/`, `site/` |
+| **Municipal Financial Risk Score** (national) | Scores every U.S. local government Single Audit from FAC data and flags apparent stopped filers; public website | `pipeline/`, `site/` |
 | **Illinois fiscal pilot** | Fiscal-stress screening from financial-statement ratios (reserves, operating margin, debt service) for Illinois municipalities | [`illinois-fiscal-pilot/`](illinois-fiscal-pilot/README.md) |
 
 Both share the same aim: open, explainable methods that help oversight bodies find local governments
