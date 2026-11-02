@@ -1,4 +1,4 @@
-/* Civic Audit Lens — front end (no build step, no dependencies). */
+/* Municipal Financial Risk Score — front end (no build step, no dependencies). */
 (() => {
   "use strict";
   const CFG = window.MFRS_CONFIG || {};
@@ -312,7 +312,7 @@
       </div>
       <div class="card">
         <h2>Cite this work</h2>
-        <p>${esc(CFG.author || "Author")}. <em>Civic Audit Lens — Municipal Financial Risk Score: open screening of local government Single Audits</em>, version ${esc(M.method_version)}. ${CFG.doi ? `DOI: <a href="https://doi.org/${esc(CFG.doi)}">${esc(CFG.doi)}</a>.` : "DOI forthcoming."}</p>
+        <p>${esc(CFG.author || "Author")}. <em>Municipal Financial Risk Score: open screening of local government Single Audits</em>, version ${esc(M.method_version)}. ${CFG.doi ? `DOI: <a href="https://doi.org/${esc(CFG.doi)}">${esc(CFG.doi)}</a>.` : "DOI forthcoming."}</p>
       </div></div>`;
   }
 

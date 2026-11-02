@@ -3,7 +3,7 @@ on:
   push:
   pull_request:
 jobs:
-  civic-audit-lens:
+  national-score:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,7 +11,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install pytest
-      - name: Scoring rules (Civic Audit Lens)
+      - name: Scoring rules (national score)
         run: cd pipeline && python -m pytest -q
       - name: Sample data builds
         run: OUT_DIR=/tmp/sample python pipeline/make_sample_data.py
