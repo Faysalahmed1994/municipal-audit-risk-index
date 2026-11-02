@@ -113,6 +113,19 @@ def assessment_year(today: date) -> int:
         y -= 1
 
 
+def is_out_of_scope(row: dict) -> bool:
+    """Drop filings the FAC labels 'local' that are clearly not U.S. local governments:
+    freely associated states (FM, MH, PW) and the state or territory government itself
+    (e.g. 'State of Arizona'). Narrow on purpose: names merely containing 'State' are kept."""
+    st = (row.get("auditee_state") or "").upper()
+    if st not in STATES:
+        return True
+    name = " ".join((row.get("auditee_name") or "").lower().replace(",", " ").split())
+    full = STATES[st].lower()
+    return name in {f"state of {full}", f"commonwealth of {full}", f"government of {full}",
+                    f"territory of {full}", full}
+
+
 def entity_key(row: dict) -> str:
     uei = (row.get("auditee_uei") or "").strip()
     if uei and uei.upper() not in {"GSA_MIGRATION", "N/A"}:
@@ -128,6 +141,8 @@ def keep_latest(rows: list[dict]) -> dict[tuple[str, int], dict]:
     then keep the most recently accepted one."""
     best: dict[tuple[str, int], dict] = {}
     for r in rows:
+        if is_out_of_scope(r):
+            continue
         status = str(r.get("resubmission_status") or "").lower()
         if "deprecated" in status or status == "resubmitted":
             continue
@@ -245,7 +260,7 @@ def build(general_rows: list[dict], finding_rows: list[dict], today: date, sampl
             "repeat_findings": sum(1 for e in ents if "repeat_finding" in e["flags"]),
         }
         ents.sort(key=lambda e: (-e["score"], -e["federal_expended"]))
-        d["stopped"].sort(key=lambda s: (-s["last_federal_expended"]))
+        d["stopped"].sort(key=lambda s: (-(s["last_federal_expended"] - s["last_covid_relief_expended"])))
 
     def total(k):
         return sum(v[k] for v in summary_states.values())
@@ -282,8 +297,10 @@ def build(general_rows: list[dict], finding_rows: list[dict], today: date, sampl
     national["top_risk"] = [brief(e, st, ("id", "name", "city", "score", "tier", "federal_expended", "flags"))
                             for st, e in sorted(all_ents, key=lambda x: (-x[1]["score"], -x[1]["federal_expended"]))[:25]]
     national["top_stopped"] = [brief(s, st, ("id", "name", "city", "last_year_filed", "last_federal_expended",
+                                             "last_covid_relief_expended", "well_above_threshold",
                                              "days_overdue", "last_tier"))
-                               for st, s in sorted(all_stop, key=lambda x: -x[1]["last_federal_expended"])[:25]]
+                               for st, s in sorted(all_stop, key=lambda x: -(x[1]["last_federal_expended"]
+                                                                  - x[1]["last_covid_relief_expended"]))[:25]]
     return {"meta": meta, "national": national, "states": summary_states, "detail": dict(states)}
 
 

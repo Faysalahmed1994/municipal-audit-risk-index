@@ -102,3 +102,11 @@ def test_covid_relief_excluded_from_threshold_test():
               auditee_uei="U9", auditee_state="IL", auditee_name="Village", total_amount_expended=2_000_000)]
     s = build(g, [], today, covid_by_report={"R": 1_200_000})["detail"]["IL"]["stopped"][0]
     assert s["last_covid_relief_expended"] == 1_200_000 and not s["well_above_threshold"]
+
+
+def test_state_government_and_freely_associated_states_excluded():
+    from build_dataset import is_out_of_scope
+    assert is_out_of_scope({"auditee_state": "AZ", "auditee_name": "State of Arizona"})
+    assert is_out_of_scope({"auditee_state": "FM", "auditee_name": "FSM National Government"})
+    assert not is_out_of_scope({"auditee_state": "PA", "auditee_name": "State College Area School District"})
+    assert not is_out_of_scope({"auditee_state": "NM", "auditee_name": "State of New Mexico Bernalillo County"})
