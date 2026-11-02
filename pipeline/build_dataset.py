@@ -43,6 +43,7 @@ KEY = os.environ.get("FAC_API_KEY", "")
 OUT = Path(os.environ.get("OUT_DIR", Path(__file__).resolve().parent.parent / "site" / "data"))
 PAGE = 5000
 GRACE_DAYS = 30            # FAC acceptance can trail submission by a few weeks
+STOPPED_GRACE_DAYS = 90    # flag a stopped filer only when the missing audit is 90+ days past due
 YEARS_OF_HISTORY = 3       # assessment year + 2 prior years
 
 STATES = {
@@ -141,7 +142,13 @@ def keep_latest(rows: list[dict]) -> dict[tuple[str, int], dict]:
     return best
 
 
-def build(general_rows: list[dict], finding_rows: list[dict], today: date, sample: bool = False) -> dict:
+def build(general_rows: list[dict], finding_rows: list[dict], today: date, sample: bool = False,
+          filed_any: set[str] | None = None, covid_by_report: dict[str, int] | None = None) -> dict:
+    """filed_any: UEIs and EINs ("EIN-<ein>") that filed for the assessment year or later under ANY
+    entity type. A government that switched entity type (e.g. local -> state or non-profit) or
+    filed under its EIN is then not reported as a stopped filer."""
+    filed_any = filed_any or set()
+    covid_by_report = covid_by_report or {}
     A = assessment_year(today)
     audits = keep_latest(general_rows)
     fsum = summarize_findings(finding_rows)
@@ -188,9 +195,14 @@ def build(general_rows: list[dict], finding_rows: list[dict], today: date, sampl
             # expected next fiscal year end, and when that audit was due
             exp_fye = add_months(fy_end, 12 * (A - last_year)) if fy_end else date(A, 12, 31)
             exp_due = add_months(exp_fye, 9)
-            if (today - exp_due).days < GRACE_DAYS:
-                continue  # not overdue yet
+            if (today - exp_due).days < STOPPED_GRACE_DAYS:
+                continue  # not overdue long enough
+            uei = (r.get("auditee_uei") or "").strip()
+            ein = (r.get("auditee_ein") or "").strip()
+            if (uei and uei in filed_any) or (ein and f"EIN-{ein}" in filed_any):
+                continue  # filed under another entity type or identifier
             expended = int(r.get("total_amount_expended") or 0)
+            covid = min(expended, int(covid_by_report.get(r["report_id"], 0)))
             states[st]["stopped"].append({
                 "id": ek,
                 "name": (r.get("auditee_name") or "").strip(),
@@ -198,12 +210,13 @@ def build(general_rows: list[dict], finding_rows: list[dict], today: date, sampl
                 "last_year_filed": last_year,
                 "last_report_id": r["report_id"],
                 "last_federal_expended": expended,
+                "last_covid_relief_expended": covid,
                 "expected_fy_end": exp_fye.isoformat(),
                 "was_due": exp_due.isoformat(),
                 "days_overdue": (today - exp_due).days,
-                # Spending well above the $1M threshold makes "no longer
-                # required to file" a less likely explanation.
-                "well_above_threshold": expended >= 1_500_000,
+                # Spending well above the $1M threshold, EXCLUDING one-time COVID-19
+                # relief programs, makes "no longer required to file" less likely.
+                "well_above_threshold": expended - covid >= 1_500_000,
                 "last_score": hist[-1]["score"],
                 "last_tier": hist[-1]["tier"],
             })
@@ -300,12 +313,12 @@ def write(result: dict) -> None:
     with open(OUT / "stopped_filers.csv", "w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["state", "entity_id", "name", "city", "last_year_filed", "last_report_id",
-                    "last_federal_expended", "expected_fy_end", "was_due", "days_overdue",
+                    "last_federal_expended", "last_covid_relief_expended", "expected_fy_end", "was_due", "days_overdue",
                     "well_above_threshold", "last_score", "last_tier"])
         for st, d in sorted(result["detail"].items()):
             for s in d["stopped"]:
                 w.writerow([st, s["id"], s["name"], s["city"], s["last_year_filed"], s["last_report_id"],
-                            s["last_federal_expended"], s["expected_fy_end"], s["was_due"],
+                            s["last_federal_expended"], s["last_covid_relief_expended"], s["expected_fy_end"], s["was_due"],
                             s["days_overdue"], s["well_above_threshold"], s["last_score"], s["last_tier"]])
     print(f"Wrote {OUT}")
 
@@ -325,7 +338,23 @@ def main() -> None:
     for y in years:  # findings endpoint covers all entity types; filter locally
         rows = get("findings", {"audit_year": f"eq.{y}", "select": ",".join(FINDING_FIELDS)})
         findings.extend(r for r in rows if r.get("report_id") in wanted)
-    write(build(general, findings, today))
+    # Every filer (any entity type) for the assessment year and later, to avoid false stopped filers
+    later = ",".join(str(y) for y in years if y >= A)
+    anyrows = get("general", {"audit_year": f"in.({later})", "select": "auditee_uei,auditee_ein"})
+    filed_any = {r["auditee_uei"].strip() for r in anyrows if r.get("auditee_uei")}
+    filed_any |= {f"EIN-{r['auditee_ein'].strip()}" for r in anyrows if r.get("auditee_ein")}
+    # One-time COVID-19 relief spending in the prior years (SLFRF/ARPA, CRF, ERA, HAF, CPF, LATCF, ESSER),
+    # which pushed many small governments over the threshold temporarily.
+    prior = ",".join(str(y) for y in years if y < A)
+    covid_rows = get("federal_awards", {
+        "audit_year": f"in.({prior})",
+        "or": "(and(federal_agency_prefix.eq.21,federal_award_extension.in.(019,023,026,027,029,032)),"
+              "and(federal_agency_prefix.eq.84,federal_award_extension.like.425*))",
+        "select": "report_id,amount_expended"})
+    covid_by_report: dict[str, int] = defaultdict(int)
+    for r in covid_rows:
+        covid_by_report[r["report_id"]] += int(r.get("amount_expended") or 0)
+    write(build(general, findings, today, filed_any=filed_any, covid_by_report=covid_by_report))
 
 
 if __name__ == "__main__":

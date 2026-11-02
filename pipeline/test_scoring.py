@@ -63,7 +63,7 @@ def test_assessment_year():
 
 
 def test_stopped_filer_detected_and_resubmission_ignored():
-    today = date(2026, 11, 1)
+    today = date(2027, 1, 15)  # missing Dec-2025 audit is 107 days past due
     g = [
         dict(CLEAN, report_id="X23", audit_year="2023", fy_end_date="2023-12-31",
              fac_accepted_date="2024-08-01", auditee_uei="U1", auditee_state="IL",
@@ -81,3 +81,24 @@ def test_stopped_filer_detected_and_resubmission_ignored():
     assert [e["report_id"] for e in il["entities"]] == ["Y25"]
     assert il["stopped"][0]["name"] == "Village A" and il["stopped"][0]["well_above_threshold"]
     assert r["states"]["IL"]["stopped_filers"] == 1
+
+
+def test_stopped_filer_skipped_if_filed_under_other_type_or_recent():
+    today = date(2026, 11, 1)
+    base = dict(CLEAN, audit_year="2024", fy_end_date="2024-06-30", fac_accepted_date="2025-02-01",
+                auditee_state="IL", total_amount_expended=5_000_000)
+    g = [dict(base, report_id="A", auditee_uei="U1", auditee_name="Moved to state type"),
+         dict(base, report_id="B", auditee_uei="U2", auditee_ein="361234567", auditee_name="New UEI same EIN"),
+         dict(base, report_id="C", auditee_uei="U3", auditee_name="Really missing"),
+         dict(base, report_id="D", auditee_uei="U4", auditee_name="Dec FYE, only 31 days late",
+              fy_end_date="2024-12-31")]
+    r = build(g, [], today, filed_any={"U1", "EIN-361234567"})
+    assert [s["name"] for s in r["detail"]["IL"]["stopped"]] == ["Really missing"]
+
+
+def test_covid_relief_excluded_from_threshold_test():
+    today = date(2026, 11, 1)
+    g = [dict(CLEAN, report_id="R", audit_year="2024", fy_end_date="2024-06-30", fac_accepted_date="2025-02-01",
+              auditee_uei="U9", auditee_state="IL", auditee_name="Village", total_amount_expended=2_000_000)]
+    s = build(g, [], today, covid_by_report={"R": 1_200_000})["detail"]["IL"]["stopped"][0]
+    assert s["last_covid_relief_expended"] == 1_200_000 and not s["well_above_threshold"]
