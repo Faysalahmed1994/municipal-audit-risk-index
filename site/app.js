@@ -246,10 +246,10 @@
     } else rows = SUMMARY.national.top_stopped;
     app.innerHTML = `
       <h1>Governments that appear to have stopped filing</h1>
-      <p class="lede">These local governments filed a Single Audit for ${M.assessment_year - 2} or ${M.assessment_year - 1} but have nothing on file for ${M.assessment_year}, even though that audit is now past due.
+      <p class="lede">These local governments filed a Single Audit for ${M.assessment_year - 2} or ${M.assessment_year - 1} but have nothing on file for ${M.assessment_year}, under any entity type or identifier, even though that audit is now more than 90 days past due.
       The GAO found that the Federal Audit Clearinghouse <a href="https://www.gao.gov/products/gao-24-106173" target="_blank" rel="noopener">cannot identify entities that should file but do not</a>. This list is a first step toward closing that gap.</p>
       <div class="notice">An entry here is <strong>not</strong> proof of noncompliance. The government may have spent less than the threshold this year (it rose from $750,000 to $1,000,000 for fiscal years beginning on or after October 1, 2024), changed its identifier, filed under a different name, or be part of another entity's audit.
-      Entries marked <strong>well above threshold</strong> spent at least $1.5M in federal awards in their last audit, so dropping below the threshold is a less likely explanation.</div>
+      Many governments crossed the threshold only because of one-time COVID-19 relief (ARPA, ESSER and similar), which is now ending. Entries marked <strong>well above threshold</strong> spent at least $1.5M in their last audit <em>excluding</em> those COVID programs, so dropping below the threshold is a less likely explanation.</div>
       <div class="card">
         <div class="toolbar"><select id="stpick" aria-label="Choose a state">${opts}</select>
           <a class="btn" href="data/stopped_filers.csv" download>Download all (CSV)</a></div>
@@ -298,7 +298,7 @@
           <li><strong>Year scored:</strong> audit year ${M.assessment_year}, the latest year whose filing deadline (nine months after fiscal year end) has passed for every fiscal year end, plus a ${30}-day grace period. Prior years appear as history.</li>
           <li><strong>One audit per government per year:</strong> superseded resubmissions are dropped and the most recently accepted version is kept. Governments are matched by UEI, then EIN, then name.</li>
           <li><strong>Lateness</strong> is measured from fiscal year end + 9 months to the date the FAC accepted the audit. Federal rules require the earlier of 30 days after the auditor's report or 9 months, and the FAC does not publish the report date, so this measure is lenient.</li>
-          <li><strong>Stopped filers:</strong> filed for one of the two prior years, nothing on file for the scored year, and the expected due date has passed.</li>
+          <li><strong>Stopped filers:</strong> filed for one of the two prior years, nothing on file for the scored year or later under any entity type, UEI or EIN, and the missing audit is more than 90 days past due. "Well above threshold" means at least $1.5M of federal spending in the last audit, excluding one-time COVID-19 relief programs (ALN 21.019, 21.023, 21.026, 21.027, 21.029, 21.032 and 84.425).</li>
           <li><strong>Updated</strong> weekly from <code>api.fac.gov</code>. Data last generated ${esc(new Date(M.generated_at).toLocaleString())}.</li>
         </ul>
       </div>
@@ -345,6 +345,7 @@
         <dl class="dl">
           <dt>Last audit filed</dt><dd>Audit year ${s.last_year_filed} · <a href="${facLink(s.last_report_id)}" target="_blank" rel="noopener">view on FAC</a></dd>
           <dt>Federal spent then</dt><dd>${fmtMoney(s.last_federal_expended)}${s.well_above_threshold ? " (well above threshold)" : ""}</dd>
+          ${s.last_covid_relief_expended ? `<dt>Of which COVID-19 relief</dt><dd>${fmtMoney(s.last_covid_relief_expended)}</dd>` : ""}
           <dt>Expected fiscal year end</dt><dd>${fmtDate(s.expected_fy_end)}</dd>
           <dt>That audit was due</dt><dd>${fmtDate(s.was_due)} (${fmtInt(s.days_overdue)} days ago)</dd>
           <dt>Score on last audit</dt><dd>${pill(s.last_tier)} ${s.last_score}</dd>
