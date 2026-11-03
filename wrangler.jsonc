@@ -1,0 +1,8 @@
+// Cloudflare Workers settings: serves the static website in site/ (no server code).
+{
+  "name": "municipal-financial-risk-score",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site"
+  }
+}
