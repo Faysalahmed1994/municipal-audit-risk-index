@@ -5,6 +5,6 @@ window.MFRS_CONFIG = {
   contactEmail: "",
   projectName: "Municipal Financial Risk Score",
   siteUrl: "https://civicauditlens.org",
-  author: "Faysal",          // your full name as it should appear publicly
+  author: "Faysal Ahmed",
   doi: "",                   // add your Zenodo DOI once minted, e.g. "10.5281/zenodo.1234567"
 };

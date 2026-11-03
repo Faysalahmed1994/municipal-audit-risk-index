@@ -6,8 +6,8 @@ version: 0.1.0
 date-released: 2026-11-01
 license: MIT
 authors:
-  - given-names: Faysal          # edit to your full legal name
-    family-names: "EDIT-ME"
+  - given-names: Faysal
+    family-names: Ahmed
 keywords:
   - single audit
   - Federal Audit Clearinghouse
