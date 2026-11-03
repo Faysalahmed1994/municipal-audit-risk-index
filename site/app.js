@@ -316,22 +316,78 @@
       </div></div>`;
   }
 
+  let pendingFeedback = null; // set when "Report a data issue" is clicked on a government
+
   function viewFeedback() {
     setActive("feedback");
-    const general = issueUrl("Feedback: ", "**Your role** (e.g., state oversight agency, pass-through entity, auditor, finance officer, researcher, journalist, resident):\n\n**Organization (optional):**\n\n**What was useful?**\n\n**What should change?**\n\n**Would you use this in your work? How?**\n");
-    const data = issueUrl("Data issue: ", "**Government name and state:**\n\n**What looks wrong?**\n\n**Source or correction (link if possible):**\n", "data-issue");
-    const method = issueUrl("Methodology suggestion: ", "**Which part of the score?** (A/B/C/D, tiers, stopped-filer rule)\n\n**Suggestion and reasoning:**\n", "methodology");
+    const pre = pendingFeedback || {};
+    pendingFeedback = null;
+    const opened = Date.now();
+    const gh = repoOk() ? `https://github.com/${CFG.githubRepo}/issues/new?labels=feedback` : "";
+    const roles = ["State or local oversight agency", "Pass-through / grant office", "Auditor or CPA firm",
+      "Local government finance officer", "Researcher or student", "Journalist", "Resident", "Other"];
     app.innerHTML = `
       <h1>Help improve this tool</h1>
-      <p class="lede">This is an open project. Feedback from auditors, oversight agencies, pass-through entities, finance officers and researchers shapes the next version. Comments are public on GitHub, so the discussion is open to everyone.</p>
-      ${repoOk() ? "" : `<div class="notice">Setup step: put your GitHub repository name in <code>config.js</code> to turn on the feedback buttons.</div>`}
-      <div class="fb-options">
-        <div class="card"><h2>General feedback</h2><p>Tell us who you are, what helped, and what you'd change.</p><a class="btn primary" href="${general}" target="_blank" rel="noopener">Leave feedback</a></div>
-        <div class="card"><h2>Report a data issue</h2><p>A government is listed wrongly or a detail looks off.</p><a class="btn" href="${data}" target="_blank" rel="noopener">Report an issue</a></div>
-        <div class="card"><h2>Suggest a methodology change</h2><p>Propose a change to the weights, tiers or rules.</p><a class="btn" href="${method}" target="_blank" rel="noopener">Suggest a change</a></div>
+      <p class="lede">Feedback from auditors, oversight agencies, pass-through entities, finance officers and researchers shapes the next version. Your message goes directly to the project author.</p>
+      <div class="card" style="max-width:760px">
+        <form id="fb" novalidate>
+          <div class="fb-grid">
+            <label>What is this about?
+              <select name="type">
+                <option value="general" ${pre.type === "general" || !pre.type ? "selected" : ""}>General feedback</option>
+                <option value="data" ${pre.type === "data" ? "selected" : ""}>Report a data issue</option>
+                <option value="method" ${pre.type === "method" ? "selected" : ""}>Suggest a methodology change</option>
+              </select></label>
+            <label>Your role
+              <select name="role"><option value="">Choose (optional)</option>${roles.map((r) => `<option>${esc(r)}</option>`).join("")}</select></label>
+            <label>Name (optional)<input name="name" maxlength="120" autocomplete="name"></label>
+            <label>Email, if you'd like a reply (optional)<input name="email" type="email" maxlength="200" autocomplete="email"></label>
+            <label class="full">Organization (optional)<input name="organization" maxlength="200" autocomplete="organization"></label>
+            <label class="full">Subject (optional)<input name="subject" maxlength="200" value="${esc(pre.subject || "")}"></label>
+            <label class="full">Message<textarea name="message" rows="7" maxlength="5000" required placeholder="What was useful? What looks wrong or should change? Would you use this in your work?">${esc(pre.message || "")}</textarea></label>
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <p class="small muted">Please don't include confidential or client information. Your email is used only to reply to you.</p>
+          <button class="btn primary" type="submit" id="fb-send">Send feedback</button>
+          <span id="fb-status" class="small" role="status" style="margin-left:10px"></span>
+        </form>
       </div>
-      ${CFG.contactEmail ? `<p class="muted">Prefer email? <a href="mailto:${esc(CFG.contactEmail)}?subject=Municipal%20Financial%20Risk%20Score">${esc(CFG.contactEmail)}</a></p>` : ""}
-      <p class="small muted">A free GitHub account is needed to post. Please don't include confidential or client information.</p>`;
+      ${gh ? `<p class="small muted">Prefer a public discussion? <a href="${gh}" target="_blank" rel="noopener">Open an issue on GitHub</a> (free account needed).</p>` : ""}`;
+    const form = document.getElementById("fb");
+    const status = document.getElementById("fb-status");
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if ((data.message || "").trim().length < 10) {
+        status.textContent = "Please write a short message (at least 10 characters).";
+        return;
+      }
+      data.elapsed_ms = Date.now() - opened;
+      data.page = location.href;
+      const btn = document.getElementById("fb-send");
+      btn.disabled = true;
+      status.textContent = "Sending…";
+      try {
+        const r = await fetch("/api/feedback", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) });
+        const out = await r.json().catch(() => ({}));
+        if (r.ok && out.ok) {
+          form.innerHTML = `<h2>Thank you!</h2><p>Your feedback was sent${data.email ? ", and you may get a reply by email" : ""}.</p>`;
+        } else {
+          status.textContent = out.error || "Sorry, something went wrong. Please try again.";
+          btn.disabled = false;
+        }
+      } catch {
+        status.textContent = "Network error. Please try again.";
+        btn.disabled = false;
+      }
+    });
+  }
+
+  function reportIssue(subject, message) {
+    pendingFeedback = { type: "data", subject, message };
+    closeModal();
+    if (location.hash === "#feedback") viewFeedback();
+    else location.hash = "#feedback";
   }
 
   // ---------- entity detail ----------
@@ -351,7 +407,8 @@
           <dt>Score on last audit</dt><dd>${pill(s.last_tier)} ${s.last_score}</dd>
         </dl>
         <div class="notice">Possible reasons other than noncompliance: federal spending fell below the threshold, a new identifier, or inclusion in another entity's audit.</div>
-        <a class="btn" target="_blank" rel="noopener" href="${issueUrl(`Data issue: ${s.name} (${st})`, `Entity ID: ${s.id}\nListed as stopped filer (last filed ${s.last_year_filed}).\n\n**What looks wrong?**\n`, "data-issue")}">Report a data issue</a>`;
+        <button class="btn" id="report-issue">Report a data issue</button>`;
+      modalBody.querySelector("#report-issue").onclick = () => reportIssue(`${s.name} (${st})`, `Entity ID: ${s.id}\nListed as stopped filer (last filed ${s.last_year_filed}).\n\nWhat looks wrong:\n`);
     } else {
       const e = d.entities.find((x) => x.id === id);
       if (!e) return;
@@ -373,8 +430,9 @@
           <dt>Score history</dt><dd>${e.history.map((h) => `${h.year}: ${pill(h.tier)} ${h.score}`).join(" &nbsp; ")}</dd>
         </dl>
         <p><a class="btn" href="${facLink(e.report_id)}" target="_blank" rel="noopener">View the audit on FAC</a>
-        <a class="btn" target="_blank" rel="noopener" href="${issueUrl(`Data issue: ${e.name} (${st})`, `Entity ID: ${e.id}\nReport: ${e.report_id}\nScore shown: ${e.score}\n\n**What looks wrong?**\n`, "data-issue")}">Report a data issue</a></p>
+        <button class="btn" id="report-issue">Report a data issue</button></p>
         <p class="small muted">Screening indicator from the auditor's reported results. Not an audit opinion or a finding of wrongdoing.</p>`;
+      modalBody.querySelector("#report-issue").onclick = () => reportIssue(`${e.name} (${st})`, `Entity ID: ${e.id}\nReport: ${e.report_id}\nScore shown: ${e.score}\n\nWhat looks wrong:\n`);
     }
     modal.hidden = false;
     modal.querySelector(".modal-close").focus();

@@ -114,3 +114,12 @@ tbody tr:hover { background: #f3f6fa; }
 
 .fb-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .fb-options .card { margin: 0; }
+
+/* feedback form */
+.fb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-bottom: 8px; }
+.fb-grid label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--ink-2); font-weight: 500; }
+.fb-grid label.full { grid-column: 1 / -1; }
+.fb-grid input, .fb-grid select, .fb-grid textarea { font: inherit; font-size: .92rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); }
+.fb-grid textarea { resize: vertical; }
+.fb-grid .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 640px) { .fb-grid { grid-template-columns: 1fr; } }
