@@ -61,7 +61,8 @@ AGENCIES = {
     "59": "Small Business Administration", "64": "Veterans Affairs", "66": "Environmental Protection Agency (EPA)",
     "81": "Energy (DOE)", "84": "Education", "90": "Regional commissions and other", "93": "Health and Human Services (HHS)",
     "94": "AmeriCorps", "96": "Social Security Administration", "97": "Homeland Security (DHS / FEMA)",
-    "98": "USAID",
+    "98": "USAID", "32": "Federal Communications Commission", "87": "Gulf Coast Ecosystem Restoration Council",
+    "95": "Executive Office of the President (ONDCP)", "99": "Other (no Assistance Listing)",
 }
 
 # Keyword themes for finding text. Rules are deliberately simple and public;
@@ -407,14 +408,17 @@ def passthrough(pt_rows: list[dict], award_rows: list[dict], finding_rows: list[
                 "awards_with_findings": len(with_f), "findings": sum(award_findings[a] for a in with_f),
                 "govs_with_findings": len({a[0] for a in with_f})}
 
-    keys = sorted(awards, key=lambda k: (-len({a for a in awards[k] if award_findings.get(a)}), -len(govs[k])))
+    def govs_with_findings(aw):
+        return len({a[0] for a in aw if award_findings.get(a)})
+
+    keys = sorted(awards, key=lambda k: (-govs_with_findings(awards[k]), -len(govs[k])))
     national = [row(k, awards[k], govs[k]) for k in keys[:top_n]]
     states: dict[str, list] = defaultdict(list)
     per_state_keys: dict[str, list] = defaultdict(list)
     for (st, key) in st_awards:
         per_state_keys[st].append(key)
     for st, ks in per_state_keys.items():
-        ks.sort(key=lambda k: (-len({a for a in st_awards[(st, k)] if award_findings.get(a)}), -len(st_govs[(st, k)])))
+        ks.sort(key=lambda k: (-govs_with_findings(st_awards[(st, k)]), -len(st_govs[(st, k)])))
         states[st] = [row(k, st_awards[(st, k)], st_govs[(st, k)]) for k in ks[:state_top_n]]
     reports = {rid: [name(k) for k, _ in c.most_common(5)] for rid, c in by_report.items()}
     return {"national": national, "states": dict(states), "by_report": reports,

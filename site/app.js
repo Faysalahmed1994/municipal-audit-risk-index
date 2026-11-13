@@ -458,14 +458,14 @@
   function insPassthrough(ins, st) {
     const P = ins.passthrough;
     if (!P) return unavailable("The pass-through analysis");
-    const rows = st ? P.states[st] || [] : P.national;
+    const rows = (st ? P.states[st] || [] : P.national).slice().sort((a, b) => b.govs_with_findings - a.govs_with_findings || b.local_governments - a.local_governments);
     if (!rows.length) return `<p class="muted">No pass-through awards recorded for ${esc(stName(st))}.</p>`;
     return `<div class="card"><h2>Federal money received through pass-through entities</h2>
       <p>Much federal money reaches local governments through a state agency or another government (a pass-through entity), which must check its recipients' audits.
-      ${esc(rows[0].name)} passed awards to ${fmtInt(rows[0].local_governments)} local governments${st ? " in " + esc(stName(st)) : ""}; ${fmtInt(rows[0].awards_with_findings)} of those awards had findings.</p>
-      <div class="table-wrap"><table class="plain"><thead><tr><th>Pass-through entity</th>${st ? "" : "<th>Main state</th>"}<th class="num">Local governments</th><th class="num">Awards</th><th class="num">Awards with findings</th><th class="num">Governments with findings</th><th class="num">Spent</th></tr></thead>
-      <tbody>${rows.map((r) => `<tr><td>${esc(r.name)}</td>${st ? "" : `<td>${esc(r.state)}</td>`}<td class="num">${fmtInt(r.local_governments)}</td><td class="num">${fmtInt(r.awards)}</td><td class="num">${fmtInt(r.awards_with_findings)}</td><td class="num">${fmtInt(r.govs_with_findings)}</td><td class="num">${fmtMoney(r.expended)}</td></tr>`).join("")}</tbody></table></div>
-      <p class="small muted">Audit year ${ins.assessment_year}. Names are as written in the audits; spelling variants can split one agency into several rows. Ranked by awards with findings.</p></div>`;
+      ${esc(rows[0].name)} passed awards to ${pl(rows[0].local_governments, "local government", "local governments")}${st ? " in " + esc(stName(st)) : ""}; ${pl(rows[0].govs_with_findings, "of them has", "of them have")} findings on those awards.</p>
+      <div class="table-wrap"><table class="plain"><thead><tr><th>Pass-through entity</th>${st ? "" : "<th>Main state</th>"}<th class="num">Local governments</th><th class="num">Governments with findings</th><th class="num">Awards</th><th class="num">Awards with findings</th><th class="num">Spent</th></tr></thead>
+      <tbody>${rows.map((r) => `<tr><td>${esc(r.name)}</td>${st ? "" : `<td>${esc(r.state)}</td>`}<td class="num">${fmtInt(r.local_governments)}</td><td class="num">${fmtInt(r.govs_with_findings)}</td><td class="num">${fmtInt(r.awards)}</td><td class="num">${fmtInt(r.awards_with_findings)}</td><td class="num">${fmtMoney(r.expended)}</td></tr>`).join("")}</tbody></table></div>
+      <p class="small muted">Audit year ${ins.assessment_year}. Ranked by local governments with findings on awards from that entity. One finding can cover several awards (for example a program cluster), so award counts run higher than finding counts. Names are as written in the audits; spelling variants can split one agency into several rows.</p></div>`;
   }
 
   function timelinessChart(ins, st, k) {
@@ -489,7 +489,7 @@
       <div id="tl-chart">${timelinessChart(ins, st, "pct_late")}</div>
       <div class="table-wrap"><table class="plain"><thead><tr><th>Audit year</th><th class="num">Audits on file</th><th class="num">Median days</th><th class="num">% late</th></tr></thead>
       <tbody>${rows.map((r) => `<tr><td>${r.year}</td><td class="num">${fmtInt(r.audits)}</td><td class="num">${fmtInt(r.median_days)}</td><td class="num">${fmtPct(r.pct_late)}</td></tr>`).join("")}</tbody></table></div>
-      <p class="small muted">Late means accepted more than nine months after fiscal year end (the federal limit). Only audits on file are counted, so the latest year (${ins.assessment_year}) looks better than it will once late audits arrive. Years before 2023 come from records the GSA migrated from the Census Bureau.</p></div>`;
+      <p class="small muted">Late means accepted more than nine months after fiscal year end (the standard federal limit). During COVID-19, OMB gave an automatic six-month extension to audits with fiscal years ending through June 30, 2021 that were not yet filed (Memo M-21-20, after M-20-17), and it also extends deadlines after declared disasters. This measure uses the standard nine-month deadline, so 2019–2021 in particular look later than the rules then required. Only audits on file are counted, so the latest year (${ins.assessment_year}) looks better than it will once late audits arrive. Years before 2023 come from records the GSA migrated from the Census Bureau.</p></div>`;
   }
 
   function insPersistence(ins, st) {
@@ -563,7 +563,7 @@
         <div class="kpi"><div class="v">${fmtInt(info.stopped_filers)}</div><div class="l">apparent stopped filers</div></div>
       </div>
       <div class="grid-2">
-        <div class="card"><h2>Filed late, by audit year</h2>${tl && tl.length ? timelinessChart(ins, st, "pct_late") : `<p class="muted">Not available.</p>`}</div>
+        <div class="card"><h2>Filed late, by audit year</h2>${tl && tl.length ? timelinessChart(ins, st, "pct_late") + `<p class="small muted">Standard nine-month deadline; COVID-19 extensions made 2019–2021 deadlines later than shown.</p>` : `<p class="muted">Not available.</p>`}</div>
         <div class="card"><h2>Compliance areas in findings</h2>${req && req.length ? bars(req.slice(0, 6).map((r) => ({ label: `${r.code}. ${L[r.code]}`, value: r.share })), fmtPct) : `<p class="muted">Not available.</p>`}</div>
       </div>
       <div class="grid-2">
@@ -696,6 +696,7 @@
         <li>Years before 2023 come from records the GSA migrated from the Census Bureau's clearinghouse; some fields are incomplete.</li>
         <li>Names of pass-through entities are as typed in each audit, so one agency can appear under several spellings.</li>
         <li>Finding themes come from keyword rules and are approximate.</li>
+        <li>Lateness uses the standard nine-month deadline. Deadline extensions (COVID-19 for fiscal years ending through June 30, 2021, and after declared disasters) are not applied, so a few audits flagged late may have been on time under an extension.</li>
         <li>Only governments that file Single Audits (federal spending above the threshold) are covered.</li></ul></div>
       <div class="card"><h2>Report an error</h2><p>Use <a href="#feedback">the feedback form</a> or the <em>Report a data issue</em> button on any government.
         ${repoOk() ? `Public corrections are tracked as <a href="https://github.com/${esc(CFG.githubRepo)}/issues?q=label%3Adata-issue" target="_blank" rel="noopener">GitHub issues labeled data-issue</a>.` : ""}</p></div></div>`;
