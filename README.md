@@ -23,6 +23,9 @@ This project:
 5. **Gives every government its own page** (`/gov/{STATE}/{UEI}/{name}`) that can be shared, cited and found in search,
    plus a printable brief for each state, a batch lookup for pass-through entities, and a weekly "What changed" page
    with RSS feeds.
+6. **Compares** up to three governments side by side (`/#compare/IL:UEI1,IL:UEI2`): score and its four parts, peer
+   percentile, findings, filing timeliness, warning signs, programs, pass-through entities and score history since 2016,
+   with a shareable link, CSV download and suggestions of similar-size governments in the same state.
 
 > Scores are screening indicators, not audit opinions and not findings of fraud or wrongdoing.
 

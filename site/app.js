@@ -58,6 +58,18 @@
   const encId = (id) => encodeURIComponent(id).replace(/[!'()*]/g, (c) => "%" + c.charCodeAt(0).toString(16).toUpperCase());
   const govPath = (st, id, name) => `/gov/${st}/${encId(id)}/${slugify(name)}`;
 
+  // Compare page links: #compare/IL:UEI1,IL:UEI2 (ids URI-encoded, so any id is safe)
+  const MAX_COMPARE = 3;
+  const SERIES = ["#2a78d6", "#eb6834", "#1baf7a"]; // categorical slots 1–3; pass all-pairs color-vision checks on a light surface
+  const cmpHash = (items) => (items.length ? "#compare/" + items.map((x) => `${x.st}:${encodeURIComponent(x.id)}`).join(",") : "#compare");
+  function parseCompare(hash) {
+    const seen = new Set();
+    return hash.replace(/^#\/?compare[-/]?/, "").split(",").map((s) => {
+      if (s.indexOf(":") !== 2) return null;
+      try { return { st: s.slice(0, 2).toUpperCase(), id: decodeURIComponent(s.slice(3)) }; } catch { return null; }
+    }).filter((x) => x && /^[A-Z]{2}$/.test(x.st) && x.id && !seen.has(x.st + "|" + x.id) && seen.add(x.st + "|" + x.id)).slice(0, MAX_COMPARE);
+  }
+
   async function getJSON(path) {
     const r = await fetch(path, { cache: "no-cache" });
     if (!r.ok) throw new Error(`${path}: ${r.status}`);
@@ -105,10 +117,12 @@
       </div>`).join("")}</div>${rows.some((r) => r.ref != null) ? `<p class="small muted"><i class="bar-ref-key"></i> national figure for comparison</p>` : ""}`;
   }
 
-  function lineChart(series, fmt, label) {
+  // opts.endLabel: "name" (default) puts "Name value" at each line's end; "value" puts only the value
+  // (use it when a legend or column headers already name the series).
+  function lineChart(series, fmt, label, opts = {}) {
     const pts = series.flatMap((s) => s.points);
     if (!pts.length) return `<p class="muted">No data.</p>`;
-    const W = 680, H = 240, L = 46, R = 120, T = 14, B = 30;
+    const W = 680, H = 240, L = 46, R = opts.endLabel === "value" ? 48 : 120, T = 14, B = 30;
     const years = [...new Set(pts.map((p) => p.year))].sort((a, b) => a - b);
     const dataMax = Math.max(...pts.map((p) => p.value), 1);
     const p10 = Math.pow(10, Math.floor(Math.log10(dataMax / 4)));
@@ -121,14 +135,21 @@
     for (let v = 0; v <= maxV + 1e-9; v += step) ticks.push(v);
     const grid = ticks.map((v) => `<line x1="${L}" x2="${W - R}" y1="${yv(v).toFixed(1)}" y2="${yv(v).toFixed(1)}" stroke="#eef0f3"></line><text x="${L - 6}" y="${(yv(v) + 4).toFixed(1)}" text-anchor="end" font-size="11" fill="#7a8494">${esc(fmt(v))}</text>`).join("");
     const xl = years.map((y) => `<text x="${x(y).toFixed(1)}" y="${H - 10}" text-anchor="middle" font-size="11" fill="#7a8494">${y}</text>`).join("");
-    const lines = series.map((s) => {
+    // end labels: one per series, nudged apart so lines that end close together stay readable
+    const ends = series.map((s, i) => {
+      const p = s.points.filter((q) => years.includes(q.year));
+      return p.length ? { i, x: x(p[p.length - 1].year) + 10, y: yv(p[p.length - 1].value) + 4, v: p[p.length - 1].value } : null;
+    }).filter(Boolean).sort((a, b) => a.y - b.y);
+    for (let k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 14) ends[k].y = ends[k - 1].y + 14;
+    const endOf = Object.fromEntries(ends.map((e) => [e.i, e]));
+    const lines = series.map((s, i) => {
       const p = s.points.filter((q) => years.includes(q.year));
       if (!p.length) return "";
-      const d = p.map((q, i) => `${i ? "L" : "M"}${x(q.year).toFixed(1)},${yv(q.value).toFixed(1)}`).join(" ");
-      const last = p[p.length - 1];
-      return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" ${s.dash ? 'stroke-dasharray="5 4"' : ""}></path>` +
+      const d = p.map((q, j) => `${j ? "L" : "M"}${x(q.year).toFixed(1)},${yv(q.value).toFixed(1)}`).join(" ");
+      const e = endOf[i];
+      return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" ${s.dash ? 'stroke-dasharray="5 4"' : ""}></path>` +
         p.map((q) => `<circle cx="${x(q.year).toFixed(1)}" cy="${yv(q.value).toFixed(1)}" r="4" fill="${s.color}" stroke="#fff" stroke-width="2"><title>${esc(s.name)}, ${q.year}: ${esc(fmt(q.value))}</title></circle>`).join("") +
-        `<text x="${(x(last.year) + 10).toFixed(1)}" y="${(yv(last.value) + 4).toFixed(1)}" font-size="12" fill="#4a5566">${esc(s.name)} ${esc(fmt(last.value))}</text>`;
+        `<text x="${e.x.toFixed(1)}" y="${e.y.toFixed(1)}" font-size="12" fill="#4a5566">${opts.endLabel === "value" ? "" : esc(s.name) + " "}${esc(fmt(e.v))}</text>`;
     }).join("");
     const legend = series.length > 1 ? `<div class="legend">${series.map((s) => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>` : "";
     return `${legend}<svg class="linechart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}">${grid}${xl}${lines}</svg>`;
@@ -142,9 +163,10 @@
   function searchBox(id, placeholder) {
     return `<div class="search"><input id="${id}" type="search" placeholder="${esc(placeholder)}" aria-label="${esc(placeholder)}" autocomplete="off"><div class="search-results" id="${id}-r" role="listbox"></div></div>`;
   }
-  function bindSearch(id) {
+  // onPick(row): when given, choosing a result calls it instead of opening the government's page
+  function bindSearch(id, onPick, exclude = () => false) {
     const input = document.getElementById(id), out = document.getElementById(id + "-r");
-    let rows = null, t = null;
+    let rows = null, t = null, hits = [];
     input.addEventListener("focus", async () => { if (!rows) rows = await loadIndex(); });
     input.addEventListener("input", () => {
       clearTimeout(t);
@@ -152,9 +174,15 @@
         if (!rows) rows = await loadIndex();
         const q = input.value.trim().toLowerCase();
         if (q.length < 2) { out.innerHTML = ""; return; }
-        const hits = rows.filter((r) => (r.name + " " + r.city + " " + r.id + " " + r.ein).toLowerCase().includes(q)).slice(0, 10);
-        out.innerHTML = hits.length ? hits.map((r) => `<a role="option" href="${esc(govPath(r.st, r.id, r.name))}"><strong>${esc(r.name)}</strong> <span class="muted">${esc(r.city)}, ${esc(r.st)}</span> ${r.kind === "s" ? '<span class="chip">apparent stopped filer</span>' : pill(r.tier) + " " + r.score}</a>`).join("") : `<div class="muted small" style="padding:8px">No match. Governments below the Single Audit threshold are not in the FAC.</div>`;
+        hits = rows.filter((r) => !exclude(r) && (r.name + " " + r.city + " " + r.id + " " + r.ein).toLowerCase().includes(q)).slice(0, 10);
+        out.innerHTML = hits.length ? hits.map((r, i) => `<a role="option" data-i="${i}" href="${esc(govPath(r.st, r.id, r.name))}"><strong>${esc(r.name)}</strong> <span class="muted">${esc(r.city)}, ${esc(r.st)}</span> ${r.kind === "s" ? '<span class="chip">apparent stopped filer</span>' : pill(r.tier) + " " + r.score}</a>`).join("") : `<div class="muted small" style="padding:8px">No match. Governments below the Single Audit threshold are not in the FAC.</div>`;
       }, 120);
+    });
+    if (onPick) out.addEventListener("click", (ev) => {
+      const a = ev.target.closest("a[data-i]");
+      if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+      ev.preventDefault();
+      onPick(hits[Number(a.dataset.i)]);
     });
   }
 
@@ -170,6 +198,7 @@
       This tool reads those filings for all states, turns the auditors' own reported findings into a transparent 0–100 screening score, and lists governments that appear to have <strong>stopped filing</strong>, a gap the GAO documented in
       <a href="https://www.gao.gov/products/gao-24-106173" target="_blank" rel="noopener">GAO-24-106173</a>.</p>
       ${searchBox("gsearch", "Find a government by name, city, UEI or EIN…")}
+      <p class="small muted">Or <a href="#compare">compare governments side by side</a>.</p>
       <div class="kpis">
         <div class="kpi"><div class="v">${fmtInt(N.entities)}</div><div class="l">local governments scored (audit year ${M.assessment_year})</div></div>
         <div class="kpi"><div class="v">${fmtMoney(N.federal_expended)}</div><div class="l">federal awards they spent</div></div>
@@ -659,12 +688,168 @@
         return `<tr><td>${esc(r.q)}</td><td><a href="${esc(govPath(h.st, h.id, h.name))}">${esc(h.name)}</a><div class="small muted">${esc(h.city)}, ${esc(h.st)} · matched by ${r.how}</div></td><td>${h.kind === "s" ? '<span class="chip">apparent stopped filer</span>' : esc(status)}</td><td class="num">${pill(h.tier)} ${h.score}</td><td><div class="chips">${esc(signs).split("; ").filter(Boolean).map((s) => `<span class="chip">${s}</span>`).join("")}</div></td></tr>`;
       }).join("");
       const blob = new Blob([csv.map((r) => r.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n")], { type: "text/csv" });
+      const found = [...new Map(res.filter((r) => r.hit).map((r) => [r.hit.st + "|" + r.hit.id, { st: r.hit.st, id: r.hit.id }])).values()];
       out.innerHTML = `<div class="card"><div class="toolbar"><strong>${fmtInt(res.filter((r) => r.hit).length)} of ${fmtInt(res.length)} found</strong>
-        <a class="btn" id="lk-csv" download="single-audit-lookup.csv">Download results (CSV)</a></div>
+        <a class="btn" id="lk-csv" download="single-audit-lookup.csv">Download results (CSV)</a>
+        ${found.length >= 2 ? `<a class="btn" href="${esc(cmpHash(found.slice(0, MAX_COMPARE)))}">Compare ${found.length > MAX_COMPARE ? `the first ${MAX_COMPARE}` : found.length === 2 ? "both" : `all ${found.length}`} side by side</a>` : ""}</div>
         <div class="table-wrap"><table class="plain"><thead><tr><th>You entered</th><th>Government</th><th>Status</th><th class="num">Score</th><th>Warning signs</th></tr></thead><tbody>${body}</tbody></table></div>
         <p class="small muted">"Score" is the latest audit's screening score; for stopped filers it is the score of the last audit they filed.</p></div>`;
       document.getElementById("lk-csv").href = URL.createObjectURL(blob);
     };
+  }
+
+  // ---------- compare governments ----------
+  // Kind of government from its name, most specific first, so "Ogle County Housing Authority" is a housing authority.
+  const KINDS = [["school", /\b(schools?|education|unit district|cusd|ccsd|c\.?u\.?s\.?d|hsd|esd|usd|isd|sd|colleges?|vocational|special ed\w*|co-?op\w*)\b/],
+    ["housing", /\bhousing\b/], ["health", /\bhealth\b/], ["library", /\blibrary\b/], ["park", /\bpark\b/], ["fire", /\bfire\b/], ["sanitary", /\b(sanitary|sewer|wastewater)\b/],
+    ["water", /\bwater\b/], ["transit", /\btransit\b/], ["hospital", /\bhospital\b/], ["airport", /\bairport\b/], ["forest", /\bforest preserve\b/],
+    ["township", /\btownship\b/], ["village", /\bvillage\b/], ["city", /\bcity\b/], ["town", /\btown\b/],
+    // a county government is named "X County", "County of X" or "X County, State"; "X County Health Department" is not
+    ["county", /^(the )?(county|parish|borough) of\b|\b(county|parish|borough)( government)?(,.*)?$|\bcounty of$/]];
+  const kindOf = (name) => { const n = String(name || "").toLowerCase(); const k = KINDS.find(([, re]) => re.test(n)); return k ? k[0] : ""; };
+
+  // Governments in the same state with the closest federal spending (same kind when there are enough).
+  async function similarTo(r, exclude, n = 3) {
+    const fed = r.kind === "s" ? r.last_federal_expended : r.federal_expended;
+    if (!fed) return [];
+    const d = await loadState(r.st);
+    let pool = d.entities.filter((e) => !exclude.has(r.st + "|" + e.id));
+    const kind = kindOf(r.name), same = kind ? pool.filter((e) => kindOf(e.name) === kind) : [];
+    if (same.length >= n) pool = same;
+    return pool.map((e) => ({ e, gap: Math.abs(Math.log(e.federal_expended || 1) - Math.log(fed)) }))
+      .sort((a, b) => a.gap - b.gap).slice(0, n).map((x) => x.e);
+  }
+
+  function compareRows() {
+    const A = (r) => r.kind !== "s";
+    const dash = '<span class="muted">—</span>';
+    const L = SUMMARY.meta.requirement_labels || {};
+    const peer = (r) => (r.peer ? [`Higher than ${r.peer.pct}% of ${fmtInt(r.peer.n)}`, `${r.peer.band.replace(" federal spending", "")} in federal spending, ${r.peer.scope === "state" ? stName(r.st) : "nationally"}; median score ${r.peer.median}`] : null);
+    const years = (r) => (r.history_full || []).length;
+    const list = (items, more) => `<ul class="cmp-list">${items.map((s) => `<li>${s}</li>`).join("")}</ul>${more > 0 ? `<div class="small muted">and ${fmtInt(more)} more</div>` : ""}`;
+    const reqs = (r) => Object.entries(r.requirements || {}).sort((a, b) => b[1] - a[1]);
+    return [
+      { sec: "Latest audit" },
+      { label: "Status",
+        h: (r) => (A(r) ? `Audit year ${r.year} on file` : `<span class="chip">apparent stopped filer</span><div class="small muted">last filed for ${r.last_year_filed}</div>`),
+        c: (r) => (A(r) ? `Audit year ${r.year} on file` : `Apparent stopped filer (last filed ${r.last_year_filed})`) },
+      { label: "Screening score (0–100)",
+        h: (r) => (A(r) ? `${pill(r.tier)} <strong class="cmp-score">${r.score}</strong>` : `${pill(r.last_tier)} <strong class="cmp-score">${r.last_score}</strong><div class="small muted">on the last audit filed</div>`),
+        c: (r) => (A(r) ? `${r.score} (${r.tier})` : `${r.last_score} (${r.last_tier}; last audit filed)`) },
+      { label: "Compared with similar-size governments",
+        h: (r) => { const p = peer(r); return p ? `${esc(p[0])}<div class="small muted">${esc(p[1])}</div>` : dash; },
+        c: (r) => { const p = peer(r); return p ? `${p[0]} (${p[1]})` : ""; } },
+      { label: "Federal awards spent",
+        h: (r) => (A(r) ? fmtMoney(r.federal_expended) : `${fmtMoney(r.last_federal_expended)}<div class="small muted">in the last audit filed</div>`),
+        c: (r) => (A(r) ? r.federal_expended : r.last_federal_expended) },
+      { label: "Fiscal year end",
+        h: (r) => (A(r) ? fmtDate(r.fy_end) : `${fmtDate(r.expected_fy_end)}<div class="small muted">expected; no audit on file</div>`),
+        c: (r) => (A(r) ? r.fy_end : r.expected_fy_end) },
+      { label: "Filed with the clearinghouse",
+        h: (r) => (A(r) ? `${fmtDate(r.accepted)}<div class="small${r.days_late ? "" : " muted"}">${r.days_late ? `${fmtInt(r.days_late)} days after the 9-month deadline` : "on time"}</div>`
+          : `Not on file<div class="small">was due ${fmtDate(r.was_due)}, ${fmtInt(r.days_overdue)} days ago</div>`),
+        c: (r) => (A(r) ? `${r.accepted} (${r.days_late ? r.days_late + " days late" : "on time"})` : `not on file; due ${r.was_due}, ${r.days_overdue} days overdue`) },
+      { label: "Auditor", h: (r) => (A(r) && r.auditor ? esc(r.auditor) : dash), c: (r) => (A(r) ? r.auditor || "" : "") },
+      { label: "Audit years on file",
+        h: (r) => (years(r) ? `${years(r)}<div class="small muted">since ${r.history_full[0].year}</div>` : dash),
+        c: (r) => years(r) || "" },
+      { sec: "Score parts (each out of 25)" },
+      ...["A", "B", "C", "D"].map((k) => ({ label: COMP_NAME[k].replace(/^[A-D]\. /, ""),
+        h: (r) => (A(r) ? `<span class="cmp-bar" aria-hidden="true"><b style="width:${(100 * r.components[k]) / 25}%"></b></span>${r.components[k]}` : dash),
+        c: (r) => (A(r) ? r.components[k] : "") })),
+      { sec: "Federal award findings (latest audit)" },
+      ...[["count", "Findings"], ["repeat", "Repeat findings"], ["questioned_costs", "With questioned costs"], ["material_weakness", "Material weaknesses"],
+        ["significant_deficiency", "Significant deficiencies"], ["modified_opinion", "Modified compliance opinions"]].map(([k, label]) => ({ label,
+        h: (r) => (A(r) ? fmtInt(r.findings[k]) : dash), c: (r) => (A(r) ? r.findings[k] : "") })),
+      { label: "Audits in a row with findings",
+        h: (r) => (A(r) && r.streak ? fmtInt(r.streak.findings_streak) : dash), c: (r) => (A(r) && r.streak ? r.streak.findings_streak : "") },
+      { label: "Compliance areas in findings",
+        h: (r) => (!A(r) ? dash : reqs(r).length ? list(reqs(r).slice(0, 4).map(([k, v]) => `${esc(k)}. ${esc(L[k] || "")} <span class="muted">· ${v}</span>`), reqs(r).length - 4) : "None"),
+        c: (r) => (A(r) ? reqs(r).map(([k, v]) => `${k} ${L[k] || ""} (${v})`).join("; ") : "") },
+      { sec: "What the auditor reported" },
+      { label: "Warning signs",
+        h: (r) => (!A(r) ? dash : r.flags.length ? list(r.flags.map((f) => esc(flagText(f)))) : "None reported"),
+        c: (r) => (A(r) ? r.flags.map(flagText).join("; ") : "") },
+      { sec: "Federal money (latest audit)" },
+      { label: "Largest programs",
+        h: (r) => (r.programs && r.programs.length ? list(r.programs.slice(0, 3).map((p) => `${esc(p.name)} <span class="muted">· ${fmtMoney(p.expended)}${p.findings ? ` · ${pl(p.findings, "finding", "findings")}` : ""}</span>`), r.programs.length - 3) : dash),
+        c: (r) => (r.programs || []).map((p) => `${p.name} (ALN ${p.aln}, ${p.expended}${p.findings ? `, ${p.findings} findings` : ""})`).join("; ") },
+      { label: "Received money through",
+        h: (r) => (r.passthrough && r.passthrough.length ? list(r.passthrough.slice(0, 3).map(esc), r.passthrough.length - 3) : dash),
+        c: (r) => (r.passthrough || []).join("; ") },
+    ];
+  }
+
+  async function viewCompare(items) {
+    setActive("compare");
+    const recs = await Promise.all(items.map((x) => govRecord(x.st, x.id)));
+    const rs = items.map((x, i) => (recs[i] ? Object.assign({}, recs[i], { st: x.st, id: x.id }) : null)).filter(Boolean);
+    const missing = items.length - rs.length;
+    const keys = new Set(rs.map((r) => r.st + "|" + r.id));
+    const go = (list) => { location.hash = cmpHash(list.map((r) => ({ st: r.st, id: r.id }))); };
+    app.innerHTML = `
+      <h1>Compare governments</h1>
+      <p class="lede">Put up to ${MAX_COMPARE} local governments side by side: screening score, warning signs, federal award findings, filing timeliness and score history, all from their Single Audits.</p>
+      <div class="card noprint">
+        ${rs.length ? `<div class="cmp-picked">${rs.map((r, i) => `<span class="cmp-chip"><i class="cmp-dot" style="background:${SERIES[i]}"></i><span><strong>${esc(r.name)}</strong> <span class="muted small">${esc(r.city)}, ${esc(r.st)}</span></span><button class="cmp-x" data-rm="${i}" aria-label="Remove ${esc(r.name)}" title="Remove">×</button></span>`).join("")}</div>` : ""}
+        ${rs.length < MAX_COMPARE ? searchBox("csearch", rs.length ? "Add a government by name, city, UEI or EIN…" : "Find a government by name, city, UEI or EIN…") : `<p class="small muted">That's the most this page compares at once. Remove one to add another.</p>`}
+        <div id="cmp-suggest"></div>
+        ${missing ? `<div class="notice">${missing === 1 ? "One government in this link is" : `${fmtInt(missing)} governments in this link are`} not in this week's data.</div>` : ""}
+      </div>
+      <div id="cmp-out"></div>`;
+    app.querySelectorAll("[data-rm]").forEach((b) => (b.onclick = () => go(rs.filter((_, j) => j !== Number(b.dataset.rm)))));
+    if (rs.length < MAX_COMPARE) bindSearch("csearch", (row) => go([...rs, row]), (row) => keys.has(row.st + "|" + row.id));
+    if (rs.length && rs.length < MAX_COMPARE) {
+      similarTo(rs[0], keys).then((sim) => {
+        const el = document.getElementById("cmp-suggest");
+        if (!el || !sim.length) return;
+        el.innerHTML = `<p class="small cmp-suggest"><span class="muted">Similar federal spending in ${esc(stName(rs[0].st))}:</span> ${sim.map((e, i) => `<button class="btn btn-sm" data-add="${i}">+ ${esc(e.name)}</button>`).join(" ")}</p>`;
+        el.querySelectorAll("[data-add]").forEach((b) => (b.onclick = () => go([...rs, { st: rs[0].st, id: sim[Number(b.dataset.add)].id }])));
+      });
+    }
+    const out = document.getElementById("cmp-out");
+    if (rs.length < 2) {
+      out.innerHTML = `<div class="notice">${rs.length ? "Add at least one more government to see the comparison." : "Search for a government above, or open any government and choose <em>Compare</em>."} Every comparison has its own link you can share.</div>`;
+      return;
+    }
+
+    const rows = compareRows();
+    const head = `<tr><th scope="col"><span class="sr-only">Measure</span></th>${rs.map((r, i) => `<th scope="col"><i class="cmp-dot" style="background:${SERIES[i]}"></i><a href="${esc(govPath(r.st, r.id, r.name))}">${esc(r.name)}</a><div class="small muted">${esc(r.city)}, ${esc(stName(r.st))}</div></th>`).join("")}</tr>`;
+    const body = rows.map((d) => (d.sec
+      ? `<tr class="cmp-sec"><th colspan="${rs.length + 1}" scope="colgroup">${esc(d.sec)}</th></tr>`
+      : `<tr><th scope="row">${esc(d.label)}</th>${rs.map((r) => `<td>${d.h(r)}</td>`).join("")}</tr>`)).join("");
+
+    const series = rs.map((r, i) => ({ name: r.name, color: SERIES[i], points: (r.history_full || []).map((h) => ({ year: h.year, value: h.score })) }));
+    const yrs = [...new Set(rs.flatMap((r) => (r.history_full || []).map((h) => h.year)))].sort((a, b) => a - b);
+    const histTable = `<table class="plain cmp-hist"><thead><tr><th scope="col">Audit year</th>${rs.map((r, i) => `<th scope="col" class="num"><i class="cmp-dot" style="background:${SERIES[i]}"></i>${esc(r.name)}</th>`).join("")}</tr></thead>
+      <tbody>${yrs.map((y) => `<tr><td>${y}</td>${rs.map((r) => { const h = (r.history_full || []).find((x) => x.year === y); return `<td class="num">${h ? `${pill(h.tier)} ${h.score}` : '<span class="muted">not on file</span>'}</td>`; }).join("")}</tr>`).join("")}</tbody></table>`;
+
+    out.innerHTML = `
+      <div class="card">
+        <div class="toolbar noprint"><button class="btn" id="cmp-copy">Copy link to this comparison</button><a class="btn" id="cmp-csv" download="single-audit-comparison.csv">Download (CSV)</a><button class="btn" id="cmp-print">Print</button></div>
+        <p class="small muted cmp-swipe">Swipe the table sideways to see every government.</p>
+        <div class="table-wrap"><table class="plain cmp cmp-${rs.length}"><thead>${head}</thead><tbody>${body}</tbody></table></div>
+      </div>
+      <div class="card">
+        <h2>Score history</h2>
+        ${yrs.length ? lineChart(series, (v) => String(Math.round(v)), "Screening score by audit year for each government", { endLabel: "value" }) : `<p class="muted">No history on file.</p>`}
+        <details class="cmp-details"><summary>Show the numbers</summary><div class="table-wrap">${histTable}</div></details>
+        <p class="small muted">Scores run from 0 to 100; higher means the auditor reported more warning signs. Years before 2023 come from records the GSA migrated from the Census Bureau's clearinghouse, so compare early years with care.</p>
+      </div>
+      <div class="notice">Scores are screening indicators built from what each government's auditor reported. They are not audit opinions or findings of wrongdoing.
+        Governments that differ a lot in size or in the federal programs they run are not directly comparable; the <em>Compared with similar-size governments</em> row puts each score next to peers of its own size. <a href="#method">How the score works</a>.</div>`;
+
+    const link = "https://civicauditlens.org/" + cmpHash(rs);
+    const copy = document.getElementById("cmp-copy");
+    copy.onclick = () => navigator.clipboard && navigator.clipboard.writeText(link).then(() => (copy.textContent = "Link copied"));
+    document.getElementById("cmp-print").onclick = () => window.print();
+    const csv = [["", ...rs.map((r) => r.name)], ["State", ...rs.map((r) => r.st)], ["City", ...rs.map((r) => r.city)], ["UEI / ID", ...rs.map((r) => r.id)], ["EIN", ...rs.map((r) => r.ein || "")]];
+    rows.forEach((d) => csv.push(d.sec ? [d.sec.toUpperCase()] : [d.label, ...rs.map((r) => d.c(r))]));
+    csv.push([], ["Score history"], ...yrs.map((y) => [y, ...rs.map((r) => { const h = (r.history_full || []).find((x) => x.year === y); return h ? h.score : ""; })]));
+    csv.push([], ["Page", ...rs.map((r) => "https://civicauditlens.org" + govPath(r.st, r.id, r.name))], ["Comparison", link],
+      ["Source", `Federal Audit Clearinghouse via CivicAuditLens.org, data of ${SUMMARY.meta.as_of || SUMMARY.meta.generated_at}`]);
+    const blob = new Blob([csv.map((r) => r.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n")], { type: "text/csv" });
+    document.getElementById("cmp-csv").href = URL.createObjectURL(blob);
   }
 
   // ---------- data quality / validation ----------
@@ -863,7 +1048,7 @@
           ${s.usa ? `<dt>New direct federal grants since</dt><dd>${fmtMoney(s.usa.amount)} obligated since ${fmtDate(s.usa.since)} (USAspending)</dd>` : ""}
         </dl>
         <div class="notice">Possible reasons other than noncompliance: federal spending fell below the threshold, a new identifier, or inclusion in another entity's audit.</div>
-        <p><a class="btn primary" href="${esc(page)}">Open full page</a> <button class="btn" id="copy-link">Copy link</button> <button class="btn" id="report-issue">Report a data issue</button></p>`;
+        <p><a class="btn primary" href="${esc(page)}">Open full page</a> <a class="btn" href="${esc(cmpHash([{ st, id: s.id }]))}">Compare</a> <button class="btn" id="copy-link">Copy link</button> <button class="btn" id="report-issue">Report a data issue</button></p>`;
       modalBody.querySelector("#report-issue").onclick = () => reportIssue(`${s.name} (${st})`, `Entity ID: ${s.id}\nListed as stopped filer (last filed ${s.last_year_filed}).\n\nWhat looks wrong:\n`);
       bindCopy(page);
     } else {
@@ -889,7 +1074,7 @@
           <dt>Score history</dt><dd>${e.history.map((h) => `${h.year}: ${pill(h.tier)} ${h.score}`).join(" &nbsp; ")}</dd>
         </dl>
         <div id="more"></div>
-        <p><a class="btn primary" href="${esc(page)}">Open full page</a> <a class="btn" href="${facLink(e.report_id)}" target="_blank" rel="noopener">View the audit on FAC</a>
+        <p><a class="btn primary" href="${esc(page)}">Open full page</a> <a class="btn" href="${esc(cmpHash([{ st, id: e.id }]))}">Compare</a> <a class="btn" href="${facLink(e.report_id)}" target="_blank" rel="noopener">View the audit on FAC</a>
         <button class="btn" id="copy-link">Copy link</button> <button class="btn" id="report-issue">Report a data issue</button></p>
         <p class="small muted">Screening indicator from the auditor's reported results. Not an audit opinion or a finding of wrongdoing.</p>`;
       modalBody.querySelector("#report-issue").onclick = () => reportIssue(`${e.name} (${st})`, `Entity ID: ${e.id}\nReport: ${e.report_id}\nScore shown: ${e.score}\n\nWhat looks wrong:\n`);
@@ -931,10 +1116,11 @@
   async function route() {
     closeModal();
     // routes: #home, #state-IL, #stopped, #stopped-IL, #insights-<tab>[-IL], #brief-IL, #changes[-IL], #lookup,
-    //         #validation, #method, #feedback
+    //         #compare/IL:UEI,IL:UEI, #validation, #method, #feedback
     const parts = location.hash.replace(/^#\/?/, "").split(/[-/]/);
     try {
-      if (parts[0] === "state") await viewState(parts[1]);
+      if (parts[0].startsWith("compare")) await viewCompare(parseCompare(location.hash));
+      else if (parts[0] === "state") await viewState(parts[1]);
       else if (parts[0] === "stopped") await viewStopped(parts[1]);
       else if (parts[0] === "insights") await viewInsights(parts[1], (parts[2] || "").toUpperCase());
       else if (parts[0] === "brief") await viewBrief(parts[1]);
