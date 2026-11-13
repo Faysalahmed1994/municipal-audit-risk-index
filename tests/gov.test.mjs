@@ -49,8 +49,13 @@ test("renders an audit page and a stopped-filer page from sample data, escaping 
   assert.ok(!html.includes("<script>x</script>"));
   assert.match(html, /What the auditor reported/);
   assert.match(html, /Score history/);
+  assert.ok(html.includes(`href="/#compare/${audit.state}:${encodeURIComponent(audit.id)}"`), "audit page links to the compare page");
   const s = renderGov(stopped, summary, "https://civicauditlens.org/y");
   assert.match(s, /apparent stopped filer/);
+  assert.ok(s.includes(`href="/#compare/${stopped.state}:${encodeURIComponent(stopped.id)}"`), "stopped-filer page links to the compare page");
+  // ids that are not plain UEIs stay safe inside the link
+  const odd = renderGov({ ...audit, id: 'EIN-12"3/4' }, summary, "https://civicauditlens.org/z");
+  assert.ok(odd.includes('href="/#compare/' + audit.state + ':EIN-12%223%2F4"'));
   assert.match(renderNotFound("IL", "<b>"), /&lt;b&gt;/);
 });
 

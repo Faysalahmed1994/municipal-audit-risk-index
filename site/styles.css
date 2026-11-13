@@ -177,6 +177,40 @@ table.plain tbody tr:hover { background: none; }
 .hist { width: 100%; max-width: 600px; height: auto; display: block; margin: 6px 0 10px; }
 .actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
+/* compare governments */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.btn-sm { padding: 4px 9px; font-size: .82rem; }
+.cmp-picked { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.cmp-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 6px 6px 10px; font-size: .9rem; }
+.cmp-x { border: none; background: none; font-size: 1.2rem; line-height: 1; cursor: pointer; color: var(--ink-3); padding: 2px 6px; border-radius: 6px; }
+.cmp-x:hover, .cmp-x:focus-visible { background: #e8edf3; color: var(--ink); }
+.cmp-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: baseline; flex: none; }
+.cmp-suggest { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 0; }
+table.cmp { table-layout: fixed; min-width: calc(200px + var(--cols, 2) * 230px); }
+table.cmp-2 { --cols: 2; } table.cmp-3 { --cols: 3; }
+table.cmp th, table.cmp td { vertical-align: top; }
+table.cmp thead th { text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--ink); white-space: normal; cursor: default; }
+table.cmp thead th:first-child { width: 200px; }
+table.cmp thead th a { font-weight: 600; }
+table.cmp tbody th[scope="row"] { text-transform: none; letter-spacing: 0; font-size: .86rem; font-weight: 500; color: var(--ink-2); white-space: normal; cursor: default; }
+table.cmp .cmp-sec th { background: var(--bg); color: var(--ink-3); padding-top: 10px; cursor: default; }
+table.cmp .cmp-score { font-size: 1.15rem; vertical-align: middle; margin-left: 4px; }
+.cmp-bar { display: inline-block; width: 90px; height: 8px; background: #edf0f4; border-radius: 4px; overflow: hidden; vertical-align: middle; margin-right: 8px; }
+.cmp-bar b { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }
+.cmp-list { margin: 0; padding-left: 16px; font-size: .86rem; }
+.cmp-list li { margin: 2px 0; }
+table.cmp-hist th { cursor: default; }
+.cmp-details { margin: 8px 0; }
+.cmp-swipe { display: none; margin: 0 0 6px; }
+.cmp-details summary { cursor: pointer; color: var(--accent); font-size: .9rem; }
+@media (max-width: 640px) {
+  .cmp-swipe { display: block; }
+  table.cmp { min-width: calc(140px + var(--cols, 2) * 190px); }
+  table.cmp thead th:first-child { width: 140px; }
+  table.cmp tbody th[scope="row"], table.cmp thead th:first-child { position: sticky; left: 0; background: var(--card); z-index: 1; }
+  table.cmp .cmp-sec th { position: static; }
+}
+
 /* printable state brief */
 @media print {
   .topbar, .footer, .noprint, .modal, .sample-banner { display: none !important; }
@@ -186,4 +220,5 @@ table.plain tbody tr:hover { background: none; }
   .kpi { border-color: #ccc; }
   a { color: inherit; text-decoration: none; }
   .grid-2 { grid-template-columns: 1fr 1fr; }
+  table.cmp { min-width: 0; }
 }

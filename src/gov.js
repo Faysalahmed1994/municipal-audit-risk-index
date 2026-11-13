@@ -94,7 +94,7 @@ function shell({ title, description, canonical, body, st, stName }) {
   <a class="brand" href="/#home"><span class="brand-mark" aria-hidden="true">◆</span>
   <span><strong>Municipal Financial Risk Score</strong><small>Open screening of local government Single Audits</small></span></a>
   <nav><a href="/#home">National</a><a href="/#state-${esc(st)}">${esc(stName || st)}</a><a href="/#stopped">Stopped filing</a>
-  <a href="/#insights">Insights</a><a href="/#changes">What changed</a><a href="/#lookup">Lookup</a><a href="/#method">Methodology</a>
+  <a href="/#insights">Insights</a><a href="/#changes">What changed</a><a href="/#lookup">Lookup</a><a href="/#compare">Compare</a><a href="/#method">Methodology</a>
   <a href="/#feedback" class="nav-cta">Give feedback</a></nav>
 </header>
 <main>${body}</main>
@@ -116,6 +116,7 @@ export function renderGov(rec, summary, canonical) {
   const crumbs = `<p class="crumbs small"><a href="/#home">National</a> › <a href="/#state-${esc(st)}">${esc(stName)}</a> › ${esc(rec.name)}</p>`;
   const actions = `<p class="actions">
     <a class="btn" href="${facLink(rec.kind === "a" ? rec.report_id : rec.last_report_id)}" target="_blank" rel="noopener">View the audit on FAC</a>
+    <a class="btn" href="/#compare/${esc(st)}:${esc(encodeURIComponent(rec.id))}">Compare with other governments</a>
     <button class="btn" data-copy="${esc(canonical)}">Copy link</button>
     <a class="btn" href="/#feedback">Report a data issue</a></p>`;
   const histRows = (rec.history_full || []).map((h) => `<tr><td>${h.year}</td><td>${pill(h.tier)} ${h.score}</td><td><a href="${facLink(h.report_id)}" target="_blank" rel="noopener">FAC report</a></td></tr>`).join("");
