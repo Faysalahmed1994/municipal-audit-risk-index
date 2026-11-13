@@ -15,6 +15,11 @@ jobs:
         run: cd pipeline && python -m pytest -q
       - name: Sample data builds
         run: OUT_DIR=/tmp/sample python pipeline/make_sample_data.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Government pages (Cloudflare Worker)
+        run: SAMPLE_DIR=/tmp/sample node --test tests/gov.test.mjs
   illinois-fiscal-pilot:
     runs-on: ubuntu-latest
     defaults:

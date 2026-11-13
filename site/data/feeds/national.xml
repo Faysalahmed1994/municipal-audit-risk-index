@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>Civic Audit Lens: weekly changes (all states)</title>
+<link>https://civicauditlens.org/#changes</link>
+<description>New apparent stopped filers and governments that filed again, from weekly Federal Audit Clearinghouse updates.</description>
+<language>en-us</language>
+<item><title>Apparent stopped filer: CITY OF LANCASTER (SC)</title><link>https://civicauditlens.org/gov/SC/MDAPHBSPJG63/city-of-lancaster</link><guid isPermaLink="false">2026-11-13-stopped-MDAPHBSPJG63</guid><pubDate>Fri, 13 Nov 2026 12:00:00 +0000</pubDate><description>Last Single Audit filed for 2023; nothing on file for the latest year, which is now past due. Not proof of noncompliance.</description></item>
+<item><title>Now filed: CITY OF CERES (CA)</title><link>https://civicauditlens.org/gov/CA/SR2CBKJTJLN3/city-of-ceres</link><guid isPermaLink="false">2026-11-13-filed-SR2CBKJTJLN3</guid><pubDate>Fri, 13 Nov 2026 12:00:00 +0000</pubDate><description>Previously listed as an apparent stopped filer; its audit is now on file (score 39, Elevated).</description></item>
+</channel></rss>

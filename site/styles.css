@@ -123,3 +123,67 @@ tbody tr:hover { background: #f3f6fa; }
 .fb-grid textarea { resize: vertical; }
 .fb-grid .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 @media (max-width: 640px) { .fb-grid { grid-template-columns: 1fr; } }
+
+/* ---------- site v0.2 additions ---------- */
+.search { position: relative; max-width: 640px; margin: 0 0 8px; }
+.search input { width: 100%; font: inherit; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.search input:focus { outline: 2px solid var(--accent-2); outline-offset: 1px; }
+.search-results { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: #fff; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 24px rgba(15,22,33,.08); z-index: 20; max-height: 360px; overflow-y: auto; }
+.search-results:empty { display: none; }
+.search-results a { display: block; padding: 8px 12px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); font-size: .9rem; }
+.search-results a:hover, .search-results a:focus { background: #f3f6fa; }
+
+.card.week { border-left: 3px solid var(--accent); }
+.insight-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.insight { display: block; text-decoration: none; color: var(--ink); background: var(--bg); border-radius: 8px; padding: 12px 14px; }
+.insight:hover { background: #eef2f7; }
+.insight .v { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+.insight .l { font-size: .85rem; color: var(--ink-2); }
+
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin: 4px 0 18px; }
+.tab { padding: 8px 12px; text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: .92rem; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab:hover { color: var(--ink); }
+.tab.on { color: var(--accent); border-bottom-color: var(--accent); }
+
+.bars { display: grid; gap: 6px; margin: 10px 0; }
+.bar-row { display: grid; grid-template-columns: minmax(160px, 38%) 1fr 72px; gap: 10px; align-items: center; font-size: .88rem; }
+.bar-label { line-height: 1.25; }
+.bar-track { position: relative; height: 12px; background: #edf0f4; border-radius: 4px; }
+.bar-track b { display: block; height: 100%; border-radius: 0 4px 4px 0; min-width: 2px; }
+.bar-ref { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .55; }
+.bar-ref-key { display: inline-block; width: 2px; height: 12px; background: var(--ink); opacity: .55; vertical-align: middle; margin-right: 4px; }
+.bar-val { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+@media (max-width: 640px) { .bar-row { grid-template-columns: 1fr 64px; } .bar-row .bar-track { grid-column: 1 / -1; grid-row: 2; } }
+
+.linechart { width: 100%; max-width: 720px; height: auto; display: block; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; margin-right: 12px; color: var(--ink-2); }
+
+table.plain tbody tr { cursor: default; }
+table.plain tbody tr:hover { background: none; }
+.dl.wide { grid-template-columns: 260px 1fr; }
+@media (max-width: 640px) { .dl, .dl.wide { grid-template-columns: 1fr; } }
+.flaglist details { width: 100%; }
+.flaglist summary { display: flex; justify-content: space-between; gap: 12px; cursor: pointer; list-style: none; }
+.flaglist summary::-webkit-details-marker { display: none; }
+.flaglist summary span::before { content: "▸ "; color: var(--ink-3); }
+.flaglist details[open] summary span::before { content: "▾ "; }
+.flaglist details p { margin: 6px 0 2px 14px; color: var(--ink-2); font-size: .86rem; }
+#lk-in { width: 100%; font: inherit; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .88rem; padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
+
+/* government pages (/gov/...) */
+.crumbs { color: var(--ink-3); margin: 0 0 6px; }
+.crumbs a { color: var(--ink-3); }
+.bigscore { font-size: 2rem; letter-spacing: -.02em; vertical-align: middle; }
+.hist { width: 100%; max-width: 600px; height: auto; display: block; margin: 6px 0 10px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* printable state brief */
+@media print {
+  .topbar, .footer, .noprint, .modal, .sample-banner { display: none !important; }
+  body { background: #fff; font-size: 12px; }
+  main { padding: 0; max-width: none; }
+  .card { break-inside: avoid; border-color: #ccc; }
+  .kpi { border-color: #ccc; }
+  a { color: inherit; text-decoration: none; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+}

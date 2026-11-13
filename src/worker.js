@@ -2,6 +2,8 @@
  * Cloudflare Worker for civicauditlens.org
  *
  * - Every normal page and data file is served from site/ (static assets).
+ * - GET /gov/{STATE}/{ID}/{slug} renders one page per government (see gov.js).
+ * - GET /sitemap.xml and /feeds/{STATE}.xml serve the generated files from site/data/.
  * - POST /api/feedback receives the website's feedback form and emails it to the owner
  *   using Cloudflare Email Routing (free). The destination address is NOT in this code:
  *   it is stored in the Cloudflare dashboard as the secret FEEDBACK_TO.
@@ -13,6 +15,7 @@
  *      -> add secret FEEDBACK_TO = the verified inbox address.
  */
 import { EmailMessage } from "cloudflare:email";
+import { handleGov } from "./gov.js";
 
 const FROM = "feedback@civicauditlens.org";
 const TYPES = { general: "General feedback", data: "Data issue", method: "Methodology suggestion" };
@@ -24,6 +27,18 @@ export default {
     if (url.pathname === "/api/feedback") {
       if (request.method !== "POST") return json({ ok: false, error: "Use POST." }, 405);
       return handleFeedback(request, env);
+    }
+    if (url.pathname.startsWith("/gov/") && request.method === "GET") {
+      const res = await handleGov(request, env.ASSETS);
+      if (res) return res;
+    }
+    if (url.pathname === "/sitemap.xml" || /^\/feeds\/[A-Za-z]+\.xml$/.test(url.pathname)) {
+      const r = await env.ASSETS.fetch(new Request(new URL("/data" + url.pathname, url.origin)));
+      if (!r.ok) return r;
+      return new Response(r.body, {
+        headers: { "content-type": url.pathname.startsWith("/feeds/") ? "application/rss+xml; charset=utf-8" : "application/xml; charset=utf-8",
+          "cache-control": "public, max-age=3600" },
+      });
     }
     return env.ASSETS.fetch(request);
   },

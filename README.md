@@ -17,6 +17,12 @@ This project:
 2. **Flags apparent stopped filers**: governments that filed in recent years but have no audit on file
    for the latest year that is past due.
 3. **Publishes** everything (code, scoring rules, and data as CSV/JSON) so anyone can check, reuse or cite it.
+4. **Explains** the findings (site version 0.2): which compliance requirements and federal programs generate findings,
+   which pass-through entities fund governments with findings, how late audits arrive since 2016, which governments
+   have findings year after year, and common themes in the finding text.
+5. **Gives every government its own page** (`/gov/{STATE}/{UEI}/{name}`) that can be shared, cited and found in search,
+   plus a printable brief for each state, a batch lookup for pass-through entities, and a weekly "What changed" page
+   with RSS feeds.
 
 > Scores are screening indicators, not audit opinions and not findings of fraud or wrongdoing.
 
@@ -40,7 +46,14 @@ FAC API (api.fac.gov) ──weekly GitHub Action──▶ pipeline/build_dataset
 
 * `pipeline/scoring.py`: the scoring rules (all point values in one place)
 * `pipeline/build_dataset.py`: downloads FAC data, scores it, detects stopped filers, writes the data files
-* `pipeline/test_scoring.py`: tests that lock in the rules
+* `pipeline/analytics.py`: the additional analyses (requirements, programs, pass-through, timeliness, persistence,
+  themes, peers, weekly changes, RSS, sitemap). Each one is optional: if it fails, the scores still publish and the
+  site says that analysis is unavailable that week
+* `pipeline/test_scoring.py`, `pipeline/test_analytics.py`: tests that lock in the rules
+* `src/worker.js`, `src/gov.js`: the Cloudflare Worker (feedback form, one page per government, sitemap and feeds);
+  `tests/gov.test.mjs` tests the government pages (`node --test tests/gov.test.mjs`)
+* `site/validation.json`: results of manual spot checks of the stopped-filer list (edit by hand; shown on the
+  *Data quality* page)
 * `pipeline/make_sample_data.py`: fictional data for previews (shows a SAMPLE banner)
 * `site/`: the web app (plain HTML/CSS/JS, no build step)
 
@@ -48,7 +61,7 @@ Run it locally (from the repository root):
 
 ```bash
 pip install pytest && (cd pipeline && python -m pytest -q)
-FAC_API_KEY=your_key python pipeline/build_dataset.py   # real data
+FAC_API_KEY=your_key python pipeline/build_dataset.py   # real data (history from 2016; ~20-30 minutes)
 python -m http.server -d site 8000                        # open http://localhost:8000
 ```
 
