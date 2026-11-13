@@ -524,8 +524,19 @@ def write(result: dict) -> None:
     history.insert(0, {"as_of": ch["as_of"], "counts": ch.get("counts", {}), "items": week_items[:400]})
     history = history[:26]
 
+    # --- audit firms: which firm signed each government's latest audit (lookup only, no firm ratings) ---
+    try:
+        aud = analytics.auditors(result["detail"], meta["assessment_year"])
+        aud["as_of"] = meta["as_of"]
+        meta["optional"]["auditors"] = "ok"
+    except Exception as e:  # noqa: BLE001
+        aud = None
+        meta["optional"]["auditors"] = f"failed: {e}"
+
     summary = {k: result[k] for k in ("meta", "national", "states")}
     (OUT / "summary.json").write_text(json.dumps(summary, separators=(",", ":")))
+    if aud is not None:
+        (OUT / "auditors.json").write_text(json.dumps(aud, separators=(",", ":")))
     for st, d in lean.items():
         (OUT / "states" / f"{st}.json").write_text(json.dumps(d, separators=(",", ":")))
     (OUT / "changes.json").write_text(json.dumps(ch, separators=(",", ":")))

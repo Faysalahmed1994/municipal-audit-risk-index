@@ -22,6 +22,13 @@ export function slugify(name) {
 export function encId(id) {
   return encodeURIComponent(id).replace(/[!'()*]/g, (c) => "%" + c.charCodeAt(0).toString(16).toUpperCase());
 }
+// Must match analytics.firm_key in pipeline/analytics.py
+const FIRM_DROP = /\b(?:llp|llc|pllc|lllp|pc|pa|sc|ps|ltd|limited|inc|incorporated|corp|corporation|prof|professional|chartered|chtd|co|company|cpa|cpas|certified|public|accountants?|accounting|and|the|of)\b/g;
+export function firmKey(name) {
+  let s = String(name || "").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ");
+  s = s.replace(/\b([a-z]) (?=[a-z]\b)/g, "$1");
+  return s.replace(FIRM_DROP, " ").split(/\s+/).join("") || s.split(/\s+/).join("") || "unknown";
+}
 export function govPath(st, id, name) {
   return `/gov/${st}/${encId(id)}/${slugify(name)}`;
 }
@@ -186,7 +193,7 @@ export function renderGov(rec, summary, canonical) {
         <dt>Findings (federal programs)</dt><dd>${e.findings.count} total · ${e.findings.repeat} repeat · ${e.findings.questioned_costs} with questioned costs</dd>
         <dt>Fiscal year end</dt><dd>${fmtDate(e.fy_end)}</dd>
         <dt>Accepted by FAC</dt><dd>${fmtDate(e.accepted)}${e.days_late ? ` (${fmtInt(e.days_late)} days after the 9-month deadline)` : ""}</dd>
-        <dt>Auditor</dt><dd>${esc(e.auditor) || "—"}</dd></dl></div>
+        <dt>Auditor</dt><dd>${e.auditor ? `${esc(e.auditor)}<div class="small"><a href="/#insights-auditors-${esc(st)}-${firmKey(e.auditor)}">Other ${esc(stName)} governments this firm audits</a></div>` : "—"}</dd></dl></div>
     </div>
     <div class="card"><h2>What the auditor reported</h2><p class="small muted">Select a line for a plain-language explanation.</p><ul class="flaglist">${flags}</ul></div>
     ${req || progs ? `<div class="grid-2">${listCard("Findings by compliance requirement", req)}${listCard("Federal programs", progs, "Programs with findings first, then by amount spent.")}</div>` : ""}
