@@ -229,7 +229,8 @@ def score_audit(general: dict, findings: FindingSummary | None) -> dict:
             d += POINTS["late_up_to_90_days"]
         if days_late > 0:
             flags.append("late")
-    if str(general.get("agencies_with_prior_findings") or "").strip() not in {"", "N/A", "None", "[]"}:
+    # "GSA_MIGRATION" marks a field the Census-era record did not have: treat it as not reported.
+    if str(general.get("agencies_with_prior_findings") or "").strip() not in {"", "N/A", "None", "[]", "GSA_MIGRATION"}:
         d += POINTS["prior_findings_reported"]
         flags.append("prior_findings_reported")
     if not yes(general.get("is_low_risk_auditee")):

@@ -1,0 +1,4 @@
+{
+  "_how_to_update": "Add one entry per manual spot check of the stopped-filer list, then commit. The Data quality page shows them. Fields: date (YYYY-MM-DD), state, checked (number of listed governments checked by hand), confirmed (no audit found anywhere), errors (listed in error, e.g. filed under another name), notes.",
+  "spot_checks": []
+}
