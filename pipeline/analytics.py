@@ -686,3 +686,47 @@ def sitemap(urls: list[str], lastmod: str) -> str:
     body = "".join(f"<url><loc>{xml_escape(u)}</loc><lastmod>{lastmod}</lastmod></url>\n" for u in urls)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n")
+
+
+# --- audit firms ---------------------------------------------------------------
+# Words that do not tell firms apart. Must match firmKey() in src/gov.js.
+_FIRM_DROP = re.compile(r"\b(?:llp|llc|pllc|lllp|pc|pa|sc|ps|ltd|limited|inc|incorporated|corp|corporation|prof|"
+                        r"professional|chartered|chtd|co|company|cpa|cpas|certified|public|accountants?|accounting|"
+                        r"and|the|of)\b")
+
+
+def firm_key(name: str) -> str:
+    """Group spellings of one firm: 'Sikich CPA LLC' and 'SIKICH LLP' -> 'sikich'.
+    Letters and digits only, so the key is safe in a URL."""
+    s = re.sub(r"[^a-z0-9]+", " ", (name or "").lower().replace("&", " and "))
+    s = re.sub(r"\b([a-z]) (?=[a-z]\b)", r"\1", s)          # "l l p" (from L.L.P.) -> "llp"
+    key = "".join(_FIRM_DROP.sub(" ", s).split())
+    return key or "".join(s.split()) or "unknown"
+
+
+AUDITOR_COLS = ["state", "id", "name", "city", "score", "tier", "federal_expended", "findings", "repeat_findings",
+                "days_late"]
+
+
+def auditors(detail: dict[str, dict], assessment_year: int) -> dict:
+    """Which firm (or state audit office) signed each government's latest Single Audit.
+    A lookup aid only: no firm-level scores, rates or rankings are computed."""
+    groups: dict[str, dict] = defaultdict(lambda: {"variants": Counter(), "govs": []})
+    for st, d in detail.items():
+        for e in d.get("entities", []):
+            name = " ".join(str(e.get("auditor") or "").split())
+            if not name:
+                continue
+            g = groups[firm_key(name)]
+            g["variants"][name] += 1
+            f = e.get("findings") or {}
+            g["govs"].append([st, e["id"], e["name"], e.get("city", ""), e["score"], e["tier"],
+                              e.get("federal_expended", 0), f.get("count", 0), f.get("repeat", 0),
+                              e.get("days_late", 0)])
+    firms = []
+    for key, g in groups.items():
+        variants = sorted(g["variants"], key=lambda v: (-g["variants"][v], v))
+        firms.append({"key": key, "name": variants[0], "variants": variants[:8],
+                      "govs": sorted(g["govs"], key=lambda r: (r[0], r[2].lower()))})
+    firms.sort(key=lambda f: (f["name"].lower(), f["key"]))
+    return {"assessment_year": assessment_year, "cols": AUDITOR_COLS, "firms": firms}

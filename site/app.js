@@ -30,6 +30,7 @@
   const TABS = [
     ["requirements", "Compliance requirements"], ["programs", "Federal programs"], ["passthrough", "Pass-through entities"],
     ["timeliness", "Filing timeliness"], ["persistence", "Persistent findings"], ["themes", "Finding themes"],
+    ["auditors", "Audit firms"],
   ];
 
   // ---------- helpers ----------
@@ -418,7 +419,7 @@
   }
 
   // ---------- insights ----------
-  async function viewInsights(tab, st) {
+  async function viewInsights(tab, st, firm) {
     setActive("insights");
     tab = TABS.some(([k]) => k === tab) ? tab : "requirements";
     st = st && SUMMARY.states[st] ? st : "";
@@ -433,8 +434,10 @@
         <a class="btn" href="data/insights.json" download>Download (JSON)</a>${st ? `<a class="btn" href="#brief-${st}">${esc(stName(st))} brief</a>` : ""}</div>
       <div class="tabs" role="tablist">${TABS.map(([k, l]) => `<a role="tab" class="tab ${k === tab ? "on" : ""}" aria-selected="${k === tab}" href="#insights-${k}${st ? "-" + st : ""}">${esc(l)}</a>`).join("")}</div>
       <div id="ins-body"></div>`;
-    document.getElementById("inst").onchange = (e) => (location.hash = `#insights-${tab}${e.target.value ? "-" + e.target.value : ""}`);
+    document.getElementById("inst").onchange = (e) => (location.hash = tab === "auditors" && firm
+      ? `#insights-auditors-${e.target.value || "all"}-${firm}` : `#insights-${tab}${e.target.value ? "-" + e.target.value : ""}`);
     const body = document.getElementById("ins-body");
+    if (tab === "auditors") { await insAuditors(body, st, firm); return; }
     if (!ins) { body.innerHTML = unavailable("This analysis"); return; }
     body.innerHTML = ({
       requirements: insRequirements, programs: insPrograms, passthrough: insPassthrough,
@@ -446,6 +449,81 @@
       tm.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
       document.getElementById("tl-chart").innerHTML = timelinessChart(ins, st, b.dataset.k);
     }));
+  }
+
+  // ---------- audit firms (lookup only: no firm scores, rates or rankings) ----------
+  const auditorsData = () => once("auditors", "data/auditors.json");
+  const normQ = (q) => String(q || "").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "");
+
+  async function insAuditors(body, st, key) {
+    body.innerHTML = `<p class="loading">Loading the audit firm list…</p>`;
+    const A = await auditorsData();
+    if (!A || !A.firms) { body.innerHTML = unavailable("The audit firm list"); return; }
+    const firms = A.firms.map((f) => ({ ...f, list: st ? f.govs.filter((g) => g[0] === st) : f.govs, q: normQ([f.name, ...f.variants].join(" ")) + f.key }))
+      .filter((f) => f.list.length);
+    const href = (k, s2 = st) => `#insights-auditors-${s2 || "all"}${k ? "-" + k : ""}`;
+    const where = st ? `in ${esc(stName(st))}` : "nationally";
+    const firm = key ? firms.find((f) => f.key === key) : null;
+    body.innerHTML = `
+      <div class="card noprint">
+        <h2>Which governments does an audit firm audit?</h2>
+        <p>Type part of a firm's name to list the local governments ${st ? "in " + esc(stName(st)) + " " : ""}whose latest Single Audit (audit year ${A.assessment_year}) it signed, with each government's own score and findings.</p>
+        <div class="search"><input id="firm-q" type="search" placeholder="Audit firm name, for example Sikich or Wipfli" aria-label="Audit firm name" autocomplete="off"><div class="search-results" id="firm-r" role="listbox"></div></div>
+        <p class="small muted">${pl(firms.length, "firm or audit office", "firms and audit offices")} ${where}. Spellings are grouped (punctuation and endings such as LLP or CPAs are ignored), so a firm can still appear under two names, and two firms with the same name can appear together.</p>
+      </div>
+      <div id="firm-out"></div>`;
+    const input = document.getElementById("firm-q"), res = document.getElementById("firm-r");
+    input.addEventListener("input", () => {
+      const q = normQ(input.value);
+      if (q.length < 2) { res.innerHTML = ""; return; }
+      const hits = firms.filter((f) => f.q.includes(q)).slice(0, 15);
+      res.innerHTML = hits.length ? hits.map((f) => `<a role="option" href="${href(f.key)}"><strong>${esc(f.name)}</strong> <span class="muted small">${pl(f.list.length, "government", "governments")}${st ? "" : " · " + esc([...new Set(f.list.map((g) => g[0]))].slice(0, 6).join(", ")) + ([...new Set(f.list.map((g) => g[0]))].length > 6 ? "…" : "")}</span></a>`).join("")
+        : `<div class="muted small" style="padding:8px">No firm ${where} matches. Try a shorter part of the name.</div>`;
+    });
+    const out = document.getElementById("firm-out");
+    const note = `<div class="notice">Each score describes the <strong>government</strong>, based on what its auditor found and reported. It is not a rating of the audit firm: a firm that reports more findings may simply be doing thorough work. This page lists who signed each audit, as filed with the Federal Audit Clearinghouse, and does not rank or rate audit firms.</div>`;
+
+    if (key && !firm) {
+      const elsewhere = A.firms.find((f) => f.key === key);
+      out.innerHTML = `<div class="notice">${elsewhere ? `${esc(elsewhere.name)} has no audit year ${A.assessment_year} audits of local governments ${where}. <a href="${href(key, "")}">See all states</a>.` : "That firm is not in this week's list."}</div>`;
+      return;
+    }
+    if (!firm) {
+      out.innerHTML = st
+        ? `<div class="card"><h2>Audit firms ${where} (A–Z)</h2><p class="small muted">Number of local governments whose latest audit each firm signed. Listed alphabetically.</p>
+            <ul class="firm-az">${firms.map((f) => `<li><a href="${href(f.key)}">${esc(f.name)}</a> <span class="muted small">${fmtInt(f.list.length)}</span></li>`).join("")}</ul></div>${note}`
+        : `<div class="notice">Search for a firm above, or choose a state under <em>Scope</em> to browse its audit firms A–Z.</div>${note}`;
+      return;
+    }
+
+    const C = Object.fromEntries(A.cols.map((c, i) => [c, i]));
+    const rows = firm.list;
+    const states = [...new Set(rows.map((g) => g[C.state]))];
+    const others = firm.variants.filter((v) => v !== firm.name);
+    out.innerHTML = `
+      <div class="card">
+        <h2>${esc(firm.name)}</h2>
+        <p>${pl(rows.length, "local government", "local governments")} ${st ? "in " + esc(stName(st)) : `in ${pl(states.length, "state", "states")}`} whose audit year ${A.assessment_year} Single Audit names this firm as auditor.
+          ${others.length ? `<span class="small muted">Also written as: ${others.map(esc).join("; ")}.</span>` : ""}</p>
+        <div class="toolbar noprint"><a class="btn" id="firm-csv" download="audit-firm-${esc(firm.key)}.csv">Download (CSV)</a>
+          ${st && firm.govs.length > rows.length ? `<a class="btn" href="${href(firm.key, "")}">All states (${fmtInt(firm.govs.length)})</a>` : ""}
+          ${!st && states.length > 1 ? `<select id="firm-st" aria-label="Show one state"><option value="">All ${states.length} states</option>${states.map((s2) => `<option value="${s2}">${esc(stName(s2))}</option>`).join("")}</select>` : ""}</div>
+        <div class="table-wrap"><table><thead><tr><th>Government</th><th>Location</th><th class="num">Federal awards spent</th><th class="num">Score</th><th class="num">Findings</th><th class="num">Repeat</th><th class="num">Filed</th></tr></thead>
+          <tbody>${rows.map((g) => `<tr data-st="${esc(g[C.state])}" data-id="${esc(g[C.id])}" data-kind="audit">
+            <td><strong>${esc(g[C.name])}</strong></td>
+            <td>${esc(g[C.city])}, ${esc(g[C.state])}</td>
+            <td class="num">${fmtMoney(g[C.federal_expended])}</td>
+            <td class="num">${pill(g[C.tier])} ${g[C.score]}</td>
+            <td class="num">${fmtInt(g[C.findings])}</td><td class="num">${fmtInt(g[C.repeat_findings])}</td>
+            <td class="num">${g[C.days_late] ? `${fmtInt(g[C.days_late])} days late` : '<span class="muted">on time</span>'}</td></tr>`).join("")}</tbody></table></div>
+        <p class="small muted">Latest audit on file for each government (audit year ${A.assessment_year}). Select a row for details. Data of ${fmtDate(A.as_of)}.</p>
+      </div>${note}`;
+    bindRows();
+    const sel = document.getElementById("firm-st");
+    if (sel) sel.onchange = () => (location.hash = href(firm.key, sel.value));
+    const csv = [["audit_firm_as_filed", ...A.cols, "page"], ...rows.map((g) => [firm.name, ...g, "https://civicauditlens.org" + govPath(g[C.state], g[C.id], g[C.name])]),
+      [], ["Source", `Federal Audit Clearinghouse via CivicAuditLens.org, data of ${A.as_of}. Scores describe governments, not audit firms.`]];
+    document.getElementById("firm-csv").href = URL.createObjectURL(new Blob([csv.map((r) => r.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n")], { type: "text/csv" }));
   }
 
   function insRequirements(ins, st) {
@@ -858,7 +936,7 @@
     const M = SUMMARY.meta, N = SUMMARY.national;
     const [ins, val] = await Promise.all([insights(), once("validation", "validation.json")]);
     const status = Object.assign({}, M.optional || {}, (ins && ins.status) || {});
-    const NAMES = { requirements: "Compliance requirements", programs: "Federal programs", passthrough: "Pass-through entities", themes: "Finding themes", timeliness: "Filing timeliness", persistence: "Persistent findings", persistence_summary: "Persistence summary", peers: "Peer comparison", usaspending: "USAspending cross-check", changes: "Weekly changes" };
+    const NAMES = { requirements: "Compliance requirements", programs: "Federal programs", passthrough: "Pass-through entities", themes: "Finding themes", timeliness: "Filing timeliness", persistence: "Persistent findings", persistence_summary: "Persistence summary", peers: "Peer comparison", usaspending: "USAspending cross-check", changes: "Weekly changes", auditors: "Audit firm list" };
     const U = ins && ins.usaspending;
     const checks = (val && val.spot_checks) || [];
     app.innerHTML = `<div class="method">
@@ -938,6 +1016,7 @@
           <li><strong>Finding themes:</strong> public keyword rules applied to the text of each finding; approximate.</li>
           <li><strong>Peer comparison:</strong> each score's percentile among governments with similar federal spending in the same state (or nationally when a state has fewer than 10 such peers).</li>
           <li><strong>USAspending cross-check:</strong> new direct federal grant obligations to the largest apparent stopped filers since their missing year began.</li>
+          <li><strong>Audit firms:</strong> the firm or state audit office named as auditor on each government's latest Single Audit, with spellings grouped. It is a lookup only; no scores, rates or rankings of audit firms are computed.</li>
           <li><strong>Weekly changes:</strong> each update is compared with the previous one; changes are published on the <a href="#changes">What changed</a> page and as RSS feeds.</li>
         </ul>
       </div>
@@ -1115,14 +1194,14 @@
   // ---------- router ----------
   async function route() {
     closeModal();
-    // routes: #home, #state-IL, #stopped, #stopped-IL, #insights-<tab>[-IL], #brief-IL, #changes[-IL], #lookup,
+    // routes: #home, #state-IL, #stopped, #stopped-IL, #insights-<tab>[-IL], #insights-auditors-<IL|all>-<firm>, #brief-IL, #changes[-IL], #lookup,
     //         #compare/IL:UEI,IL:UEI, #validation, #method, #feedback
     const parts = location.hash.replace(/^#\/?/, "").split(/[-/]/);
     try {
       if (parts[0].startsWith("compare")) await viewCompare(parseCompare(location.hash));
       else if (parts[0] === "state") await viewState(parts[1]);
       else if (parts[0] === "stopped") await viewStopped(parts[1]);
-      else if (parts[0] === "insights") await viewInsights(parts[1], (parts[2] || "").toUpperCase());
+      else if (parts[0] === "insights") await viewInsights(parts[1], (parts[2] || "").toUpperCase(), (parts[3] || "").toLowerCase().replace(/[^a-z0-9]/g, ""));
       else if (parts[0] === "brief") await viewBrief(parts[1]);
       else if (parts[0] === "changes") await viewChanges((parts[1] || "").toUpperCase());
       else if (parts[0] === "lookup") viewLookup();

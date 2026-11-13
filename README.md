@@ -26,6 +26,8 @@ This project:
 6. **Compares** up to three governments side by side (`/#compare/IL:UEI1,IL:UEI2`): score and its four parts, peer
    percentile, findings, filing timeliness, warning signs, programs, pass-through entities and score history since 2016,
    with a shareable link, CSV download and suggestions of similar-size governments in the same state.
+7. **Finds governments by audit firm** (Insights → Audit firms, `/#insights-auditors-IL-sikich`): the governments whose
+   latest Single Audit a firm signed, with each government's score. A lookup only: it does not score, rate or rank firms.
 
 > Scores are screening indicators, not audit opinions and not findings of fraud or wrongdoing.
 

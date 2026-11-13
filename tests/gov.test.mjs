@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { shardOf, slugify, encId, govPath, parseGovPath, renderGov, renderNotFound, handleGov } from "../src/gov.js";
+import { shardOf, slugify, encId, govPath, parseGovPath, renderGov, renderNotFound, handleGov, firmKey } from "../src/gov.js";
 
 // Reference values computed with pipeline/analytics.py (shard_of, slugify, urllib quote)
 const REF = [
@@ -80,4 +80,18 @@ test("handleGov serves, redirects to the canonical path, and 404s", { skip: !exi
   const missing = await handleGov(new Request(`https://civicauditlens.org/gov/${st}/NOPE`), assets);
   assert.equal(missing.status, 404);
   assert.equal(await handleGov(new Request("https://civicauditlens.org/other"), assets), null);
+});
+
+test("firmKey matches the pipeline's grouping for every firm name on file", () => {
+  const files = [SAMPLE + "/auditors.json", new URL("../site/data/auditors.json", import.meta.url).pathname].filter((f) => existsSync(f));
+  let checked = 0;
+  for (const f of files) {
+    for (const firm of JSON.parse(readFileSync(f, "utf8")).firms) {
+      assert.match(firm.key, /^[a-z0-9]+$/);
+      for (const v of firm.variants) { assert.equal(firmKey(v), firm.key, `${v} in ${f}`); checked++; }
+    }
+  }
+  assert.equal(firmKey("Sikich, L.L.P."), "sikich");
+  assert.equal(firmKey(""), "unknown");
+  if (files.length) assert.ok(checked > 0);
 });

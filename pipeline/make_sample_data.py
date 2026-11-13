@@ -19,6 +19,10 @@ sys.path.insert(0, str(Path(__file__).parent))
 from build_dataset import STATES, build, write, add_extras, assessment_year, HISTORY_START  # noqa: E402
 from scoring import add_months  # noqa: E402
 
+# varied spellings, so the audit-firm grouping is exercised
+SAMPLE_FIRMS = ["Sample CPA Firm", "SAMPLE CPA FIRM, LLP", "Example & Associates, P.C.", "Example and Associates PC",
+                "Office of the Sample State Auditor", "Prairie Audit Group, Ltd."]
+
 rng = random.Random(42)
 KINDS = ["Village", "City", "Town", "County", "Township", "School District", "Water District"]
 PROGRAMS = [  # (prefix, extension, name)
@@ -98,7 +102,7 @@ def make(today: date):
                     "is_material_noncompliance_disclosed": yn(p * 0.2),
                     "is_low_risk_auditee": yn(0.35 * (1 - p)),
                     "agencies_with_prior_findings": "14, 21" if rng.random() < p * 0.7 else "",
-                    "auditor_firm_name": "Sample CPA Firm", "cognizant_agency": "", "oversight_agency": "21",
+                    "auditor_firm_name": SAMPLE_FIRMS[(i + yr) % len(SAMPLE_FIRMS)], "cognizant_agency": "", "oversight_agency": "21",
                     "resubmission_status": "",
                 })
                 for j, (pre, ext, pname) in enumerate(progs):

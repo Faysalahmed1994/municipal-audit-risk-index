@@ -1,4 +1,5 @@
 """Tests for the site v0.2 analyses. Run with:  python -m pytest pipeline -q"""
+import re
 from datetime import date
 
 import analytics as an
@@ -182,3 +183,30 @@ def test_migration_placeholder_is_not_a_prior_finding():
     s = score_audit(dict(BASE, report_id="R", fy_end_date="2019-06-30", fac_accepted_date="2020-01-01",
                          agencies_with_prior_findings="GSA_MIGRATION"), None)
     assert "prior_findings_reported" not in s["flags"]
+
+
+def test_firm_key_groups_spellings_and_is_url_safe():
+    same = ["Sikich CPA LLC", "SIKICH LLP", "Sikich, L.L.P."]
+    assert {an.firm_key(n) for n in same} == {"sikich"}
+    assert an.firm_key("Lauterbach & Amen, LLP") == an.firm_key("LAUTERBACH AND AMEN LLP") == "lauterbachamen"
+    assert an.firm_key("Gorenz and Associates, Ltd.") == "gorenzassociates"
+    assert an.firm_key("CPA") == "cpa"                      # never empty
+    for n in same + ["Office of the Washington State Auditor", "Prado & Renteria CPAS Prof. Corp."]:
+        assert re.fullmatch(r"[a-z0-9]+", an.firm_key(n))
+
+
+def test_auditors_lists_governments_without_rating_firms():
+    ent = lambda i, firm, score: {"id": f"U{i}", "name": f"Gov {i}", "city": "X", "score": score, "tier": "Low",
+                                  "federal_expended": 1000 * i, "findings": {"count": i, "repeat": 0},
+                                  "days_late": 0, "auditor": firm}
+    detail = {"IL": {"entities": [ent(1, "Sikich LLP", 10), ent(2, "SIKICH CPA LLC", 20), ent(3, "", 5)], "stopped": []},
+              "WI": {"entities": [ent(4, "Sikich LLP", 30), ent(5, "Wipfli LLP", 0)], "stopped": []}}
+    out = an.auditors(detail, 2025)
+    firms = {f["key"]: f for f in out["firms"]}
+    assert set(firms) == {"sikich", "wipfli"}                         # blank auditor skipped
+    s = firms["sikich"]
+    assert s["name"] == "Sikich LLP" and s["variants"] == ["Sikich LLP", "SIKICH CPA LLC"]
+    assert [g[:2] for g in s["govs"]] == [["IL", "U1"], ["IL", "U2"], ["WI", "U4"]]
+    assert len(s["govs"][0]) == len(out["cols"])
+    assert not any(k in s for k in ("score", "avg_score", "rank", "rate"))   # no firm-level ratings
+    assert [f["name"] for f in out["firms"]] == ["Sikich LLP", "Wipfli LLP"]  # alphabetical, not by size
