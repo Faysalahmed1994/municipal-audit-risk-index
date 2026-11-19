@@ -740,7 +740,6 @@ AR,K335CDNV81N7,Mountainburg School District No. 16,Mountainburg,2025,2025-06-GS
 AR,MQ2EZEJAYFU9,Ozark School District No. 14,Ozark,2025,2025-06-GSAFAC-0000397266,2025-06-30,2026-01-09,2588756,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 AR,ZJKVDUMLZJ69,Farmington School District #6,Farmington,2025,2025-06-GSAFAC-0000398912,2025-06-30,2026-02-11,2356307,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 AR,YMY6PVZ7ALJ6,Mexico Housing Authority,Mexico,2025,2025-03-GSAFAC-0000384903,2025-03-31,2025-10-14,1876441,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-AR,YDSNUQYKM485,Cass County Housing Authority,Beardstown,2025,2025-03-GSAFAC-0000385412,2025-03-31,2025-10-15,1827328,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 AR,TXKTQC48R4M5,Prairie Grove School District,Prairie Grove,2025,2025-06-GSAFAC-0000402633,2025-06-30,2026-03-03,1693201,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 AR,KQN8LSPLFAM9,Marshall Housing Authority,Marshall,2025,2025-03-GSAFAC-0000385415,2025-03-31,2025-10-14,1686612,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 AR,KJ3TNKE62UF6,Alton Housing Authority,Alton,2025,2025-03-GSAFAC-0000386315,2025-03-31,2025-10-28,1603114,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -1223,6 +1222,7 @@ CA,WBS4JS3G6HF5,Soquel Creek Water District,Soquel,2025,2025-06-GSAFAC-000041055
 CA,SZEGXHQ2K1W3,SAN FRANCISCO HOUSING AUTHORITY,San Francisco,2025,2025-09-GSAFAC-0000421662,2025-09-30,2026-06-30,525635535,18,Moderate,0,0,9,9,0,6,6,repeat_finding;prior_findings_reported;not_low_risk_auditee
 CA,KAKXMKB5S1B5,City of American Canyon,American Canyon,2025,2025-06-GSAFAC-0000409515,2025-06-30,2026-03-25,2323925,18,Moderate,0,6,3,9,0,1,1,fs_significant_deficiency;repeat_finding;prior_findings_reported;not_low_risk_auditee
 CA,EPBWG119W4J5,BEAUMONT CHERRY VALLEY WATER DISTRICT,Beaumont,2025,2025-12-GSAFAC-0000426493,2025-12-31,2026-08-18,1411917,18,Moderate,0,6,3,9,0,2,1,fs_significant_deficiency;repeat_finding;prior_findings_reported;not_low_risk_auditee
+CA,S63SP9SW2D22,Monterey County Office of Education,Salinas,2025,2025-06-GSAFAC-0000417741,2025-06-30,2026-11-17,45856441,17,Moderate,0,0,0,17,232,0,0,late;prior_findings_reported
 CA,N66KKHQ3EJY5,COUNTY OF SAN BENITO,Hollister,2025,2025-06-GSAFAC-0000413497,2025-06-30,2026-03-31,41552444,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
 CA,NV42JM87MBC3,County of Glenn,Willows,2025,2025-06-GSAFAC-0000412813,2025-06-30,2026-03-31,39386088,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
 CA,N5VKWJAJBTG1,County of Sutter,Yuba City,2025,2025-06-GSAFAC-0000407196,2025-06-30,2026-03-31,32464817,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
@@ -1431,7 +1431,6 @@ CA,RL6RZWJN7C83,Santa Clara Valley Water District,San Jose,2025,2025-06-GSAFAC-0
 CA,KP9HRAGXGEK3,ANAHEIM UNION HIGH SCHOOL DISTRICT,Anaheim,2025,2025-06-GSAFAC-0000388845,2025-06-30,2025-12-16,58709521,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 CA,NG4HWLWBMBF5,Merced County Office of Education,Merced,2025,2025-06-GSAFAC-0000400925,2025-06-30,2026-02-20,57306392,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 CA,KJKSES96KUN9,City of Vallejo,Vallejo,2025,2025-06-GSAFAC-0000398389,2025-06-30,2026-03-30,56382311,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
-CA,S63SP9SW2D22,Monterey County Office of Education,Salinas,2025,2025-06-GSAFAC-0000399378,2025-06-30,2026-02-02,45856441,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 CA,CL1ACZKW59E1,City of Roseville,Roseville,2025,2025-06-GSAFAC-0000408884,2025-06-30,2026-03-23,45364532,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 CA,DDW3C3XPEPU8,SALEM HOUSING AUTHORITY,Salem,2025,2025-09-GSAFAC-0000419402,2025-09-30,2026-05-27,40772508,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 CA,DZNGKHWJVJU1,Clovis Unified School District,Clovis,2025,2025-06-GSAFAC-0000392810,2025-06-30,2025-12-19,39954416,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
@@ -2264,9 +2263,11 @@ CO,P8S6HJCTXUR5,"Castle Rock, The Town of",Castle Rock,2025,2025-12-GSAFAC-00004
 CO,TMNCYV139J36,CLEAR CREEK COUNTY,Georgetown,2025,2025-12-GSAFAC-0000431451,2025-12-31,2026-09-30,2905195,20,Moderate,15,0,0,5,0,0,0,going_concern;prior_findings_reported
 CO,QK1EHMBGFNC9,"GOLDEN, CITY OF",Golden,2025,2025-12-GSAFAC-0000428611,2025-12-31,2026-09-17,1412040,20,Moderate,15,0,0,5,0,0,0,going_concern;prior_findings_reported
 CO,LZLWLKX7NRY3,ST. VINCENT GENERAL HOSPITAL DISTRICT,Leadville,2025,2025-12-GSAFAC-0000426708,2025-12-31,2026-08-19,20171204,18,Moderate,0,6,3,9,0,1,1,fs_significant_deficiency;repeat_finding;prior_findings_reported;not_low_risk_auditee
+CO,UTL1L7S916S9,"SILT, TOWN OF",Silt,2025,2025-12-GSAFAC-0000434840,2025-12-31,2026-11-19,13769202,17,Moderate,0,0,0,17,50,0,0,late;prior_findings_reported;not_low_risk_auditee
 CO,KNMKSMB6JNW5,TOWN OF ESTES PARK TOWN HALL,Estes Park,2025,2025-12-GSAFAC-0000431831,2025-12-31,2026-10-01,2729726,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
 CO,K1CEA5R9GEN6,"PINNACLE CHARTER SCHOOL, INC",Federal Heights,2025,2025-06-GSAFAC-0000417952,2025-06-30,2026-05-08,2579747,17,Moderate,0,0,0,17,39,0,0,late;prior_findings_reported;not_low_risk_auditee
 CO,SL7NZMMJ93X5,City of Wray,Wray,2025,2025-12-GSAFAC-0000431931,2025-12-31,2026-10-01,2507507,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
+CO,C7WQCNBHCD37,City of Burlington,Burlington,2025,2025-12-GSAFAC-0000434693,2025-12-31,2026-11-18,1314070,17,Moderate,0,0,0,17,49,0,0,late;prior_findings_reported;not_low_risk_auditee
 CO,ENHRN2JCL9V3,CITY & COUNTY OF DENVER,Denver,2025,2025-12-GSAFAC-0000422168,2025-12-31,2026-06-30,342163882,15,Moderate,0,6,0,9,0,4,0,fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
 CO,FM3GEGM9SKC7,Joint School District No. 28-J of the Counties of Adams and Arapahoe,Aurora,2025,2025-06-GSAFAC-0000387346,2025-06-30,2026-01-05,66026483,15,Moderate,0,4,6,5,0,10,0,program_material_weakness;program_modified_opinion;prior_findings_reported
 CO,WD1GHA7QELV5,Brighton School District 27J,Brighton,2025,2025-06-GSAFAC-0000394173,2025-06-30,2026-01-15,17050924,15,Moderate,0,6,0,9,0,0,0,fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
@@ -2279,6 +2280,7 @@ CO,DT4WTYDLDBG7,TOWN OF GYPSUM TOWN HALL,Gypsum,2025,2025-12-GSAFAC-0000430237,2
 CO,DA97D31MNA24,TOWN OF LYONS,Lyons,2025,2025-12-GSAFAC-0000424930,2025-12-31,2026-07-27,1128484,15,Moderate,0,6,0,9,0,0,0,fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
 CO,GYLMN6H2LXS4,Jefferson County Government,Golden,2025,2025-12-GSAFAC-0000415007,2025-12-31,2026-07-08,89683975,14,Low,0,0,5,9,0,1,0,questioned_costs;prior_findings_reported;not_low_risk_auditee
 CO,UGHGM3UM5UC3,City of Fountain,Fountain,2025,2025-12-GSAFAC-0000432002,2025-12-31,2026-10-05,4556141,13,Low,0,0,0,13,5,0,0,late;prior_findings_reported
+CO,CZG1HQRC2FL9,KIT CARSON COUNTY,Burlington,2025,2025-12-GSAFAC-0000434549,2025-12-31,2026-11-18,1449115,13,Low,0,0,0,13,49,0,0,late;prior_findings_reported
 CO,N7PWMDQDNM45,Housing Authority of the City of Walsenburg,Walsenburg,2025,2025-03-GSAFAC-0000394776,2025-03-31,2025-12-23,1317987,13,Low,0,4,0,9,0,1,0,program_material_weakness;prior_findings_reported;not_low_risk_auditee
 CO,KFVNBUDNSNA7,COUNTY OF SUMMIT,Breckenridge,2025,2025-12-GSAFAC-0000421941,2025-12-31,2026-06-24,25633343,12,Low,0,0,3,9,0,1,1,repeat_finding;prior_findings_reported;not_low_risk_auditee
 CO,V1L8TD75JRQ5,CITY OF LAKEWOOD,Lakewood,2025,2025-12-GSAFAC-0000423324,2025-12-31,2026-07-20,7003892,11,Low,0,6,0,5,0,1,0,fs_significant_deficiency;prior_findings_reported
@@ -2758,7 +2760,10 @@ FL,FWZBKPLD1C11,CITY OF COTTONDALE,Cottondale,2025,2025-09-GSAFAC-0000422920,202
 FL,WQ36LQKB8EQ8,CITY OF CHIPLEY,Chipley,2025,2025-09-GSAFAC-0000421195,2025-09-30,2026-07-23,2478526,23,Moderate,0,6,0,17,23,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 FL,YSTMHS5MMUG5,JACKSONVILLE HOUSING AUTHORITY,Jacksonville,2025,2025-09-GSAFAC-0000421905,2025-09-30,2026-06-29,129426327,22,Moderate,0,4,9,9,0,6,6,program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 FL,D1CMZP1CNFB8,"MEXICO BEACH, CITY OF",Mexico Beach,2025,2025-09-GSAFAC-0000422899,2025-09-30,2026-06-30,1130328,22,Moderate,7,6,0,9,0,0,0,fs_opinion_qualified;fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
+FL,K73SJJWHL4X6,TOWN OF SEWALLS POINT TOWN HALL,Stuart,2025,2025-09-GSAFAC-0000431291,2025-09-30,2026-11-17,6254704,21,Moderate,0,0,0,21,140,0,0,late;prior_findings_reported;not_low_risk_auditee
 FL,UKHHRRXGL3J1,"HILLSBORO BEACH, TOWN OF",Hillsboro Beach,2025,2025-09-GSAFAC-0000432822,2025-09-30,2026-10-20,3336759,21,Moderate,0,0,0,21,112,0,0,late;prior_findings_reported;not_low_risk_auditee
+FL,EFXKE9EJM7U9,CITY OF PORT RICHEY,Port Richey,2025,2026-09-GSAFAC-0000434782,2025-09-30,2026-11-19,2244610,21,Moderate,0,0,0,21,142,0,0,late;prior_findings_reported;not_low_risk_auditee
+FL,CRQMTNLKHA74,CITY OF INDIAN ROCKS BEACH,Indian Rocks Beach,2025,2025-09-GSAFAC-0000434181,2025-09-30,2026-11-17,2155754,21,Moderate,0,0,0,21,140,0,0,late;prior_findings_reported;not_low_risk_auditee
 FL,T9BVWNTVBHC6,New Beginnings High School,Lakeland,2025,2025-06-GSAFAC-0000414429,2025-06-30,2026-08-05,1854128,21,Moderate,0,0,0,21,128,0,0,late;prior_findings_reported;not_low_risk_auditee
 FL,MKEJWVSEURF3,MIAMI DADE COUNTY,Miami,2025,2025-09-GSAFAC-0000407517,2025-09-30,2026-06-30,306352586,20,Moderate,0,6,5,9,0,1,0,fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
 FL,DJBEHJJ8G898,Miami-Dade Water and Sewer Department,Miami,2025,2025-09-GSAFAC-0000408766,2025-09-30,2026-03-26,176900734,20,Moderate,15,0,0,5,0,0,0,going_concern;prior_findings_reported
@@ -3150,6 +3155,7 @@ GA,L2QWKMK5LM16,"DOUGHERTY COUNTY, GEORGIA",Albany,2025,2025-06-GSAFAC-000042020
 GA,EXWVJS2HJ2M8,Crawford County Board of Education,Roberta,2025,2025-06-GSAFAC-0000431134,2025-06-30,2026-11-10,3001336,42,Elevated,0,21,0,21,225,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,SU26JQKVEGM5,Clayton Community Mental Health Substance Abuse DEVE SVCS BOARD,Morrow,2025,2025-06-GSAFAC-0000432720,2025-06-30,2026-10-21,1055863,42,Elevated,15,6,0,21,205,0,0,going_concern;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,PUEMHBUYBS27,COUNTY OF JEFFERSON,Louisville,2025,2025-06-GSAFAC-0000422824,2025-06-30,2026-06-30,46453690,41,Elevated,0,15,5,21,92,0,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
+GA,KLJFD7NFMQA8,COUNTY OF WARE,Waycross,2025,2025-06-GSAFAC-0000434117,2025-06-30,2026-11-16,11853213,41,Elevated,0,15,5,21,231,0,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 GA,L8EJYUCGB228,WARREN COUNTY BOARD OF COMMISSIONERS,Warrenton,2025,2025-06-GSAFAC-0000423220,2025-06-30,2026-07-01,4412464,41,Elevated,0,15,5,21,93,0,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 GA,NNHHKJSMNYN7,CITY OF BARNESVILLE CITY HALL,Barnesville,2025,2025-09-GSAFAC-0000431650,2025-09-30,2026-09-30,1629526,41,Elevated,0,15,5,21,92,0,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 GA,LJDMK9EPYYJ6,"City of Winder, Georgia",Winder,2025,2025-06-GSAFAC-0000416760,2025-06-30,2026-04-26,8424715,38,Elevated,0,21,0,17,27,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
@@ -3204,6 +3210,7 @@ GA,U9ZYRLG2NT63,BROOKS COUNTY BOARD OF EDUCATION,Quitman,2025,2025-06-GSAFAC-000
 GA,G6WNKJVVZRW9,Bleckley County Board of Education,Cochran,2025,2025-06-GSAFAC-0000421471,2025-06-30,2026-08-07,5029594,27,Moderate,0,6,0,21,130,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,JWMAK2KDYFM5,TELFAIR COUNTY SCHOOL DISTRICT,Mc Rae Helena,2025,2025-06-GSAFAC-0000418756,2025-06-30,2026-07-01,3942552,27,Moderate,0,6,0,21,93,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,NW1THM6M1CR5,Chattahoochee County Board of Education,Cusseta,2025,2025-06-GSAFAC-0000417541,2025-06-30,2026-07-07,3798007,27,Moderate,0,6,0,21,99,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+GA,ZEXSHEB2ZR72,HEARD COUNTY BOARD OF EDUCATION,Franklin,2025,2025-06-GSAFAC-0000428043,2025-06-30,2026-11-19,3552919,27,Moderate,0,6,0,21,234,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,M8YABMYN1PK5,CITY OF COMMERCE,Commerce,2025,2025-06-GSAFAC-0000424566,2025-06-30,2026-10-07,2880135,27,Moderate,0,6,0,21,191,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,JK8FEMY7P6C1,CALHOUN COUNTY SCHOOL DISTRICT,Edison,2025,2025-06-GSAFAC-0000426243,2025-06-30,2026-09-16,2172742,27,Moderate,0,6,0,21,170,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 GA,CQ16CGLTHPB7,"City of Cleveland, GA",Cleveland,2025,2025-06-GSAFAC-0000406836,2025-06-30,2026-09-30,2007441,27,Moderate,0,6,0,21,184,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
@@ -3665,7 +3672,6 @@ IA,HKWLVRMLW633,"City of Sergeant Bluff, Iowa",Sergeant Bluff,2025,2025-06-GSAFA
 IA,WYVLNM88LJ35,Delaware County,Manchester,2025,2025-06-GSAFAC-0000421793,2025-06-30,2026-06-29,2279344,36,Elevated,0,15,0,21,91,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 IA,XDHCCJCB61R1,LE MARS COMMUNITY SCHOOL DISTRICT,Le Mars,2025,2025-06-GSAFAC-0000426166,2025-06-30,2026-08-17,1587011,36,Elevated,0,15,0,21,140,3,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 IA,GAB5K1ECR343,"MONDAMIN, CITY OF",Mondamin,2025,2025-06-GSAFAC-0000423902,2025-06-30,2026-07-13,1581570,36,Elevated,0,15,0,21,105,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
-IA,LMLLW6RD32Y9,"Low Rent Housing Agency of Knoxville, Iowa",Knoxville,2025,2025-03-GSAFAC-0000386687,2025-03-31,2025-11-03,1578611,36,Elevated,0,19,8,9,0,1,1,fs_material_weakness;program_material_weakness;fs_material_noncompliance;repeat_finding;prior_findings_reported;not_low_risk_auditee
 IA,C9Y3YKN7DTY5,COUNTY OF POCAHONTAS,Pocahontas,2025,2025-06-GSAFAC-0000423926,2025-06-30,2026-07-09,1540303,36,Elevated,0,15,0,21,101,1,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 IA,MRADZNN5X529,CITY OF MARION IOWA,Marion,2025,2025-06-GSAFAC-0000425838,2025-06-30,2026-08-18,1498682,36,Elevated,0,15,0,21,141,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 IA,LLD2XNNEAZA9,COUNTY OF IOWA,Marengo,2025,2025-06-GSAFAC-0000426348,2025-06-30,2026-08-12,1214952,36,Elevated,0,15,0,21,135,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
@@ -4873,6 +4879,7 @@ IL,PLE3DQ2K2429,WOODRIDGE SCHOOL DISTRICT 68,Woodridge,2025,2025-06-GSAFAC-00003
 IL,LFWKKNMRM2W4,CARUTHERSVILLE HOUSING AUTHORITY,Caruthersville,2025,2025-12-GSAFAC-0000429903,2025-12-31,2026-09-23,1879502,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 IL,CZKXDZ2MAMU3,STUTTGART HOUSING AUTHORITY,Dewitt,2025,2025-12-GSAFAC-0000431492,2025-12-31,2026-09-30,1831445,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 IL,P6QXH5JSSX65,CHARLESTON HOUSING AUTHORITY,Charleston,2025,2025-12-GSAFAC-0000426968,2025-12-31,2026-08-21,1830702,5,Low,0,0,0,5,0,0,0,prior_findings_reported
+IL,YDSNUQYKM485,Cass County Housing Authority,Beardstown,2025,2025-03-GSAFAC-0000385412,2025-03-31,2025-10-15,1827328,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 IL,DTMMLMXVBAJ5,New Lenox School District 122,New Lenox,2025,2025-06-GSAFAC-0000406366,2025-06-30,2026-03-20,1822780,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 IL,W2E7VB47AD33,BRADLEY BOURBONNAIS CHSD NO 307,Bradley,2025,2025-06-GSAFAC-0000388104,2025-06-30,2025-12-04,1789451,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 IL,F2EDH9VUK1F7,LYONS TOWNSHIP HIGH SCHOOL DISTRICT NO. 204,La Grange,2025,2025-06-GSAFAC-0000406009,2025-06-30,2026-03-13,1750031,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -5909,6 +5916,7 @@ LA,RMBXJN8KJ889,Central Community School System,Baton Rouge,2025,2025-06-GSAFAC-
 LA,LC9KNWGY9713,Sabine Parish Waterworks District No. 1,Many,2025,2025-09-GSAFAC-0000415409,2025-09-30,2026-07-13,3756748,13,Low,0,0,0,13,13,0,0,late;prior_findings_reported
 LA,DNBFXU7PXA57,West Feliciana Parish Government,St Francisville,2025,2025-06-GSAFAC-0000413402,2025-06-30,2026-03-31,3187792,13,Low,0,0,0,13,1,0,0,late;prior_findings_reported
 LA,P4UBJKFLMMD7,Calcasieu Parish Sheriff,Lake Charles,2025,2025-06-GSAFAC-0000413950,2025-06-30,2026-03-31,1822062,13,Low,0,0,0,13,1,0,0,late;prior_findings_reported
+LA,P1GAJ3RLMBZ7,"WILLOW MANOR, INC.",Lake Charles,2025,2025-12-GSAFAC-0000434397,2025-12-31,2026-11-13,1570600,13,Low,0,0,0,13,44,0,0,late;prior_findings_reported
 LA,LNMJU9XXXPC4,St. Charles Parish Sheriff's Office,Hahnville,2025,2025-06-GSAFAC-0000394778,2025-06-30,2026-06-12,1415922,13,Low,0,0,0,13,74,0,0,late;prior_findings_reported
 LA,ULCNCMZV9C83,East Baton Rouge Parish School System,Baton Rouge,2025,2025-06-GSAFAC-0000399443,2025-06-30,2026-01-23,112579308,11,Low,0,6,0,5,0,0,0,fs_significant_deficiency;prior_findings_reported
 LA,S9VQJ9Q445B1,RAPIDES PARISH SCHOOL BOARD,Alexandria,2025,2025-06-GSAFAC-0000393918,2025-06-30,2025-12-19,63635076,11,Low,0,6,0,5,0,0,0,fs_significant_deficiency;prior_findings_reported
@@ -6075,6 +6083,7 @@ MA,UW3QB6JEJBD5,ATHOL ROYALSTON REG SCHOOL DISTRICT,Athol,2025,2025-06-GSAFAC-00
 MA,ZCPNEJ3THRH3,"COUNTY OF BRISTOL, MASSACHUSETTS",Taunton,2025,2025-06-GSAFAC-0000407042,2025-06-30,2026-03-31,30585618,39,Elevated,0,19,3,17,1,1,1,fs_material_weakness;program_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 MA,ULQKD3R9E338,Assabet Valley Regional Vocational School District,Marlborough,2025,2025-06-GSAFAC-0000429535,2025-06-30,2026-09-22,1791700,39,Elevated,0,4,14,21,176,9,9,program_material_weakness;questioned_costs;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 MA,JJ3JKMU5K4L1,City of Cambridge,Cambridge,2025,2025-06-GSAFAC-0000416230,2025-06-30,2026-04-21,61538224,36,Elevated,0,4,15,17,22,7,7,program_material_weakness;program_modified_opinion;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
+MA,ZPX6NLLJYA74,CITY OF TAUNTON MA,Taunton,2025,2025-06-GSAFAC-0000433995,2025-06-30,2026-11-17,29243429,36,Elevated,0,15,0,21,232,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 MA,KHG6E511JK78,Martha's Vineyard Regional High School District,Vineyard Haven,2025,2025-06-GSAFAC-0000424572,2025-06-30,2026-08-04,2114590,36,Elevated,0,4,11,21,127,7,0,program_material_weakness;program_modified_opinion;questioned_costs;late;prior_findings_reported;not_low_risk_auditee
 MA,G6QKNSWADCA5,COUNTYOFDUKESCOUNTY,Vineyard Haven,2025,2025-06-GSAFAC-0000429385,2025-06-30,2026-09-23,1981488,36,Elevated,0,15,0,21,177,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 MA,CKSUZ2C9BCN1,PENTUCKET REGIONAL SCHOOL DISTRICT,West Newbury,2025,2025-06-GSAFAC-0000431937,2025-06-30,2026-10-02,1463989,36,Elevated,0,15,0,21,186,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
@@ -6093,6 +6102,7 @@ MA,LNX6QCJ1RNJ7,TOWN OF AVON,Avon,2025,2025-06-GSAFAC-0000413576,2025-06-30,2026
 MA,PDNETU6N7D83,CITY OF GLOUCESTER,Gloucester,2025,2025-06-GSAFAC-0000426176,2025-06-30,2026-08-10,18316346,31,Moderate,0,4,6,21,133,3,0,program_material_weakness;program_modified_opinion;late;prior_findings_reported;not_low_risk_auditee
 MA,U7X1VNC584C8,Chicopee Housing Authority,Chicopee,2025,2025-06-GSAFAC-0000410036,2025-06-30,2026-03-27,10689772,31,Moderate,7,15,0,9,0,0,0,fs_opinion_qualified;fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 MA,C2SLEZ87KAW3,TOWN OF HARDWICK,Hardwick,2025,2025-06-GSAFAC-0000414291,2025-06-30,2026-03-31,3726458,31,Moderate,0,0,14,17,1,1,1,program_modified_opinion;questioned_costs;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
+MA,J2ZMTS2J9H85,"AMHERST, TOWN OF",Amherst,2025,2025-06-GSAFAC-0000426129,2025-06-30,2026-11-13,17351574,30,Moderate,0,4,5,21,228,1,0,program_material_weakness;questioned_costs;late;prior_findings_reported;not_low_risk_auditee
 MA,E7PAMFTQFEG5,TOWN OF COHASSET,Cohasset,2025,2025-06-GSAFAC-0000432736,2025-06-30,2026-10-21,2670801,30,Moderate,0,0,9,21,205,33,5,repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 MA,MGCCXKCQ7B86,TOWN OF NANTUCKET,Nantucket,2025,2025-06-GSAFAC-0000408722,2025-06-30,2026-03-16,10516817,29,Moderate,0,0,20,9,0,5,5,program_modified_opinion;questioned_costs;repeat_finding;prior_findings_reported;not_low_risk_auditee
 MA,EJ8QX1H9W293,"Town of Hingham, Massachusetts",Hingham,2025,2025-06-GSAFAC-0000406578,2025-06-30,2026-03-11,4486987,29,Moderate,0,15,5,9,0,1,0,fs_material_weakness;questioned_costs;prior_findings_reported;not_low_risk_auditee
@@ -7517,6 +7527,7 @@ MN,CZ65TENQWXC3,Saint Paul Public Schools,St Paul,2025,2025-06-GSAFAC-0000411118
 MN,EW1JDNL513C1,CITY OF RUSH CITY,Rush City,2025,2025-12-GSAFAC-0000425288,2025-12-31,2026-07-30,1674396,43,Elevated,0,25,9,9,0,4,3,fs_material_weakness;fs_significant_deficiency;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 MN,RPA6BCN4ZDB9,CENTRAL COMMUNITY TRANSIT,Willmar,2025,2025-12-GSAFAC-0000430185,2025-12-31,2026-09-30,1552120,43,Elevated,0,25,9,9,0,9,9,fs_material_weakness;fs_significant_deficiency;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 MN,KV17N7HANES8,CITY OF DALTON,Dalton,2025,2025-12-GSAFAC-0000427423,2025-12-31,2026-09-08,1375013,43,Elevated,0,25,9,9,0,6,6,fs_material_weakness;fs_significant_deficiency;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
+MN,XEK7M68KL688,SOUTHWEST REGIONAL DEVELOPMENT COMMISSION,Slayton,2025,2025-06-GSAFAC-0000434427,2025-06-30,2026-11-19,1866043,42,Elevated,0,15,6,21,234,3,2,fs_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 MN,FJPDL26NDNM5,REGION 9 DEVELOPMENT COMMISSION,Mankato,2025,2025-06-GSAFAC-0000431368,2025-06-30,2026-10-01,950015,42,Elevated,0,21,0,21,185,1,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 MN,DFAUNPBYQUS1,INDEPENDENT SCHOOL DISTRICT NO. 622,North St Paul,2025,2025-06-GSAFAC-0000418840,2025-06-30,2026-05-27,17792493,41,Elevated,0,15,9,17,58,17,17,fs_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 MN,NHLFNZ9GKFA8,ITASCA COUNTY,Grand Rapids,2025,2025-12-GSAFAC-0000429807,2025-12-31,2026-09-25,10066045,40,Elevated,0,25,6,9,0,6,2,fs_material_weakness;fs_significant_deficiency;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
@@ -7693,6 +7704,7 @@ MN,CNR2AZJVPKT5,Menahga Public Schools District 821,Menahga,2025,2025-06-GSAFAC-
 MN,HN4GNJT9MYL4,Clearbrook-Gonvick Independent School District 2311,Clearbrook,2025,2025-06-GSAFAC-0000393269,2025-06-30,2025-12-23,767484,24,Moderate,0,15,0,9,0,0,0,fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 MN,LJS3MKTNDYH1,McGregor ISD #4,Mcgregor,2025,2025-06-GSAFAC-0000389106,2025-06-30,2025-12-19,755034,24,Moderate,0,15,0,9,0,0,0,fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 MN,H4NULE74YJM9,Polk County,Crookston,2025,2025-12-GSAFAC-0000432072,2025-12-31,2026-10-20,5442253,23,Moderate,0,6,0,17,20,1,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+MN,DCV5DFHWJLG3,COUNTY OF ROSEAU,Roseau,2025,2025-12-GSAFAC-0000434472,2025-12-31,2026-11-17,3722317,23,Moderate,0,6,0,17,48,1,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 MN,LDADUDX2KWM5,McLeod County,Glencoe,2025,2025-12-GSAFAC-0000427541,2025-12-31,2026-09-30,3504597,23,Moderate,0,6,8,9,0,2,1,fs_significant_deficiency;questioned_costs;repeat_finding;prior_findings_reported;not_low_risk_auditee
 MN,ZB57GCJ93NL8,ACADEMIAS LA PAZ,Saint Paul,2025,2025-06-GSAFAC-0000418654,2025-06-30,2026-05-21,917785,23,Moderate,0,6,0,17,52,1,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 MN,DCNCCMS96EL5,DAKOTA COUNTY,Hastings,2025,2025-12-GSAFAC-0000423432,2025-12-31,2026-07-24,67954960,22,Moderate,0,4,9,9,0,6,6,program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
@@ -7976,6 +7988,7 @@ MO,JTVMME6PGLK7,CITY OF POPLAR BLUFF,Poplar Bluff,2025,2025-12-GSAFAC-0000426610
 MO,CQEKEFZ61983,"Buchanan County, Missouri",Saint Joseph,2025,2025-12-GSAFAC-0000428622,2025-12-31,2026-09-16,2976245,37,Elevated,7,21,0,9,0,0,0,fs_opinion_qualified;fs_material_weakness;fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
 MO,CF5MWWT5VG79,Meadow Heights R-II School District,Patton,2025,2025-06-GSAFAC-0000396636,2025-06-30,2026-01-07,2329386,37,Elevated,0,19,9,9,0,6,6,fs_material_weakness;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 MO,DL47BBKNMTT9,CITY OF LICKING,Licking,2025,2025-03-GSAFAC-0000419424,2025-03-31,2026-05-27,3782135,36,Elevated,0,15,0,21,147,1,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+MO,CCUNJ12EUKC5,"City of Rolla, Missouri",Rolla,2025,2025-09-GSAFAC-0000434030,2025-09-30,2026-11-17,3153705,36,Elevated,0,15,0,21,140,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 MO,JTAGLJEZGF27,Reeds Spring R-IV School District,Reeds Spring,2025,2025-06-GSAFAC-0000398537,2025-06-30,2026-07-08,3011885,36,Elevated,0,15,0,21,100,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 MO,MSZCF54123M8,CITY OF DEXTER,Dexter,2025,2025-06-GSAFAC-0000433226,2025-06-30,2026-10-27,2877117,36,Elevated,0,15,0,21,211,2,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 MO,M19LD18S7V86,MORGAN COUNTY SCHOOL DISTRICT R1,Stover,2025,2025-06-GSAFAC-0000432682,2025-06-30,2026-10-16,1840544,36,Elevated,0,15,0,21,200,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
@@ -8101,6 +8114,7 @@ MO,NB13YJBCWYF6,WARREN COUNTY SCHOOL DISTRFICT RIII,Warrenton,2025,2025-06-GSAFA
 MO,L1EFSF42YN37,City of Grandview,Grandview,2025,2025-09-GSAFAC-0000412145,2025-09-30,2026-03-27,2540359,20,Moderate,0,15,0,5,0,0,0,fs_material_weakness;prior_findings_reported
 MO,REAEQJCVQZ95,WESTRAN R-I SCHOOL DISTRICT,Huntsville,2025,2025-06-GSAFAC-0000386629,2025-06-30,2025-12-19,810882,20,Moderate,0,6,5,9,0,4,0,fs_significant_deficiency;questioned_costs;prior_findings_reported;not_low_risk_auditee
 MO,VE6TKW6A4FM9,Special School District of St. Louis County,St Louis,2025,2025-06-GSAFAC-0000397305,2025-06-30,2026-01-15,48198581,19,Moderate,10,0,0,9,0,0,0,fs_opinion_disclaimer_or_adverse;prior_findings_reported;not_low_risk_auditee
+MO,KCAHBEAE9288,City of St. Charles,Saint Charles,2025,2025-12-GSAFAC-0000433688,2025-12-31,2026-11-17,10683232,19,Moderate,0,6,0,13,48,0,0,fs_significant_deficiency;late;prior_findings_reported
 MO,WXEDLAXY9L55,MARSHALL PUBLIC SCHOOLS,Marshall,2025,2025-06-GSAFAC-0000385969,2025-06-30,2025-12-19,3177958,19,Moderate,0,0,10,9,0,3,0,fs_material_noncompliance;questioned_costs;prior_findings_reported;not_low_risk_auditee
 MO,L4C7M75KJ9W3,"CITY OF MARSHALL, MISSOURI",Marshall,2025,2025-09-GSAFAC-0000400366,2025-09-30,2026-03-25,2919639,19,Moderate,0,0,10,9,0,2,0,fs_material_noncompliance;questioned_costs;prior_findings_reported;not_low_risk_auditee
 MO,LQGHC6A2PY79,CLINTON SCHOOL DISTRICT #124,Clinton,2025,2025-06-GSAFAC-0000387292,2025-06-30,2025-12-29,2565484,19,Moderate,0,0,10,9,0,3,0,fs_material_noncompliance;questioned_costs;prior_findings_reported;not_low_risk_auditee
@@ -8772,6 +8786,7 @@ NC,E78ZAJM3BFL3,COUNTY OF MONTGOMERY,Troy,2025,2025-06-GSAFAC-0000420097,2025-06
 NC,CKLKG2TEV1K3,GREENE COUNTY BOARD OF EDUCATION,Snow Hill,2025,2025-06-GSAFAC-0000416338,2025-06-30,2026-05-12,6076425,43,Elevated,0,21,5,17,43,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 NC,ZG8KMNMG3CM7,CITY OF BOILING SPRING LAKES,Boiling Spring Lakes,2025,2025-06-GSAFAC-0000419536,2025-06-30,2026-06-02,1297105,43,Elevated,0,21,5,17,64,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 NC,XGGXCAT5H9V6,TOWN OF CRAMERTON,Cramerton,2025,2025-06-GSAFAC-0000417677,2025-06-30,2026-05-26,885596,43,Elevated,0,21,5,17,57,1,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
+NC,W3JTGJ1KP5D7,COUNTY OF GRAHAM,Robbinsville,2025,2025-06-GSAFAC-0000433735,2025-06-30,2026-11-16,3132029,42,Elevated,0,21,0,21,231,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 NC,K5FWN2T9JQM6,"MADISON NORTH CAROLINA, TOWN OF",Madison,2025,2025-06-GSAFAC-0000424289,2025-06-30,2026-07-21,3376426,41,Elevated,0,15,5,21,113,0,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 NC,CETCPF7VE9W6,"The Cherokee Boys Club, Inc.",Cherokee,2025,2025-06-GSAFAC-0000422806,2025-06-30,2026-07-06,40448647,39,Elevated,0,15,3,21,98,6,1,fs_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 NC,WTHRNPCARBL9,CITY OF ASHEVILLE,Asheville,2025,2025-06-GSAFAC-0000400710,2025-06-30,2026-01-30,25013573,39,Elevated,0,19,11,9,0,5,0,fs_material_weakness;program_material_weakness;program_modified_opinion;questioned_costs;prior_findings_reported;not_low_risk_auditee
@@ -9353,6 +9368,7 @@ NE,JVSJMPMFREM5,"THE HOUSING AUTHORITY OF THE CITY OF HASTINGS, NEBRASKA",Hastin
 NE,JYSLBR4BEKM8,NORTHEAST NEBRASKA PUBLIC HEALTH DEPARTMENT,Wayne,2025,2025-06-GSAFAC-0000418796,2025-06-30,2026-05-19,1453342,38,Elevated,15,6,0,17,50,0,0,going_concern;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 NE,FXNLEKA5CUY4,GORDON-RUSHVILLE PUBLIC SCHOOLS,Gordon,2025,2025-08-GSAFAC-0000401393,2025-08-31,2026-02-10,1121208,37,Elevated,0,19,9,9,0,8,8,fs_material_weakness;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 NE,N2JJXUTVFUW3,BOX BUTTE GENERAL HOSPITAL,Alliance,2025,2025-06-GSAFAC-0000413542,2025-06-30,2026-03-30,25225696,36,Elevated,0,19,8,9,0,1,1,fs_material_weakness;program_material_weakness;fs_material_noncompliance;repeat_finding;prior_findings_reported;not_low_risk_auditee
+NE,LMLLW6RD32Y9,"Low Rent Housing Agency of Knoxville, Iowa",Knoxville,2025,2025-03-GSAFAC-0000386687,2025-03-31,2025-11-03,1578611,36,Elevated,0,19,8,9,0,1,1,fs_material_weakness;program_material_weakness;fs_material_noncompliance;repeat_finding;prior_findings_reported;not_low_risk_auditee
 NE,HES3JS8VPXS5,Housing Authority of the County of Contra Costa,Martinez,2025,2025-03-GSAFAC-0000394190,2025-03-31,2025-12-22,247246921,35,Elevated,0,4,22,9,0,2,2,program_material_weakness;fs_material_noncompliance;program_modified_opinion;questioned_costs;repeat_finding;prior_findings_reported;not_low_risk_auditee
 NE,JK4NBXNN6M37,UMONHON NATION PUBLIC SCHOOLS DISTRICT #16,Macy,2025,2025-08-GSAFAC-0000405742,2025-08-31,2026-02-26,12625219,35,Elevated,0,21,5,9,0,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
 NE,ZKDTGLN4PEK9,Perkins County Hospital District,Grant,2025,2025-06-GSAFAC-0000395632,2025-06-30,2026-01-14,12096917,35,Elevated,0,21,5,9,0,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
@@ -9531,6 +9547,7 @@ NH,DDYJMLC6CFB3,School Administrative Unit No. 16,Exeter,2025,2025-06-GSAFAC-000
 NH,QGSQAEAM9W23,LISBON REGIONAL SCHOOL,Lisbon,2025,2025-06-GSAFAC-0000432759,2025-06-30,2026-10-22,1139132,61,High,10,21,9,21,206,20,20,fs_opinion_disclaimer_or_adverse;fs_material_weakness;fs_significant_deficiency;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 NH,VUDLWV1HF1M6,"City of Manchester, NH",Manchester,2025,2025-06-GSAFAC-0000426102,2025-06-30,2026-08-18,23330480,52,Elevated,0,19,12,21,141,23,2,fs_material_weakness;program_material_weakness;program_modified_opinion;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 NH,ENKJC5SK6826,Manchester School District,Manchester,2025,2025-06-GSAFAC-0000409019,2025-06-30,2026-03-25,38181017,49,Elevated,0,25,15,9,0,10,8,fs_material_weakness;fs_significant_deficiency;program_material_weakness;program_modified_opinion;repeat_finding;prior_findings_reported;not_low_risk_auditee
+NH,VHUATT2KTJ61,TOWN OF WEBSTER,Webster,2025,2025-12-GSAFAC-0000433992,2025-12-31,2026-11-19,3305074,42,Elevated,10,15,0,17,50,2,0,fs_opinion_disclaimer_or_adverse;fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 NH,WUKLLNF5M375,Hampton School District,Hampton,2025,2025-06-GSAFAC-0000410625,2025-06-30,2026-03-31,1311365,42,Elevated,10,4,11,17,1,1,0,fs_opinion_disclaimer_or_adverse;program_material_weakness;program_modified_opinion;questioned_costs;late;prior_findings_reported;not_low_risk_auditee
 NH,PLMPH9JV55K9,KENNEBEC VALLEY COUNCIL OF GOVERNMENTS,Fairfield,2025,2025-06-GSAFAC-0000431561,2025-06-30,2026-10-21,2040079,40,Elevated,0,19,0,21,205,5,0,fs_material_weakness;program_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 NH,L8P8KJLAR8L7,GOVERNOR WENTWORTH SCHOOL DISTRICT,Wolfeboro Falls,2025,2025-06-GSAFAC-0000429735,2025-06-30,2026-09-22,6616577,37,Elevated,10,6,0,21,176,4,0,fs_opinion_disclaimer_or_adverse;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
@@ -9674,6 +9691,7 @@ NJ,WNT5CG4AEF79,Gloucester County Division of Social Services,Sewell,2025,2025-1
 NJ,F6K9MFLG4MH6,HOUSING AUTHORITY OF THE TOWNSHIP OF NEPTUNE,Neptune,2025,2025-09-GSAFAC-0000422815,2025-09-30,2026-06-30,6889737,22,Moderate,7,0,6,9,0,2,2,fs_opinion_qualified;repeat_finding;prior_findings_reported;not_low_risk_auditee
 NJ,YSDEAMW97MS5,Township of Deptford School District,Deptford,2025,2025-06-GSAFAC-0000415037,2025-06-30,2026-04-20,3716847,22,Moderate,0,0,5,17,21,0,0,fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 NJ,KSNJH1KTZC77,City of Elizabeth,Elizabeth,2025,2025-06-GSAFAC-0000416425,2025-06-30,2026-07-07,24829945,21,Moderate,0,0,0,21,99,0,0,late;prior_findings_reported;not_low_risk_auditee
+NJ,KPNJM1JNXKM4,THE GLOUCESTER COUNTY UTILITIES AUTHORITY,West Deptford,2025,2025-10-GSAFAC-0000433850,2025-10-31,2026-11-18,6816663,21,Moderate,0,0,0,21,110,0,0,late;prior_findings_reported;not_low_risk_auditee
 NJ,YAAEZ76RC8Q9,HOUSING AUTHORITY OF THE CITY OF GARFIELD,Garfield,2025,2025-03-GSAFAC-0000395638,2025-03-31,2025-12-31,2258443,21,Moderate,0,6,6,9,0,2,0,fs_significant_deficiency;program_modified_opinion;prior_findings_reported;not_low_risk_auditee
 NJ,X25GCH66L381,CITY OF BRIDGETON,Bridgeton,2025,2025-12-GSAFAC-0000426977,2025-12-31,2026-09-01,2058348,21,Moderate,10,6,0,5,0,0,0,fs_opinion_disclaimer_or_adverse;fs_significant_deficiency;prior_findings_reported
 NJ,D2EWW1FANHY1,PASSAIC VALLEY SEWERAGE COMMISSION,Newark,2025,2025-12-GSAFAC-0000428880,2025-12-31,2026-09-25,98363664,20,Moderate,15,0,0,5,0,0,0,going_concern;prior_findings_reported
@@ -9940,7 +9958,6 @@ NJ,GN7SJRFP74C8,Fair Lawn Public Schools,Fair Lawn,2025,2025-06-GSAFAC-000038700
 NJ,RYJCY5E9D861,Middlesex County Vocational & Technical Schools,East Brunswick,2025,2025-06-GSAFAC-0000388810,2025-06-30,2025-12-12,3066303,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NJ,JN3JASKDJFU9,Ocean County Vocational Technical,Toms River,2025,2024-12-GSAFAC-0000390674,2025-06-30,2026-01-14,3058540,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NJ,EDE6G811N9G8,Black Horse Pike Regional School District,Blackwood,2025,2025-06-GSAFAC-0000401362,2025-06-30,2026-01-31,3041407,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-NJ,LELFFGQLKH69,Harrison Housing Authority,Harrison,2025,2025-03-GSAFAC-0000388206,2025-03-31,2025-12-04,2972732,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NJ,Q45NGGNFPBN6,Burlington Township School District,Burlington,2025,2025-06-GSAFAC-0000402159,2025-06-30,2026-02-04,2959638,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NJ,JNDYSJKH9685,OLD BRIDGE HOUSING AUTHORITY,Old Bridge,2025,2025-12-GSAFAC-0000429754,2025-12-31,2026-09-22,2900990,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NJ,D358CGL6SXK5,Red Bank BOE,Red Bank,2025,2024-12-GSAFAC-0000385851,2025-06-30,2026-01-09,2886489,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -10387,6 +10404,7 @@ NY,GRA2KHNWT4E5,Stillwater Central School District,Stillwater,2025,2025-06-GSAFA
 NY,FGLHNPJB24Y1,Waterford-Halfmoon Union Free School District,Waterford,2025,2025-06-GSAFAC-0000390591,2025-06-30,2025-12-16,887715,19,Moderate,0,0,14,5,0,4,4,fs_material_noncompliance;repeat_finding;prior_findings_reported
 NY,KLTGW4FZSQD3,Kiryas Joel Union Free School District,Monroe,2025,2025-06-GSAFAC-0000416028,2025-06-30,2026-04-28,26715176,18,Moderate,0,0,5,13,29,2,0,fs_material_noncompliance;late;prior_findings_reported
 NY,H1G2YP82NM52,City of Buffalo,Buffalo,2025,2025-06-GSAFAC-0000409389,2025-06-30,2026-03-24,117641226,17,Moderate,0,6,6,5,0,2,2,fs_significant_deficiency;repeat_finding;prior_findings_reported
+NY,DFJMHK81X832,NIAGARA FRONTIER TRANSPORTATION AUTHORITY,Buffalo,2025,2025-03-GSAFAC-0000434441,2025-03-31,2026-11-17,91951366,17,Moderate,0,0,0,17,321,0,0,late;prior_findings_reported
 NY,GLN9KUJQKBB8,PUTNAM COUNTY,Carmel,2025,2025-12-GSAFAC-0000430171,2025-12-31,2026-11-03,39387915,17,Moderate,0,0,0,17,34,0,0,late;prior_findings_reported;not_low_risk_auditee
 NY,CBFCHFV2AYJ8,NIAGARA FALLS HOUSING AUTHORITY,Niagara Falls,2025,2025-03-GSAFAC-0000392666,2025-03-31,2026-08-05,7757205,17,Moderate,0,0,0,17,217,0,0,late;prior_findings_reported
 NY,L8XJZQ79KCK4,Massena Central School District,Massena,2025,2025-06-GSAFAC-0000413695,2025-06-30,2026-03-31,4463899,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
@@ -10541,6 +10559,7 @@ NY,GMLFEWL2MVP2,Hicksville Union Free School District,Hicksville,2025,2025-06-GS
 NY,V2PLU5AVYLD4,VILLAGE OF RYE BROOK,Rye Brook,2025,2025-05-GSAFAC-0000385375,2025-05-31,2025-11-07,6630297,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 NY,W8S3DM66N4F5,Bay Shore Union Free School District,Bay Shore,2025,2025-06-GSAFAC-0000400754,2025-06-30,2026-01-29,6301098,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 NY,KE97ANJYCL65,"FINGER LAKES PERFORMING PROVIDER SYSTEM, INC.",Rochester,2025,2025-03-GSAFAC-0000386155,2025-03-31,2025-12-18,6124254,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
+NY,GJFJB4ELBUC3,Greenburgh Housing Authority,White Plains,2025,2025-03-GSAFAC-0000390255,2025-03-31,2025-12-08,5962503,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 NY,XPV8HPSJD8K3,Hyde Park Central School District,Hyde Park,2025,2025-06-GSAFAC-0000410126,2025-06-30,2026-03-30,5898695,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 NY,UCNYRDJVNL48,TOWN OF BETHEL,White Lake,2025,2025-12-GSAFAC-0000424671,2025-12-31,2026-07-24,5801986,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 NY,RHGUKJ4AT8A9,Baldwin Union Free School District,Baldwin,2025,2025-06-GSAFAC-0000409220,2025-06-30,2026-03-25,5391784,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
@@ -10633,7 +10652,6 @@ NY,F5NUNMMKAXM9,"ERIE, COUNTY OF",Buffalo,2025,2025-12-GSAFAC-0000425360,2025-12
 NY,M3EYGYK6H4K7,MONROE COUNTY,Rochester,2025,2025-12-GSAFAC-0000426529,2025-12-31,2026-09-23,212583302,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,SNT9VWCK7QQ5,COUNTY OF ORANGE,Goshen,2025,2025-12-GSAFAC-0000429594,2025-12-31,2026-09-30,117550604,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,WC44BKLVH4F1,"BOARD OF EDUCATION, CITY OF BUFFALO, NY",Buffalo,2025,2025-06-GSAFAC-0000385991,2025-06-30,2025-10-23,106913476,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-NY,DFJMHK81X832,NIAGARA FRONTIER TRANSPORTATION AUTHORITY,Buffalo,2025,2025-03-GSAFAC-0000376829,2025-03-31,2025-09-05,91951366,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,KJKWNZAH5961,"County of Broome, New York",Binghamton,2025,2025-12-GSAFAC-0000424484,2025-12-31,2026-09-17,90697009,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,MPJ8MKCQEM64,Rochester City School District,Rochester,2025,2025-06-GSAFAC-0000392038,2025-06-30,2026-01-13,82858637,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,Z7TUKKJ45MG1,"City School District of Syracuse, New York",Syracuse,2025,2025-06-GSAFAC-0000396158,2025-06-30,2026-01-07,81157909,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -10806,6 +10824,7 @@ NY,LW4UTMLKDLK6,TOWN OF OYSTER BAY HOUSING AUTHORITY,Debary,2025,2025-09-GSAFAC-
 NY,RHVELCR7HKC6,CHEEKTOWAGA-MARYVALE UNION FREE SCHOOL DISTRICT,Cheektowaga,2025,2025-06-GSAFAC-0000385555,2025-06-30,2025-10-21,3534850,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,XQLZMKQKV484,TUCKAHOE HOUSING AUTHORITY,Tuckahoe,2025,2025-09-GSAFAC-0000422237,2025-09-30,2026-06-25,3506610,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,NCELZEUWL966,Lancaster Central School District,Lancaster,2025,2025-06-GSAFAC-0000397903,2025-06-30,2026-02-13,3465132,5,Low,0,0,0,5,0,0,0,prior_findings_reported
+NY,WFJRJFECJKQ9,MOUNT KISCO HOUSING AUTHORITY,Mount Kisco,2025,2025-03-GSAFAC-0000394484,2025-03-31,2025-12-22,3461212,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,N3XDK2ZNMAQ1,NEWARK HOUSING AUTHORITY,Newark,2025,2025-03-GSAFAC-0000378204,2025-03-31,2025-09-05,3433283,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,MV41CQAXAVL9,City of Lockport Housing Authority,Lockport,2025,2025-03-GSAFAC-0000378437,2025-03-31,2025-08-21,3371121,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 NY,HLKWNCH7NB58,Hornell City School District,Hornell,2025,2025-06-GSAFAC-0000377656,2025-06-30,2026-01-06,3336018,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -11153,6 +11172,7 @@ OH,NMTGQEUG7DC9,Discovery Academy,Toledo,2025,2025-06-GSAFAC-0000414338,2025-06-
 OH,YNNXNHRPNZM5,MORGAN COUNTY,Mcconnelsville,2025,2025-12-GSAFAC-0000426760,2025-12-31,2026-08-31,6411227,27,Moderate,0,4,14,9,0,1,1,program_material_weakness;fs_material_noncompliance;program_modified_opinion;repeat_finding;prior_findings_reported;not_low_risk_auditee
 OH,UAWSPKVQEKN6,HOUSING AUTHORITY OF CITY OF BRIDGETON,Bridgeton,2025,2025-09-GSAFAC-0000423066,2025-09-30,2026-06-30,5351238,27,Moderate,7,0,11,9,0,3,2,fs_opinion_qualified;questioned_costs;repeat_finding;prior_findings_reported;not_low_risk_auditee
 OH,TYXEBRXEKNM5,River View Local School District,Warsaw,2025,2025-06-GSAFAC-0000407430,2025-06-30,2026-08-28,3335849,27,Moderate,0,4,6,17,151,2,0,program_material_weakness;program_modified_opinion;late;prior_findings_reported
+OH,HDE5WNUM5TR5,SCIOTO TOWNSHIP,Commercial Point,2025,2025-12-GSAFAC-0000432274,2025-12-31,2026-11-19,3280600,27,Moderate,10,0,0,17,50,0,0,fs_opinion_disclaimer_or_adverse;late;prior_findings_reported;not_low_risk_auditee
 OH,HPZUEG3Q18F1,Struthers City School District,Struthers,2025,2025-06-GSAFAC-0000405794,2025-06-30,2026-05-26,2966806,27,Moderate,0,4,6,17,57,2,0,program_material_weakness;program_modified_opinion;late;prior_findings_reported;not_low_risk_auditee
 OH,FZHCDYKTMGG1,Madison County,London,2025,2025-12-GSAFAC-0000426599,2025-12-31,2026-10-23,12072093,26,Moderate,0,4,5,17,23,1,0,program_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 OH,MK7HEH3XBZ54,New Lexington Local School District,New Lexington,2025,2025-06-GSAFAC-0000395272,2025-06-30,2026-09-08,5442498,26,Moderate,0,0,5,21,162,0,0,fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
@@ -11286,6 +11306,7 @@ OH,J2SHPBH8PSS8,Wadsworth City School District,Wadsworth,2025,2025-06-GSAFAC-000
 OH,H3H8EYJTDFP3,"Mental Health Recovery Board of Clark, Greene & Madison Counties",Springfield,2025,2025-06-GSAFAC-0000409115,2025-06-30,2026-04-20,2786580,17,Moderate,0,0,0,17,21,0,0,late;prior_findings_reported;not_low_risk_auditee
 OH,JLZVN13KYRE5,Bowling Green City School District,Bowling Green,2025,2025-06-GSAFAC-0000406514,2025-06-30,2026-04-01,2547862,17,Moderate,0,0,0,17,2,0,0,late;prior_findings_reported;not_low_risk_auditee
 OH,LVKMXZ7KK6T3,New Richmond Exempted Village School District,New Richmond,2025,2025-06-GSAFAC-0000402080,2025-06-30,2026-04-01,2497718,17,Moderate,0,0,0,17,2,0,0,late;prior_findings_reported;not_low_risk_auditee
+OH,KHPXLCKE3RL3,CITY OF BOWLING GREEN,Bowling Green,2025,2025-12-GSAFAC-0000427679,2025-12-31,2026-11-16,2406517,17,Moderate,0,0,0,17,47,0,0,late;prior_findings_reported;not_low_risk_auditee
 OH,LSSRGW3684M7,STARK COUNTY HEALTH DEPARTMENT,North Canton,2025,2025-12-GSAFAC-0000431989,2025-12-31,2026-10-05,2382077,17,Moderate,0,0,0,17,5,0,0,late;prior_findings_reported;not_low_risk_auditee
 OH,DC3JX8W3GPP3,HARRISON HILLS CITY SCHOOL DISTRICT,Cadiz,2025,2025-06-GSAFAC-0000420651,2025-06-30,2026-06-11,2293220,17,Moderate,0,0,0,17,73,0,0,late;prior_findings_reported;not_low_risk_auditee
 OH,DF9NHC6EBNK7,"Mental Health, Drug and Alcohol Services Board of Logan and Champaign Counties",West Liberty,2025,2025-06-GSAFAC-0000417080,2025-06-30,2026-05-28,2179789,17,Moderate,0,0,0,17,59,0,0,late;prior_findings_reported;not_low_risk_auditee
@@ -12037,6 +12058,7 @@ OK,Q5Z9D6SNRDH3,Lone Grove School District I-32,Lone Grove,2025,2025-06-GSAFAC-0
 OK,GS5SMKT6MBM1,HOUSING AUTHORITY OF CITY HUGO,Hugo,2025,2025-12-GSAFAC-0000429773,2025-12-31,2026-09-23,2126242,44,Elevated,0,19,16,9,0,1,0,fs_material_weakness;program_material_weakness;fs_material_noncompliance;program_modified_opinion;questioned_costs;prior_findings_reported;not_low_risk_auditee
 OK,LKLHDL5BPLC5,COUNTY OF MCCURTAIN,Idabel,2025,2025-06-GSAFAC-0000428950,2025-06-30,2026-10-06,2012498,40,Elevated,0,19,0,21,190,4,0,fs_material_weakness;program_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 OK,EPTWZC2CA4V9,Marshall County,Madill,2025,2025-06-GSAFAC-0000411396,2025-06-30,2026-03-25,3541410,39,Elevated,0,25,5,9,0,2,0,fs_material_weakness;fs_significant_deficiency;program_material_weakness;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
+OK,TKV2LJCXKJX8,Roger Mills County,Cheyenne,2025,2025-06-GSAFAC-0000434829,2025-06-30,2026-11-19,1193855,38,Elevated,10,4,3,21,234,2,1,fs_opinion_disclaimer_or_adverse;program_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 OK,RC93P5SRSMM4,COUNTY OF OKLAHOMA,Oklahoma City,2025,2025-06-GSAFAC-0000433794,2025-06-30,2026-11-03,25839187,36,Elevated,0,15,0,21,218,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 OK,K2WBTAYR9564,CORDELL INDEPENDENT SCHOOL DISTRICT #78,Cordell,2025,2025-06-GSAFAC-0000411714,2025-06-30,2026-03-26,824042,36,Elevated,0,19,8,9,0,2,1,fs_material_weakness;program_material_weakness;fs_material_noncompliance;repeat_finding;prior_findings_reported;not_low_risk_auditee
 OK,R324W4JCMVJ4,Norman Public Schools (Norman ISD No. 29),Norman,2025,2025-06-GSAFAC-0000404635,2025-06-30,2026-02-26,18339790,35,Elevated,0,21,5,9,0,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
@@ -12407,6 +12429,7 @@ OR,NENFVHKRNZR7,LANE COUNCIL OF GOVERNMENTS,Eugene,2025,2025-06-GSAFAC-000042725
 OR,J5MMM5KLJP43,CORBETT SCHOOL DISTRICT 39,Corbett,2025,2025-06-GSAFAC-0000417599,2025-06-30,2026-07-09,1527984,50,Elevated,10,19,0,21,101,1,0,fs_opinion_disclaimer_or_adverse;fs_material_weakness;program_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 OR,GNNNF1L6MQS6,Junction City School District #69,Junction City,2025,2025-06-GSAFAC-0000402331,2025-06-30,2026-02-26,2014533,46,Elevated,7,19,11,9,0,1,0,fs_opinion_qualified;fs_material_weakness;program_material_weakness;program_modified_opinion;questioned_costs;prior_findings_reported;not_low_risk_auditee
 OR,C538DKSGP6U3,MID-COLUMBIA ECONOMIC DEVELOPMENT DISTRICT,The Dalles,2025,2025-06-GSAFAC-0000423411,2025-06-30,2026-07-08,2255126,43,Elevated,7,15,0,21,100,0,0,fs_opinion_qualified;fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+OR,XPXCDS2STAK1,Lincoln County,Newport,2025,2025-06-GSAFAC-0000420144,2025-06-30,2026-11-13,11068019,42,Elevated,0,21,0,21,228,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 OR,ZLYHNLPGKEX5,CITY OF THE DALLES,The Dalles,2025,2025-06-GSAFAC-0000422850,2025-06-30,2026-08-03,2264625,42,Elevated,0,21,0,21,126,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 OR,KBQCULGVMAA9,Oregon Cascades West Council of Governments,Albany,2025,2025-06-GSAFAC-0000411493,2025-06-30,2026-03-31,4101363,41,Elevated,0,19,5,17,1,5,0,fs_material_weakness;program_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 OR,J5GRGBGG79N6,KLAMATH HOUSING AUTHORITY,Klamath Falls,2025,2025-12-GSAFAC-0000430622,2025-12-31,2026-09-28,9980444,39,Elevated,10,4,16,9,0,2,0,fs_opinion_disclaimer_or_adverse;program_material_weakness;fs_material_noncompliance;program_modified_opinion;questioned_costs;prior_findings_reported;not_low_risk_auditee
@@ -12693,8 +12716,11 @@ PA,VEFCSBXRGNB6,West Branch Area School District,Morrisdale,2025,2025-06-GSAFAC-
 PA,H3FKX1EBJ4A3,COUNTY OF ARMSTRONG,Kittanning,2025,2025-12-GSAFAC-0000422248,2025-12-31,2026-09-23,5811891,43,Elevated,0,19,15,9,0,4,4,fs_material_weakness;program_material_weakness;program_modified_opinion;repeat_finding;prior_findings_reported;not_low_risk_auditee
 PA,UUR2LRYLBHE7,MOUNT CARMEL AREA SCHOOL DISRICT,Mount Carmel,2025,2025-06-GSAFAC-0000431885,2025-06-30,2026-10-09,2870882,43,Elevated,0,19,3,21,193,1,1,fs_material_weakness;program_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 PA,RWZ2NYBECK88,WILLIAM PENN SCHOOL DISTRICT,Lansdowne,2025,2025-06-GSAFAC-0000432304,2025-06-30,2026-10-08,11230978,42,Elevated,0,21,0,21,192,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+PA,M1N7J8ENZFF7,EASTON AREA SCHOOL DISTRICT,Easton,2025,2025-06-GSAFAC-0000434659,2025-06-30,2026-11-18,9400327,42,Elevated,0,21,0,21,233,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+PA,WKRZJ5VMGGG3,PENNSBURY SCHOOL DISTRICT,Fallsington,2025,2025-06-GSAFAC-0000434529,2025-06-30,2026-11-16,7173776,42,Elevated,0,21,0,21,231,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 PA,RAHSHNNFJ4C7,HAZLETON CITY AUTHORITY WATER DEPARTMENT,Hazleton,2025,2025-03-GSAFAC-0000426699,2025-03-31,2026-08-26,4006853,42,Elevated,0,21,0,21,238,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 PA,H77AFZFG9PB1,RIVER VALLEY SCHOOL DISTRICT,Blairsville,2025,2025-06-GSAFAC-0000432223,2025-06-30,2026-11-04,1855012,42,Elevated,0,21,0,21,219,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+PA,G8K3D97NKYN5,NORTHWEST AREA SCHOOL DISTRICT,Shickshinny,2025,2025-06-GSAFAC-0000434160,2025-06-30,2026-11-16,1364448,42,Elevated,0,21,0,21,231,2,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 PA,SJR5NADMJ378,Housing Authority of the County of Dauphin,Steelton,2025,2025-06-GSAFAC-0000411924,2025-06-30,2026-03-31,17100364,41,Elevated,0,4,20,17,1,9,3,program_material_weakness;program_modified_opinion;questioned_costs;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 PA,MGF7MQ85QHR7,JEANNETTE SCHOOL DISTRICT,Jeannette,2025,2025-06-GSAFAC-0000427930,2025-06-30,2026-09-03,2313003,41,Elevated,0,15,5,21,157,1,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 PA,UFTFNWKHY948,CITY OF WILLIAMSPORT,Williamsport,2025,2025-12-GSAFAC-0000427281,2025-12-31,2026-09-11,5312905,40,Elevated,10,15,6,9,0,2,2,fs_opinion_disclaimer_or_adverse;fs_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
@@ -12797,11 +12823,13 @@ PA,SC4XQQL5NL57,DAUPHIN COUNTY CONSERVATION DISTRICT,Dauphin,2025,2025-12-GSAFAC
 PA,UA3ZR9RJLXN8,SMETHPORT AREA SCHOOL DISTRICT,Smethport,2025,2025-06-GSAFAC-0000395389,2025-06-30,2026-02-24,1178365,24,Moderate,0,15,0,9,0,0,0,fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 PA,NBGQU1VMNGG7,PENNS MANOR AREA SCHOOL DISTRICT,Clymer,2025,2025-06-GSAFAC-0000394229,2025-06-30,2026-01-13,1012916,24,Moderate,0,15,0,9,0,0,0,fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 PA,R54ZJ4DXGPG5,CLARION-LIMESTONE AREA SCHOOL DISTRICT,Strattanville,2025,2025-06-GSAFAC-0000411700,2025-06-30,2026-03-27,894458,24,Moderate,0,15,0,9,0,0,0,fs_material_weakness;prior_findings_reported;not_low_risk_auditee
+PA,HMFWU9GYFQT3,Potter County Conservation District,Coudersport,2025,2025-12-GSAFAC-0000430147,2025-12-31,2026-11-16,2452627,23,Moderate,0,6,0,17,47,1,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 PA,SJ32JBA9VCX1,CRANBERRY TOWNSHIP OF,Seneca,2025,2025-12-GSAFAC-0000431189,2025-12-31,2026-09-30,1072830,22,Moderate,7,6,0,9,0,0,0,fs_opinion_qualified;fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
 PA,YVMSJ93LHNC6,Allentown City School District,Allentown,2025,2025-06-GSAFAC-0000434284,2025-06-30,2026-11-12,58708037,21,Moderate,0,0,0,21,227,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,NQ2JY2S5JES3,"LAWRENCE COUNTY SOCIAL SERVICES, INC.",New Castle,2025,2025-06-GSAFAC-0000422787,2025-06-30,2026-06-29,16502909,21,Moderate,0,0,0,21,91,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,NE7KYQRN6377,BRISTOL TOWNSHIP SCHOOL DISTRICT,Levittown,2025,2025-06-GSAFAC-0000427784,2025-06-30,2026-09-05,9291477,21,Moderate,0,0,0,21,159,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,Q6C8JZY57LU5,COLONIAL SCHOOL DISTRICT,Plymouth Meeting,2025,2025-06-GSAFAC-0000425988,2025-06-30,2026-08-09,4917859,21,Moderate,0,0,0,21,132,0,0,late;prior_findings_reported;not_low_risk_auditee
+PA,GWFTFJYBAW75,WAYNESBORO AREA SCHOOL DISTRICT,Waynesboro,2025,2025-06-GSAFAC-0000434442,2025-06-30,2026-11-16,4349566,21,Moderate,0,0,0,21,231,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,H5BBX6CB52K3,CHELTENHAM TOWNSHIP SCHOOL DISTRICT,Elkins Park,2025,2025-06-GSAFAC-0000427583,2025-06-30,2026-09-01,3879516,21,Moderate,0,0,0,21,155,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,FGLECAX486G9,PERKIOMEN VALLEY SCHOOL DISTRICT,Collegeville,2025,2025-06-GSAFAC-0000432451,2025-06-30,2026-10-14,2525648,21,Moderate,0,0,0,21,198,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,FKXFHGB2DJW4,COLUMBIA BOROUGH SCHOOL DISTRICT,Columbia,2025,2025-06-GSAFAC-0000426879,2025-06-30,2026-08-20,2473537,21,Moderate,0,0,0,21,143,3,0,late;prior_findings_reported;not_low_risk_auditee
@@ -12857,6 +12885,7 @@ PA,ZBN8V2QGLE95,PHOENIXVILLE AREA SCHOOL DISTRICT,Phoenixville,2025,2025-06-GSAF
 PA,E6LZW3XLN767,SOUTH ALLEGHENY SCHOOL DISTRICT,Mckeesport,2025,2025-06-GSAFAC-0000418014,2025-06-30,2026-05-13,2508564,17,Moderate,0,0,0,17,44,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,SHWVKD7A3LJ1,MANHEIM CENTRAL SCHOOL DISTRICT,Manheim,2025,2025-06-GSAFAC-0000417813,2025-06-30,2026-05-11,2401420,17,Moderate,0,0,0,17,42,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,KLJRT7X6R3C4,TOWANDA AREA SCHOOL DISTRICT,Towanda,2025,2025-06-GSAFAC-0000433108,2025-06-30,2026-10-23,2222075,17,Moderate,0,0,0,17,207,0,0,late;prior_findings_reported
+PA,X314DV6YH759,CONSERVATION FOUNDATION OF LANCASTER COUNTY,Lancaster,2025,2025-12-GSAFAC-0000434460,2025-12-31,2026-11-17,2113158,17,Moderate,0,0,0,17,48,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,LQKUEDVKR3K6,GARNET VALLEY SCHOOL DISTRICT,Glen Mills,2025,2025-06-GSAFAC-0000425601,2025-06-30,2026-08-03,1892010,17,Moderate,0,0,0,17,126,4,0,late;prior_findings_reported
 PA,W1A1KHXNPXD7,Hopewell Area School District,Aliquippa,2025,2025-06-GSAFAC-0000416257,2025-06-30,2026-05-06,1861504,17,Moderate,0,0,0,17,37,0,0,late;prior_findings_reported;not_low_risk_auditee
 PA,K98NYQ4842G7,North Clarion County School District,Tionesta,2025,2025-06-GSAFAC-0000413299,2025-06-30,2026-03-31,1622035,17,Moderate,0,0,0,17,1,0,0,late;prior_findings_reported;not_low_risk_auditee
@@ -12973,7 +13002,6 @@ PA,PNW4Q71CJXK4,Warren County School District,Russell,2025,2025-06-GSAFAC-000039
 PA,R359RFHJ1E79,Housing Authority of the County of Berks,Reading,2025,2025-03-GSAFAC-0000394638,2025-03-31,2025-12-30,6146797,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 PA,P95NLH98K7K5,Albert Gallatin Area School District,Uniontown,2025,2025-06-GSAFAC-0000410346,2025-06-30,2026-03-24,6066392,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 PA,EKC1FC1RGYC1,"ERIE COUNTY RENTALS, INC.",Corry,2025,2025-12-GSAFAC-0000408761,2025-12-31,2026-03-25,5978125,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
-PA,GJFJB4ELBUC3,Greenburgh Housing Authority,White Plains,2025,2025-03-GSAFAC-0000390255,2025-03-31,2025-12-08,5962503,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 PA,E7QVG3VKHDX4,CLINTON COUNTY COMMISSIONERS,Lock Haven,2025,2025-12-GSAFAC-0000430617,2025-12-31,2026-09-30,5462079,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 PA,QTZHN129K5F7,SAEGERTOWN BOROUGH OF,Saegertown,2025,2025-12-GSAFAC-0000429083,2025-12-31,2026-09-16,5419855,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
 PA,FGCVJBCHA729,LANCASTER COUNTY CAREER & TECHNOLOGY CENTER,Willow Street,2025,2025-06-GSAFAC-0000399245,2025-06-30,2026-01-29,5314501,9,Low,0,0,0,9,0,0,0,prior_findings_reported;not_low_risk_auditee
@@ -13252,7 +13280,6 @@ PA,HCPDAFNDHXL7,FRANKLIN COUNTY CONSERVATION DISTRICT,Chambersburg,2025,2025-12-
 PA,EHFKH7MJ1K22,TWIN VALLEY SCHOOL DISTRICT,Elverson,2025,2025-06-GSAFAC-0000397352,2025-06-30,2026-02-03,3541794,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,UHGQVXLD5AT6,BLAIR COUNTY HOUSING AUTHORITY,Hollidaysburg,2025,2025-12-GSAFAC-0000428952,2025-12-31,2026-09-16,3540039,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,SBB7THNB1T23,TREDYFFRIN TOWNSHIP,Berwyn,2025,2025-12-GSAFAC-0000427431,2025-12-31,2026-09-04,3530922,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-PA,WFJRJFECJKQ9,MOUNT KISCO HOUSING AUTHORITY,Mount Kisco,2025,2025-03-GSAFAC-0000394484,2025-03-31,2025-12-22,3461212,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,TJJBHN99AY65,Housing Authority of the County of Northumberland,Milton,2025,2025-03-GSAFAC-0000384823,2025-03-31,2025-10-20,3456030,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,CQMASJE2B624,YORK ACADEMY REGIONAL CHARTER SCHOOL,York,2025,2025-06-GSAFAC-0000404965,2025-06-30,2026-02-24,3452962,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,DYKPLKZUX3D5,HOUSING AUTHORITY OF THE CITY OF NANTICOKE,Nanticoke,2025,2025-09-GSAFAC-0000418988,2025-09-30,2026-05-21,3447314,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -13279,6 +13306,7 @@ PA,KSA4EKLECED5,Kennett Consolidated School District,Kennett Square,2025,2025-06
 PA,GA83SM6DY7A9,HOUSING AUTHORITY OF CITY OF OIL CITY,Oil City,2025,2025-09-GSAFAC-0000421892,2025-09-30,2026-06-25,3010155,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,Y9BNZTXJWMP9,Executive Education Academy Charter School,Allentown,2025,2025-06-GSAFAC-0000397399,2025-06-30,2026-02-20,3006317,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,NAGDMDVWZW33,VENANGO COUNTY ECONOMIC DEVELOPMENT AUTHORITY,Oil City,2025,2025-12-GSAFAC-0000426239,2025-12-31,2026-09-28,3004712,5,Low,0,0,0,5,0,0,0,prior_findings_reported
+PA,LELFFGQLKH69,Harrison Housing Authority,Harrison,2025,2025-03-GSAFAC-0000388206,2025-03-31,2025-12-04,2972732,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,X48LZDFEEMA4,AVON GROVE SCHOOL DISTRICT,West Grove,2025,2025-06-GSAFAC-0000388446,2025-06-30,2025-12-09,2965368,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,NEZVPCT8KNS6,Greater Latrobe School District,Latrobe,2025,2025-06-GSAFAC-0000390202,2025-06-30,2025-12-19,2948096,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 PA,J9C5P2ZLNPJ2,Bethel Park School District,Bethel Park,2025,2025-06-GSAFAC-0000407402,2025-06-30,2026-03-09,2937013,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -13722,6 +13750,7 @@ SC,JXK2NJGPJTN4,"Edgefield County, South Carolina",Edgefield,2025,2025-06-GSAFAC
 SC,U8NJMJS3AZ36,HOUSING AUTHORITY OF CHERAW,Florence,2025,2025-09-GSAFAC-0000424864,2025-09-30,2026-07-23,3067999,38,Elevated,0,4,17,17,23,4,2,program_material_weakness;program_modified_opinion;questioned_costs;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 SC,MR9GLBK145N4,CITY OF SPARTANBURG,Spartanburg,2025,2025-06-GSAFAC-0000405784,2025-06-30,2026-03-11,7100429,37,Elevated,0,19,9,9,0,4,4,fs_material_weakness;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 SC,NJ2TJB94K1Y9,TOWN OF OLANTA,Olanta,2025,2025-06-GSAFAC-0000425727,2025-06-30,2026-08-04,3846823,36,Elevated,0,15,0,21,127,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+SC,DRQ8FDH5DKM5,DILLON CITY OF,Dillon,2025,2026-06-GSAFAC-0000434544,2025-06-30,2026-11-18,2365580,36,Elevated,0,6,9,21,233,24,16,fs_significant_deficiency;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 SC,FDKHP8B4BAQ9,CITY OF MARION,Marion,2025,2025-06-GSAFAC-0000426351,2025-06-30,2026-08-13,2214683,36,Elevated,0,6,9,21,136,10,10,fs_significant_deficiency;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 SC,FBK3SMNUGEG3,CLARENDON COUNTY SCHOOL DISTRICT,Manning,2025,2025-06-GSAFAC-0000393211,2025-06-30,2025-12-23,12615864,35,Elevated,0,15,11,9,0,9,0,fs_material_weakness;fs_material_noncompliance;program_modified_opinion;prior_findings_reported;not_low_risk_auditee
 SC,VMB4LM7TFDL6,SCHOOL DISTRICT OF PICKENS COUNTY,Easley,2025,2025-06-GSAFAC-0000387153,2025-06-30,2025-12-11,25849900,33,Moderate,0,4,20,9,0,3,3,program_material_weakness;program_modified_opinion;questioned_costs;repeat_finding;prior_findings_reported;not_low_risk_auditee
@@ -14452,6 +14481,7 @@ TX,RQMDJ55MTQM3,GULF COAST TRANSIT DISTRICT,Texas City,2025,2025-09-GSAFAC-00004
 TX,L6EPTD1VC1R4,"City of Lyford, Texas",Lyford,2025,2025-09-GSAFAC-0000425629,2025-09-30,2026-08-03,3611170,43,Elevated,0,21,5,17,34,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;late;prior_findings_reported;not_low_risk_auditee
 TX,NLNJYJE26M68,CITY OF HEMPSTEAD,Hempstead,2025,2025-09-GSAFAC-0000425873,2025-09-30,2026-08-07,1983264,41,Elevated,0,15,9,17,38,3,3,fs_material_weakness;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
 TX,ULE3NLEY9QF7,CITY OF CLARKSVILLE,Clarksville,2025,2025-09-GSAFAC-0000426090,2025-09-30,2026-08-13,6406263,40,Elevated,0,15,8,17,44,1,1,fs_material_weakness;fs_material_noncompliance;repeat_finding;late;prior_findings_reported;not_low_risk_auditee
+TX,XNT6ML2PQDU8,CHAMBERS COUNTY PUBLIC HOSPITAL DISTRICT #1,Anahuac,2025,2025-09-GSAFAC-0000434467,2025-09-30,2026-11-16,1910392,40,Elevated,0,19,0,21,139,1,0,fs_material_weakness;program_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,FEHLD9G7JEB3,CITY OF MANOR,Manor,2025,2025-09-GSAFAC-0000430814,2025-09-30,2026-09-30,1796113,40,Elevated,0,19,0,21,92,1,0,fs_material_weakness;program_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,M1EAUE3DMM99,"CITY OF PENITAS, TEXAS",Penitas,2025,2025-09-GSAFAC-0000417095,2025-09-30,2026-08-19,1893900,39,Elevated,7,15,0,17,50,0,0,fs_opinion_qualified;fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,E9HBZ7M5Y881,"Housing Authority of the City of Quanah, Texas",Quanah,2025,2025-06-GSAFAC-0000413375,2025-06-30,2026-03-31,845803,39,Elevated,7,15,0,17,1,0,0,fs_opinion_qualified;fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
@@ -14463,6 +14493,7 @@ TX,E8RWW2HJJS31,CITY OF HEATH,Heath,2025,2025-09-GSAFAC-0000423655,2025-09-30,20
 TX,CKEPY7HJHW67,CITY OF WILLIS,Willis,2025,2025-09-GSAFAC-0000424244,2025-09-30,2026-07-29,1647518,38,Elevated,0,21,0,17,29,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 TX,Q6BLL9KNGJ88,BAIRD HOUSING AUTHORITY,Baird,2025,2025-12-GSAFAC-0000428764,2025-12-31,2026-09-25,1148843,38,Elevated,0,19,10,9,0,2,0,fs_material_weakness;program_material_weakness;fs_material_noncompliance;questioned_costs;prior_findings_reported;not_low_risk_auditee
 TX,L81TGC4DCBL4,"LIBERTY HILL, CITY OF",Liberty Hill,2025,2025-09-GSAFAC-0000423538,2025-09-30,2026-07-07,1076287,38,Elevated,0,21,0,17,7,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+TX,MMR2U5KU6476,CITY OF FARMERSVILLE,Farmersville,2025,2025-09-GSAFAC-0000434623,2025-09-30,2026-11-17,3372044,36,Elevated,0,15,0,21,140,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,ZLZNHXPTVM39,"SAN JACINTO, COUNTY OF",Coldspring,2025,2025-09-GSAFAC-0000431963,2025-09-30,2026-10-06,3110543,36,Elevated,0,15,0,21,98,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,JJN6A8LSFC84,"City of Donna, Texas",Donna,2025,2025-09-GSAFAC-0000412262,2025-09-30,2026-04-25,2150505,36,Elevated,7,15,5,9,0,0,0,fs_opinion_qualified;fs_material_weakness;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
 TX,LB4JKXXLA567,CITY OF HUMBLE,Humble,2025,2025-09-GSAFAC-0000433734,2025-09-30,2026-11-09,1672293,36,Elevated,0,15,0,21,132,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
@@ -14470,6 +14501,7 @@ TX,E4YDDFQ4ECF5,JEFF DAVIS COUNTY,Fort Davis,2025,2025-09-GSAFAC-0000432383,2025
 TX,YXJLKDZHHCN7,GALVESTON COUNTY WATER CONTROL & IMPROVEMENT DISTRICT 1,Dickinson,2025,2025-09-GSAFAC-0000432177,2025-09-30,2026-10-07,1484700,36,Elevated,0,15,0,21,99,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,HG74NDHEWUG3,Housing Authority of the City of Borger. Texas,Borger,2025,2025-03-GSAFAC-0000394038,2025-03-31,2026-09-30,1227793,36,Elevated,0,15,0,21,273,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,KRG7F11EM821,NEW WAVERLY ISD,New Waverly,2025,2025-08-GSAFAC-0000424989,2025-08-31,2026-10-02,972852,36,Elevated,0,15,0,21,124,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+TX,SMDKX1N5FYY3,PINEYWOODS COMMUNITY ACADEMY,Lufkin,2025,2025-08-GSAFAC-0000427049,2025-08-31,2026-11-16,926824,36,Elevated,0,15,0,21,169,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,EXAWFH8NFN91,DESOTO INDEPENDENT SCHOOL DISTRICT,Desoto,2025,2025-06-GSAFAC-0000413275,2025-06-30,2026-03-30,10300652,35,Elevated,0,21,5,9,0,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
 TX,SNAQP5V6TZ49,City of Roma,Roma,2025,2025-09-GSAFAC-0000422983,2025-09-30,2026-06-29,2736597,35,Elevated,0,21,5,9,0,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
 TX,GN8ZACLVZT16,City of Harlingen Waterworks System,Harlingen,2025,2025-09-GSAFAC-0000411789,2025-09-30,2026-04-01,2384165,35,Elevated,0,21,5,9,0,0,0,fs_material_weakness;fs_significant_deficiency;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
@@ -14478,12 +14510,18 @@ TX,F9QPX5XDKZL5,"Housing Authority of the City of Paris, Texas",Paris,2025,2025-
 TX,DQKJJCLMLCQ5,Bay City Independent School District,Bay City,2025,2025-06-GSAFAC-0000404086,2025-06-30,2026-02-26,6053345,33,Moderate,0,19,5,9,0,3,0,fs_material_weakness;program_material_weakness;fs_material_noncompliance;prior_findings_reported;not_low_risk_auditee
 TX,PB2GB5JPFZP6,CITY OF YOAKUM,Yoakum,2025,2025-09-GSAFAC-0000425344,2025-09-30,2026-08-03,5636854,33,Moderate,0,6,10,17,34,1,0,fs_significant_deficiency;fs_material_noncompliance;questioned_costs;late;prior_findings_reported;not_low_risk_auditee
 TX,KF4VRVQU2LY7,SAN ANTONIO EARLY CHILDHOOD EDUCATION MUNICIPAL DEVELOPMENT CORPORATION,San Antonio,2025,2025-06-GSAFAC-0000419959,2025-06-30,2026-06-10,1578277,33,Moderate,0,15,5,13,72,0,0,fs_material_weakness;fs_material_noncompliance;late;prior_findings_reported
+TX,CPDENMQRPKW3,LUFKIN INDEPENDENT SCHOOL DISTRICT,Lufkin,2025,2025-06-GSAFAC-0000425410,2025-06-30,2026-11-16,12283327,32,Moderate,0,15,0,17,231,0,0,fs_material_weakness;late;prior_findings_reported
 TX,DJGJN8K6EZD8,CITY OF HUTTO,Hutto,2025,2025-09-GSAFAC-0000423531,2025-09-30,2026-07-02,6142065,32,Moderate,0,15,0,17,2,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+TX,FW77JBVQML43,HENDERSON INDEPENDENT SCHOOL DISTRICT,Henderson,2025,2025-08-GSAFAC-0000427057,2025-08-31,2026-11-13,4919146,32,Moderate,0,15,0,17,166,0,0,fs_material_weakness;late;prior_findings_reported
+TX,JPQURH39LNQ6,"THE HUGHEN CENTER, INC",Port Arthur,2025,2025-08-GSAFAC-0000434479,2025-08-31,2026-11-16,4519078,32,Moderate,0,15,0,17,169,0,0,fs_material_weakness;late;prior_findings_reported
+TX,W8PLC9JCR754,CENTER INDEPENDENT SCHOOL DISTRICT,Center,2025,2025-08-GSAFAC-0000425440,2025-08-31,2026-11-16,3630762,32,Moderate,0,15,0,17,169,0,0,fs_material_weakness;late;prior_findings_reported
 TX,WPUTUHVJLJR3,CITY OF SANGER,Sanger,2025,2025-09-GSAFAC-0000423660,2025-09-30,2026-07-07,3367414,32,Moderate,0,15,0,17,7,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+TX,HLREV5JF7BF7,EUSTACE ISD,Eustace,2025,2025-08-GSAFAC-0000427023,2025-08-31,2026-11-13,2777554,32,Moderate,0,15,0,17,166,0,0,fs_material_weakness;late;prior_findings_reported
 TX,KU5VKEJKP9G5,CITY OF SOUTH HOUSTON,South Houston,2025,2025-09-GSAFAC-0000423330,2025-09-30,2026-07-01,2055975,32,Moderate,0,15,0,17,1,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,K8PLDVRARJY9,DALLAM HARTLEY COUNTIES HOSPITAL DISTRICT,Dalhart,2025,2025-07-GSAFAC-0000420018,2025-07-31,2026-07-06,1646000,32,Moderate,0,15,0,17,67,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,Q59PJ5QRFUE9,CITY OF MOUNT PLEASANT,Mount Pleasant,2025,2025-09-GSAFAC-0000423488,2025-09-30,2026-07-02,1350010,32,Moderate,0,15,0,17,2,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
 TX,VV35QU86K565,CITY OF MINEOLA,Mineola,2025,2025-09-GSAFAC-0000423688,2025-09-30,2026-07-07,1237139,32,Moderate,0,15,0,17,7,0,0,fs_material_weakness;late;prior_findings_reported;not_low_risk_auditee
+TX,FRH5QN57NM28,SOMERVILLE INDEPENDENT SCHOOL DISTRICT,Somerville,2025,2025-08-GSAFAC-0000427056,2025-08-31,2026-11-13,938241,32,Moderate,0,15,0,17,166,0,0,fs_material_weakness;late;prior_findings_reported
 TX,JATCPRMTR2S9,BROADDUS INDEPENDENT SCHOOL DISTRICT,Broaddus,2025,2025-06-GSAFAC-0000423327,2025-06-30,2026-07-13,852381,32,Moderate,0,15,0,17,105,0,0,fs_material_weakness;late;prior_findings_reported
 TX,MMCTF68CCA43,Citizens Medical Center,Victoria,2025,2025-06-GSAFAC-0000408355,2025-06-30,2026-03-24,805753,32,Moderate,0,19,8,5,0,1,1,fs_material_weakness;program_material_weakness;fs_material_noncompliance;repeat_finding;prior_findings_reported
 TX,YEK9F26W1J65,"Henderson County, Texas",Athens,2025,2025-12-GSAFAC-0000430871,2025-12-31,2026-09-30,4253803,31,Moderate,7,15,0,9,0,0,0,fs_opinion_qualified;fs_material_weakness;prior_findings_reported;not_low_risk_auditee
@@ -14556,6 +14594,7 @@ TX,J23FGWNGCS37,"HALE COUNTY, TEXAS",Plainview,2025,2025-12-GSAFAC-0000424859,20
 TX,DHCDY2KPAVT3,SKIDMORE-TYNAN ISD,Skidmore,2025,2025-08-GSAFAC-0000419620,2025-08-31,2026-05-29,966173,24,Moderate,0,15,0,9,0,0,0,fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 TX,LM4MKJ1GDBD7,Maverick County Hospital District,Eagle Pass,2025,2025-08-GSAFAC-0000415913,2025-08-31,2026-04-24,781919,24,Moderate,0,4,11,9,0,1,0,program_material_weakness;program_modified_opinion;questioned_costs;prior_findings_reported;not_low_risk_auditee
 TX,LJ3KP4HL52C4,"MADISON, COUNTY OF",Madisonville,2025,2025-09-GSAFAC-0000424304,2025-09-30,2026-07-15,2033546,23,Moderate,0,6,0,17,15,0,0,fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
+TX,DZPUG9495SM3,"ECTOR COUNTY, TEXAS",Odessa,2025,2025-09-GSAFAC-0000433682,2025-09-30,2026-11-13,13953339,21,Moderate,0,0,0,21,136,0,0,late;prior_findings_reported;not_low_risk_auditee
 TX,CLUMWDLWCLP6,HARDIN COUNTY,Kountze,2025,2025-09-GSAFAC-0000433105,2025-09-30,2026-10-28,10622756,21,Moderate,0,0,0,21,120,0,0,late;prior_findings_reported;not_low_risk_auditee
 TX,NN8HAE49J9U6,Sabine Valley Regional MHMR Center DBA Community Healthcore,Longview,2025,2025-08-GSAFAC-0000430492,2025-08-31,2026-10-01,7713048,21,Moderate,0,0,0,21,123,0,0,late;prior_findings_reported;not_low_risk_auditee
 TX,CD88XXQJNXD9,COUNTY OF SHELBY,Center,2025,2025-09-GSAFAC-0000432380,2025-09-30,2026-10-15,1647902,21,Moderate,0,0,0,21,107,0,0,late;prior_findings_reported;not_low_risk_auditee
@@ -15102,7 +15141,6 @@ TX,LWNYMAMDKKN7,PEARLAND INDEPENDENT SCHOOL DISTRICT,Pearland,2025,2025-06-GSAFA
 TX,DQX8H8BDN8U7,LACKLAND INDEPENDENT SCHOOL DISTRICT,San Antonio,2025,2025-08-GSAFAC-0000407143,2025-08-31,2026-03-24,13061930,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,NGK5TN9BKCZ8,TEXOMA WORKFORCE DEVELOPMENT BRD,Denison,2025,2025-09-GSAFAC-0000418913,2025-09-30,2026-06-17,12426662,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,NLMLE3VS6V71,ALICE INDEPENDENT SCHOOL DISTRICT,Alice,2025,2025-08-GSAFAC-0000405620,2025-08-31,2026-02-27,12325466,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-TX,CPDENMQRPKW3,Lufkin Independent School District,Lufkin,2025,2025-06-GSAFAC-0000406894,2025-06-30,2026-03-05,12288373,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,NZMCAK49S3V4,Emergence Health Network,El Paso,2025,2025-08-GSAFAC-0000405775,2025-08-31,2026-02-26,12142848,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,ULQ5EL5S9BY4,Mercedes Independent School District,Mercedes,2025,2025-08-GSAFAC-0000404526,2025-08-31,2026-02-19,12123110,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,UZ8GKPXLCLK5,SOUTH PLAINS ASSOCIATION OF GOVERNMENTS,Lubbock,2025,2025-09-GSAFAC-0000422644,2025-09-30,2026-06-30,12057964,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -15261,7 +15299,6 @@ TX,CKTYHYAFUJ57,El Campo Independent School District,El Campo,2025,2025-08-GSAFA
 TX,YQGSKG5K86D4,KAUFMAN INDEPENDENT SCHOOL DISTRICT,Kaufman,2025,2025-08-GSAFAC-0000403187,2025-08-31,2026-02-11,4991920,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,KCNZC4DEBAZ7,REGION V EDUCATION SERVICE CENTER,Beaumont,2025,2025-08-GSAFAC-0000391571,2025-08-31,2026-01-07,4988077,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,J611L4F83PW7,ROCKPORT-FULTON INDEPENDENT SCHOOL DISTRICT,Rockport,2025,2025-08-GSAFAC-0000433954,2025-08-31,2026-02-18,4938351,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-TX,FW77JBVQML43,Henderson Independent School District,Henderson,2025,2025-08-GSAFAC-0000406891,2025-08-31,2026-03-05,4930287,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,LGKXYYME1WE4,Pearsall Independent School District,Pearsall,2025,2025-08-GSAFAC-0000403612,2025-08-31,2026-02-25,4869886,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,GFUVCRJ4XMG3,Taylor Independent School District,Taylor,2025,2025-06-GSAFAC-0000402302,2025-06-30,2026-02-24,4836407,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,XFE1GMVLNN15,Cuero Independent School District,Cuero,2025,2025-08-GSAFAC-0000400674,2025-08-31,2026-02-10,4790884,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -15326,7 +15363,6 @@ TX,XZ8BLC3UX2M9,LAKE DALLAS INDEPENDENT SCHOOL DISTRICT,Lake Dallas,2025,2025-08
 TX,GVNSQ4N3NEL9,Seminole ISD,Seminole,2025,2025-06-GSAFAC-0000406143,2025-06-30,2026-03-03,3655660,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,PKNNL5VNEQR8,Madisonville Consolidated Independent School District,Madisonville,2025,2025-08-GSAFAC-0000398775,2025-08-31,2026-01-28,3647087,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,CUJKCXLLTKX6,pittsburg independent school district,Pittsburg,2025,2025-08-GSAFAC-0000404982,2025-08-31,2026-02-23,3636453,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-TX,W8PLC9JCR754,Center Independent School District,Center,2025,2025-08-GSAFAC-0000406727,2025-08-31,2026-03-04,3630762,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,EDM2D3P76V31,"CITY OF CEDAR PARK, TEXAS",Cedar Park,2025,2025-09-GSAFAC-0000408796,2025-09-30,2026-04-09,3629546,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,Q4JVLU3MGSS5,Crockett Independent School District,Crockett,2025,2025-08-GSAFAC-0000408160,2025-08-31,2026-03-18,3623189,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,YSHAD8H2AVB8,Housing Authority of the City of Donna,Donna,2025,2025-09-GSAFAC-0000423235,2025-09-30,2026-06-30,3591400,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -15406,7 +15442,6 @@ TX,M4N4MN1PMMZ8,Needville Independent School District,Needville,2025,2025-08-GSA
 TX,PKTDEQ2VHNM9,Muleshoe Independent School District,Muleshoe,2025,2025-06-GSAFAC-0000391705,2025-06-30,2025-12-12,2636783,5,Low,0,0,0,5,0,3,0,prior_findings_reported
 TX,LDH7TNNGF7B6,PERRYTON INDEPENDENT SCHOOL DISTRICT,Perryton,2025,2025-08-GSAFAC-0000401650,2025-08-31,2026-02-11,2634115,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,MEN1NBHESKV5,GREENWOOD INDEPENDENT SCHOOL DISTRICT,Midland,2025,2025-08-GSAFAC-0000384982,2025-08-31,2026-02-13,2629581,5,Low,0,0,0,5,0,0,0,prior_findings_reported
-TX,HLREV5JF7BF7,Eustace Independent School District,Eustace,2025,2025-08-GSAFAC-0000406868,2025-08-31,2026-03-05,2624269,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,CVDVXUMMH1L6,"City of Watauga, Texas",Watauga,2025,2025-09-GSAFAC-0000407482,2025-09-30,2026-03-26,2596983,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,JWLYABJDCFZ1,HEALTH CENTER OF SOUTHEAST TEXAS,Cleveland,2025,2025-12-GSAFAC-0000415647,2025-12-31,2026-04-15,2570005,5,Low,0,0,0,5,0,0,0,prior_findings_reported
 TX,L5U3NJ2KN141,STAMFORD INDEPENDENT SCHOOL DISTRICT,Stamford,2025,2025-08-GSAFAC-0000400175,2025-08-31,2026-02-02,2564287,5,Low,0,0,0,5,0,0,0,prior_findings_reported
@@ -16239,6 +16274,7 @@ WA,KMRXS36K5921,CITY OF RICHLAND,Richland,2025,2025-12-GSAFAC-0000427241,2025-12
 WA,D56HFN1UVPX8,North Kitsap School District No. 400,Poulsbo,2025,2025-08-GSAFAC-0000415919,2025-08-31,2026-07-01,6342010,27,Moderate,10,4,0,13,31,1,0,fs_opinion_disclaimer_or_adverse;program_material_weakness;late;prior_findings_reported
 WA,HT55NJ4BV5M1,"CLARKSTON, CITY OF",Clarkston,2025,2025-12-GSAFAC-0000431220,2025-12-31,2026-11-05,1922650,27,Moderate,10,0,0,17,36,0,0,fs_opinion_disclaimer_or_adverse;late;prior_findings_reported;not_low_risk_auditee
 WA,UDV5CSK64BN9,CITY OF POMEROY,Pomeroy,2025,2025-12-GSAFAC-0000432633,2025-12-31,2026-11-09,1378914,27,Moderate,10,0,0,17,40,0,0,fs_opinion_disclaimer_or_adverse;late;prior_findings_reported;not_low_risk_auditee
+WA,CZ3CKHWW3DY3,SKAGIT COUNCIL OF GOVERNMENTS,Mount Vernon,2025,2025-12-GSAFAC-0000426800,2025-12-31,2026-11-17,1210995,27,Moderate,10,0,0,17,48,0,0,fs_opinion_disclaimer_or_adverse;late;prior_findings_reported;not_low_risk_auditee
 WA,WLJSUMEQLCM8,SPOKANE CONSERVATION DISTRICT,Spokane Valley,2025,2025-12-GSAFAC-0000430358,2025-12-31,2026-09-28,1141786,26,Moderate,10,4,3,9,0,1,1,fs_opinion_disclaimer_or_adverse;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
 WA,SNAXPBGW4VR4,MASON COUNTY,Shelton,2025,2025-12-GSAFAC-0000428304,2025-12-31,2026-09-22,3880430,25,Moderate,10,6,0,9,0,0,0,fs_opinion_disclaimer_or_adverse;fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
 WA,JG2RR8SYLMF6,Kiona-Benton City School District No. 52,Benton City,2025,2025-08-GSAFAC-0000407269,2025-08-31,2026-05-14,1952768,25,Moderate,10,6,0,9,0,3,0,fs_opinion_disclaimer_or_adverse;fs_significant_deficiency;prior_findings_reported;not_low_risk_auditee
@@ -16623,6 +16659,7 @@ WI,HMGKRMNQ1V48,Lakeland Union High School,Minocqua,2025,2025-06-GSAFAC-00004204
 WI,KBM6L8JNGUN5,School District of Siren,Siren,2025,2025-06-GSAFAC-0000393499,2025-06-30,2025-12-23,1249832,39,Elevated,15,15,0,9,0,0,0,going_concern;fs_material_weakness;prior_findings_reported;not_low_risk_auditee
 WI,JJ5AXE22NC53,Brodhead School District,Brodhead,2025,2025-06-GSAFAC-0000391923,2025-06-30,2025-12-30,1150716,39,Elevated,0,25,5,9,0,9,0,fs_material_weakness;fs_significant_deficiency;program_material_weakness;questioned_costs;prior_findings_reported;not_low_risk_auditee
 WI,DV6BGNF7WEF7,BELLEVILLE SCHOOL DISTRICT,Belleville,2025,2025-06-GSAFAC-0000399452,2025-06-30,2026-01-29,775091,39,Elevated,0,21,9,9,0,8,8,fs_material_weakness;fs_significant_deficiency;repeat_finding;prior_findings_reported;not_low_risk_auditee
+WI,K6D3DZHNASN8,COUNTY OF BURNETT,Siren,2025,2025-12-GSAFAC-0000434003,2025-12-31,2026-11-18,2552650,38,Elevated,0,21,0,17,49,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 WI,K5N6KDXQKZB7,"RUSK COUNTY, WISCONSIN",Ladysmith,2025,2025-12-GSAFAC-0000433703,2025-12-31,2026-11-06,2110913,38,Elevated,0,21,0,17,37,0,0,fs_material_weakness;fs_significant_deficiency;late;prior_findings_reported;not_low_risk_auditee
 WI,HB1AL86ZYTT3,School District of Osceola,Osceola,2025,2025-06-GSAFAC-0000404679,2025-06-30,2026-03-04,1159629,38,Elevated,0,15,14,9,0,5,5,fs_material_weakness;questioned_costs;repeat_finding;prior_findings_reported;not_low_risk_auditee
 WI,VLRJTGYMVCT1,VILLAGE OF ROTHSCHILD,Rothschild,2025,2025-12-GSAFAC-0000417945,2025-12-31,2026-06-05,5314913,37,Elevated,0,25,3,9,0,1,1,fs_material_weakness;fs_significant_deficiency;program_material_weakness;repeat_finding;prior_findings_reported;not_low_risk_auditee
